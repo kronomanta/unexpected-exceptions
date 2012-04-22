@@ -31,6 +31,13 @@
       <SubType>Content</SubType>
       <DependentUpon>GameLogic.classdiagram</DependentUpon>
     </Content>
+    <Content Include="GameSceneComponents.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="GameSceneComponents.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>GameSceneComponents.classdiagram</DependentUpon>
+    </Content>
     <Content Include="LevelDescriptorLoad.sequencediagram">
       <SubType>Content</SubType>
     </Content>

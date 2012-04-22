@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="21a65942-914c-4531-93b6-9ce74a4f3e63"
   name="GameLogic" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -827,7 +827,7 @@
             Id="57dea9f1-ed07-4718-9814-60c3371cb43d"
             isDerived="false"
             sourceEndRoleName=""
-            targetEndRoleName="KeyHolders"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -849,7 +849,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="c3ad22f9-95b2-41b0-852e-2d4f126a4196"
-                  name="KeyHolders"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -877,7 +876,7 @@
             Id="30ee9803-0ead-4fb3-ab2e-72aabcb36fdd"
             isDerived="false"
             sourceEndRoleName=""
-            targetEndRoleName="Door"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -899,7 +898,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="7e156221-2d81-4dbc-8ea1-5a0a696d23f6"
-                  name="Door"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -914,7 +912,7 @@
             Id="8e577b1f-12a1-4942-bada-214dedddf488"
             isDerived="false"
             sourceEndRoleName=""
-            targetEndRoleName="Player"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -936,14 +934,26 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="03dbb794-6460-4533-92f2-12b4f2752976"
-                  name="Player"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true" />
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3900fd57-38a6-44b4-bf91-7468dceaa7ea"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="91cbf0ff-a6e8-4b37-8c96-7778af9b7938"
+                      name="Upper"
+                      value="2" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -951,7 +961,7 @@
             Id="f01757aa-427c-470c-a1ff-ffa0c42be7c8"
             isDerived="false"
             sourceEndRoleName=""
-            targetEndRoleName="LevelPart"
+            targetEndRoleName=""
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -973,7 +983,6 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="475473a4-6976-41ce-8a3d-01e610ec8a53"
-                  name="LevelPart"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
