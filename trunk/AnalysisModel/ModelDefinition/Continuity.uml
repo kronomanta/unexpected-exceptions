@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1"
   name="Continuity" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -6909,7 +6909,7 @@
     <packageHasNamedElement>
       <class
         Id="0a680eb5-d740-498e-b8c7-e6f4592dbcd0"
-        name="GameFrameTimerListener"
+        name="GameCanvasTimerListener"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -6963,6 +6963,31 @@
                     <undefinedTypeMoniker
                       Id="b28aa878-680d-40ab-8ced-2425c4ebc8ee"
                       LastKnownName="ActionEvent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="700a7a23-d99b-407f-8313-e55cb59e318b"
+            name="GameCanvasTimerListener"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d890947c-0ac4-45dc-b402-2c3a6a32b3ca"
+                  name="canvas"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b85821b8-eb9e-4e0f-8720-122db5178ee7"
+                      LastKnownName="GameCanvas"
                       LastKnownLocation="Continuity.uml" />
                   </type_NamedElement>
                 </parameter>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="68ea89f0-5e4a-4662-93fa-7466100ad6bc" name="Window creation and game loop implementation" linkedPackageId="6ef92442-a750-4dcc-8bf0-c99578ae600d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="68ea89f0-5e4a-4662-93fa-7466100ad6bc" name="Window creation and game loop implementation" linkedPackageId="6ef92442-a750-4dcc-8bf0-c99578ae600d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="bdef4353-2a0a-439e-b812-321f6f3be45c" name="java.awt.event.KeyListener" isAbstract="false" isLeaf="false">
@@ -312,7 +312,7 @@
             <elementDefinition Id="bb36cd11-a5b1-4bc5-be91-c48e1608e209" />
           </association>
           <association Id="a16b2d51-87a7-465f-a778-7ccd79fad22d" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
-            <classMoniker Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" LastKnownName="GameFrameTimerListener" />
+            <classMoniker Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" LastKnownName="GameCanvasTimerListener" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="3ec8168f-1aee-4707-8a69-8ae8e77de11c" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
@@ -641,7 +641,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" name="GameFrameTimerListener" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" name="GameCanvasTimerListener" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="0a680eb5-d740-498e-b8c7-e6f4592dbcd0" />
         <suppliersInternal>
           <interfaceRealization Id="7f5bf551-3c2b-4991-9913-289ad78a4a59">
@@ -666,6 +666,19 @@
                   <elementDefinition Id="ceca4453-3c57-426c-88cc-37860bfd3340" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="0d1fc1e3-f62a-4a0b-a948-1eb404961978" LastKnownName="ActionEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6d5c3995-8647-4606-811f-53dea436bd94" name="GameCanvasTimerListener" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="700a7a23-d99b-407f-8313-e55cb59e318b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a5cc1ea2-9358-4e0a-9a2d-0c98ea17dd88" name="canvas" direction="In" isUnique="false">
+                  <elementDefinition Id="d890947c-0ac4-45dc-b402-2c3a6a32b3ca" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6d41a870-1bdf-4861-940f-5aced08a753d" LastKnownName="GameCanvas" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
