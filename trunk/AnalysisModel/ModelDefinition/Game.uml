@@ -289,7 +289,8 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true" />
+                  isComposite="true"
+                  isNavigableOwned="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -326,7 +327,8 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
+                  isComposite="true"
+                  isNavigableOwned="false">
                   <lowerValueInternal>
                     <literalString
                       Id="ffab9504-1558-4c82-8945-a0ae918ce4fc"
@@ -376,7 +378,8 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
+                  isComposite="true"
+                  isNavigableOwned="false">
                   <lowerValueInternal>
                     <literalString
                       Id="4fef79e1-83cd-46ab-8681-8ebbed46f9f1"
@@ -426,7 +429,8 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
+                  isComposite="true"
+                  isNavigableOwned="false">
                   <lowerValueInternal>
                     <literalString
                       Id="8a31fe27-1e26-426b-b6f7-6eaf946e2690"
@@ -440,6 +444,44 @@
                       value="*" />
                   </upperValueInternal>
                 </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9a0b4abb-496d-4fbe-9a44-ce8c3110c112"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3"
+              LastKnownName="FrameRateCounterComponent"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="81edca04-7187-43a2-8efc-f638e9062b3d"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d94d374e-d11c-4ac3-b706-18f0a4ff58b6"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
