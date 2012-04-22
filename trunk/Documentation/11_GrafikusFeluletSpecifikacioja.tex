@@ -28,18 +28,100 @@
 
 \subsection{A grafikus objektumok felsorolása}
 
-\subsubsection{Valami grafikus osztály}
+\subsubsection{Point}
 	\begin{description}
 		\item[Felelősség] \hfill \\
+		Egy pontnak felel meg a koordináta-síkon.
 		
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{float X}}: A pont x koordinátája.
+		
+		\textbf{\emph{float Y}}: A pont y koordinátája.		
+				
+		\item[Metódusok]\hfill \\
+		-
+
+	\end{description}
+	
+\subsubsection{Rectangle}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy téglalapot leíró osztály.
+		
+		\item[Ősosztályok] \hfill \\
+		A {\itshape Point}	osztályból származik.		
+		
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{float Height}}: A téglalap magassága.
+		
+		\textbf{\emph{float Width}}: A téglalap szélessége.		
+				
+		\item[Metódusok]\hfill \\
+		-
+
+	\end{description}
+	
+\subsubsection{Image}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy képet leíró osztály. Képes fájlból betölteni a képet, és bizonyos méretűre formázni.
 		
 		\item[Attribútumok]\hfill \\
 		
+		\textbf{\emph{BufferedImage BufferedImage}}: Egy java.awt.image.BufferedImage típusú változó, amiben a betöltött képet tároljuk.
+		
+		\textbf{\emph{int Height}}: A betöltött kép magassága.	
+		
+		\textbf{\emph{int Width}}: A betöltött kép szélessége.	
 				
 		\item[Metódusok]\hfill \\
+		\textbf{\emph{LoadFromFile(String)}}: A paraméterként kapott elérési útról betölt egy képet.
+
+	\end{description}
+	
+\subsubsection{RenderTransform}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Transzformációt leíró osztály.
 		
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{float Scale}}: A transzformáció aránya, vagyis hogy hányszorosára növeljük a transzformálandó objektumot (képet, stb.).
+		
+		\textbf{\emph{float TranslateX}}: X koordináta szerinti transzformáció (az x tengely mentén mennyire nyomjuk össze vagy nyújtjuk a transzformált objektumot).	
+		
+		\textbf{\emph{float TranslateY}}: Y koordináta szerinti transzformáció.	
+				
+		\item[Metódusok]\hfill \\
+		-
+
+	\end{description}
+
+\subsubsection{Renderer}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Lényegében ez az osztály felel a grafikus megjelenítésért, ez végzi a kirajzolásokat és a {\itshape RenderTransform} által leírt transzformációkat is.
+		
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{int ScreenHeight}}: A játékot megjelenítő ablak magassága.
+		
+		\textbf{\emph{int ScreenWidth}}: A játékot megjelenítő ablak szélessége.		
+				
+		\item[Metódusok]\hfill \\
+		\textbf{\emph{DrawImage(Rectangle, Image)}}: A paraméterként kapott képet kirajzolja a megadott téglalap által meghatározott helyre.
+		
+		\textbf{\emph{DrawImage(Rectangle, Rectangle, Image)}}: Az előző metódustól abban különbözik, hogy a második Rectangle paraméter segítségével kijelölhetjük a képből a megjelenítendő területet.
+		
+		\textbf{\emph{DrawPolygon(Point*[], Color)}}: Egy poligont rajzol fel, aminek a csúcsait egy, a pontokra mutató pointereket tartalmazó tömbben kapja meg. A poligon színét a {\itshape Color} típusú paraméter határozza meg.
+		
+		\textbf{\emph{DrawRectangle(Rectangle, Color)}}: Kirajzolja a paraméterként kapott téglalapot a megadott színnel.
+		
+		\textbf{\emph{DrawText(Point, String, int, Color)}}: Adott szöveget rajzol ki a kapott ponttól kezdődően az int paraméter által meghatározott betűmérettel és a megadott színnel.
+		
+		\textbf{\emph{SetTransform(RenderTransform)}}: Beállíthatjuk a használt kameratranszformációt.
 						
 	\end{description}
+	
+
 
 \subsection{Kapcsolat az alkalmazói rendszerrel}
 
@@ -47,6 +129,7 @@
 
 \begin{journal}
 \journalentry{2012.04.04. 13:30}{2}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, döntés a grafikus megjelenítés mikéntjéről, a feladatok kiosztása.}
+\journalentry{2012.04.22. 14:00}{1}{Tarjáni}{Dokumentumsablon, osztályleírások elkészítése.}
 
 
 \end{journal}
