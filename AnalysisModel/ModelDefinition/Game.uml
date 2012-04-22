@@ -832,7 +832,24 @@
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0325bfaf-d87c-4efc-91df-89552970d55f"
+                  name="levelIndex"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
