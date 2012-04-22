@@ -6906,6 +6906,127 @@
         Id="b1cae1e2-789d-4996-9875-c8118cc1f188"
         name="ContinuityGame" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0a680eb5-d740-498e-b8c7-e6f4592dbcd0"
+        name="GameCanvasTimerListener"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="01271736-fabd-4e65-93c7-d1dbff2c2e01">
+            <interfaceMoniker
+              Id="e74a7172-880d-49c9-ae2b-7600e60eba50"
+              LastKnownName="java.awt.event.ActionListener"
+              LastKnownLocation="Continuity.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="cda6340a-869f-43c6-bd4f-c58be18ce54d"
+            name="ActionPerformed"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ceca4453-3c57-426c-88cc-37860bfd3340"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b28aa878-680d-40ab-8ced-2425c4ebc8ee"
+                      LastKnownName="ActionEvent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="e74a7172-880d-49c9-ae2b-7600e60eba50"
+        name="java.awt.event.ActionListener"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="fc8b8a04-3dee-465c-b125-9491c64cc3ce">
+            <classMoniker
+              Id="f5531497-bbaa-4b40-abb7-85e084f8a5ab"
+              LastKnownName="java.awt.event.ActionEvent"
+              LastKnownLocation="Continuity.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation
+            Id="74457efe-4a48-401b-8c7a-7620c142c8d1"
+            name="ActionPerformed"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9a0c0986-9916-4d9a-ab58-05e5e4ba0bfa"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b28aa878-680d-40ab-8ced-2425c4ebc8ee"
+                      LastKnownName="ActionEvent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f5531497-bbaa-4b40-abb7-85e084f8a5ab"
+        name="java.awt.event.ActionEvent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b28aa878-680d-40ab-8ced-2425c4ebc8ee"
+        name="ActionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3"
+        name="MenuSceneAction"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="43147217-1aac-4054-adef-e60c98e9b10b"
+            name="Continue" />
+          <enumerationLiteral
+            Id="b0d55e55-7ab4-4982-91ae-99c7d688c140"
+            name="Play" />
+          <enumerationLiteral
+            Id="f81fed62-6e56-4d82-abbb-d542a4c1391b"
+            name="None" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
