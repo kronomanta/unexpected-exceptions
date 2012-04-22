@@ -196,7 +196,424 @@
               LastKnownName="IDrawableGameComponent"
               LastKnownLocation="Game.uml" />
           </interfaceRealization>
+          <dependency
+            Id="d9da6275-355e-4f53-9865-1ec92d3440d0">
+            <enumerationMoniker
+              Id="920657e9-e0c5-4e6b-ac27-2a1019abf064"
+              LastKnownName="GameSceneAction"
+              LastKnownLocation="Continuity.uml" />
+          </dependency>
         </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="394cc125-a832-48ca-bf48-a37a41056e89"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="93473433-2a5b-4f3f-8fd6-f813ac0f5b0e"
+              LastKnownName="PlayerComponent"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2245382a-b2ef-4fe5-a69e-2bc4c3844c55"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="203c51a0-6a14-40e9-ae4f-240b7591f2e0"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="573fffa4-c866-4a2a-ae41-313b174cb251"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="3b0f4c8e-f727-403c-ab06-400dda18f7d1"
+                      name="Upper"
+                      value="2" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6bccae10-c9f0-403e-afda-07d90aaadbb4"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="a3bf78ca-61a2-4c62-8cf0-2f9c303d0fa7"
+              LastKnownName="GameSceneCamera"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="29b1a35b-d298-4aa5-a4ff-71c28bd7292a"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7cf199e4-2ccc-4f33-b7f5-a1c7a6bb7365"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="68f38222-8316-4378-8dfa-24a1e5aa2648"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="8b025473-9290-4cb3-a21b-9f0421cd787f"
+              LastKnownName="LevelPartComponent"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f51fef9b-2559-4dfa-88b2-b081c565c2c3"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4fe17ced-fe4c-4b0a-b061-2c3edab0ecbf"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ffab9504-1558-4c82-8945-a0ae918ce4fc"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f920399c-67df-487d-8e42-4de6da2e643d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7a76e986-2fcd-4b38-b9f8-96cf0e301fd2"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4"
+              LastKnownName="DoorComponent"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d1b252eb-9fde-4f29-bdb8-736d648a754f"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8ae4c868-35db-407e-b829-c8d18c117811"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4fef79e1-83cd-46ab-8681-8ebbed46f9f1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6089ad01-07ef-4add-a2d7-f98f38267249"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1a4f5bf5-e547-4e44-b66a-790dfd726f75"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="67a95cb6-a445-408a-b14f-b51823f5589c"
+              LastKnownName="KeyHolderComponent"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb665ee4-ce41-41c3-8e5c-99a879dc4241"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="74f831e5-8974-4b15-906b-edd499d3fa28"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8a31fe27-1e26-426b-b6f7-6eaf946e2690"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="cdfcebd6-ae00-47f1-8b15-077114c258bf"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="acfdc3e6-ebdf-4b87-936d-64a0c2204e27"
+            name="Action"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="920657e9-e0c5-4e6b-ac27-2a1019abf064"
+                LastKnownName="GameSceneAction"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1eb97ea7-6a69-458c-a3d6-17c4e43573d4"
+            name="player1"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="93473433-2a5b-4f3f-8fd6-f813ac0f5b0e"
+                LastKnownName="PlayerComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="9dc60efd-49d1-4661-bc58-e6296d907b21"
+            name="player2"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="93473433-2a5b-4f3f-8fd6-f813ac0f5b0e"
+                LastKnownName="PlayerComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c10021f4-d1eb-4599-8786-3ed56c781134"
+            name="camera"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="a3bf78ca-61a2-4c62-8cf0-2f9c303d0fa7"
+                LastKnownName="GameSceneCamera"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="12cd0857-9949-4d3f-8ef9-efe4e0dd3334"
+            name="levelParts"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <lowerValueInternal>
+              <literalString
+                Id="e6c86b82-cded-47e6-8a71-71e93a9c3861"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="f0491997-68f6-4b18-ae05-7f167ed83702"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="8b025473-9290-4cb3-a21b-9f0421cd787f"
+                LastKnownName="LevelPartComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="09325bb3-d270-4d17-b777-3a51ca7ad285"
+            name="doors"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <lowerValueInternal>
+              <literalString
+                Id="aa4dbaa5-df53-4bf2-9256-4a9239c000dc"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="1985227f-7fa2-4c8e-b253-5b056a1ef7d9"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4"
+                LastKnownName="DoorComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="027f0316-0674-4e84-b8a9-a2edfad19f12"
+            name="keyHolders"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <lowerValueInternal>
+              <literalString
+                Id="43024483-02aa-4b9c-98fb-8f3ada0f0b0b"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="87de8588-203b-4007-bf23-357a58eb61f7"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="67a95cb6-a445-408a-b14f-b51823f5589c"
+                LastKnownName="KeyHolderComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="7f360233-113f-4501-bea5-edf177dce4e9"
@@ -262,6 +679,14 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="15a18de2-6a8f-4a45-9397-d373b8922884"
+            name="Initialize"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -304,6 +729,44 @@
               <enumerationMoniker
                 Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3"
                 LastKnownName="MenuSceneAction"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="70bafc0c-bf26-4836-a706-ddc15a64c852"
+            name="backgroundImage"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="fabed9dd-7f90-4611-967b-9fa5580af130"
+                LastKnownName="Image"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="82a54c16-596b-4b0b-ae32-ac81b0a3c348"
+            name="helpImage"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="fabed9dd-7f90-4611-967b-9fa5580af130"
+                LastKnownName="Image"
                 LastKnownLocation="Continuity.uml" />
             </type_NamedElement>
           </property>
