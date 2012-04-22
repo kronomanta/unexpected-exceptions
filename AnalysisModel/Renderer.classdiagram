@@ -1,0 +1,442 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="961c1589-031f-423e-b62a-59defb567c5e" name="Renderer" linkedPackageId="8e3dcf0b-31b9-48cb-b262-17795d0f0594" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1dac80e7-5b72-43df-a476-04b4e4c28288" name="Image" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="732afec5-f2d2-46b1-9728-70e88d04ec6e" />
+        <suppliersInternal>
+          <dependency Id="0f7d5a28-bf43-48c8-bf34-1c196d680b9a">
+            <classMoniker Id="8628ef8d-ad19-45c0-b5fe-717216824162" LastKnownName="java.awt.image.BufferedImage" />
+            <elementDefinition Id="2ad403f0-b3f2-4ce7-b2c6-2fd226cea849" />
+          </dependency>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="7b9d8e5a-f945-4922-bdc8-473e6833736a" name="Width" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e90d1598-1587-4fbb-9edf-bceff8af724a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0365bade-2e60-47c0-8d0d-f242500a316d" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="278243a4-6d17-4a03-a9f0-74f6af6f4189" name="Height" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="611660c2-d7ca-4b63-9d59-1af660519b4e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0365bade-2e60-47c0-8d0d-f242500a316d" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="54397639-fad7-49ab-bb8e-3436a356e357" name="BufferedImage" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="169f719e-3d32-4b4b-be1a-ba4c24b38f42" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="191433a9-b21e-42ca-a59c-3db71ecdfff0" LastKnownName="java.awt.image.BufferedImage" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="d61f51d5-a2c7-403f-8d65-7c07bb7f5b26" name="LoadFromFile" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="77637673-f7b1-46bf-a97b-e4b22a1ba936" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6a62adf7-c4f1-4a49-8f5b-4bfa4692e249" name="path" direction="In" isUnique="false">
+                  <elementDefinition Id="4db25c00-2a29-4447-9469-ce9872e73969" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="603c00f1-c27c-433b-ba1d-4ae4436f5798" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="59d9971e-41a2-49a6-ae4d-2c2149202221" direction="Return" isUnique="false">
+                  <elementDefinition Id="83401965-ee69-456e-9c98-19a522494490" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3c5fdde3-f403-4e28-a2b7-4085664b94f7" LastKnownName="Image" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="0365bade-2e60-47c0-8d0d-f242500a316d" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8628ef8d-ad19-45c0-b5fe-717216824162" name="java.awt.image.BufferedImage" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="89dc6ac6-d5f6-4fb6-bd50-86b551e9e211" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="191433a9-b21e-42ca-a59c-3db71ecdfff0" name="java.awt.image.BufferedImage" isAbstract="false" isLeaf="false" cachedFullName="Continuity::java.awt.image.BufferedImage">
+        <elementDefinition Id="89dc6ac6-d5f6-4fb6-bd50-86b551e9e211" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="603c00f1-c27c-433b-ba1d-4ae4436f5798" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3c5fdde3-f403-4e28-a2b7-4085664b94f7" name="Image" isAbstract="false" isLeaf="false" cachedFullName="Continuity::Image">
+        <elementDefinition Id="732afec5-f2d2-46b1-9728-70e88d04ec6e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4d9b53d6-af47-4806-b5b4-a5fdfa0ed43c" name="java.awt.Color" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="97ef8e55-cb67-4ce2-b91c-2856c25e7ff4" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2bb8a35b-31af-4889-b575-76da706c7e10" name="RenderTransform" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="32653b3c-8908-45ba-a061-adc6bb788286" />
+        <ownedAttributesInternal>
+          <property Id="cf16255e-6d26-421f-b626-c4fae626c17f" name="TranslateX" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b335caf7-f9d7-49cb-9442-5669b39aa09d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="1a8f96db-acda-4035-84b3-10f735c760d9" name="TranslateY" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f05d9c82-bf0e-49c0-b085-ab29ae3a05c7" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="3f7924f2-046f-4a72-83e1-85d9f9a6aedf" name="Scale" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="de07a5d8-20dd-4a1a-80da-411772514338" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" name="float" isAbstract="false" isLeaf="false" cachedFullName="float">
+        <elementDefinition Id="25fa0c41-4573-4c93-be5a-d9cb4dc0d59b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e943a34b-d9b9-4601-9240-2f0c979f6406" name="Renderer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b0878085-64ba-4a13-ad4e-13fd65c7b786" />
+        <suppliersInternal>
+          <dependency Id="217d388a-ec88-479a-a3f7-d49f1e5b3a63">
+            <classMoniker Id="1dac80e7-5b72-43df-a476-04b4e4c28288" LastKnownName="Image" />
+            <elementDefinition Id="01c8d231-2c4d-431e-a5cc-3fbc401649ad" />
+          </dependency>
+          <dependency Id="94355e3b-fc29-4ae4-ba95-5349e172680c">
+            <classMoniker Id="d4ce9d03-53ac-49d3-92ed-27bdec2248fc" LastKnownName="Rectangle" />
+            <elementDefinition Id="51828e6b-7be5-4939-a6ad-b9572fd31add" />
+          </dependency>
+          <dependency Id="e84f4ba4-41c3-440e-a40b-1e10a555029c">
+            <classMoniker Id="4d9b53d6-af47-4806-b5b4-a5fdfa0ed43c" LastKnownName="java.awt.Color" />
+            <elementDefinition Id="3e1196f1-91cf-4b24-8fc6-46e3901f9538" />
+          </dependency>
+          <dependency Id="35df6b9b-26b8-432e-88e8-1b174582ed35">
+            <classMoniker Id="904365c0-101d-48e8-823e-fe26c1c43501" LastKnownName="Point" />
+            <elementDefinition Id="0e046975-25b8-4a8b-91d8-6960ffa74eda" />
+          </dependency>
+          <dependency Id="20155fc9-4060-4fd5-9711-a05f361a808b">
+            <classMoniker Id="2bb8a35b-31af-4889-b575-76da706c7e10" LastKnownName="RenderTransform" />
+            <elementDefinition Id="73b16650-def6-44b4-aa72-74b3fe88764f" />
+          </dependency>
+        </suppliersInternal>
+        <targetEnds>
+          <association Id="ff9fd982-7110-4c27-b18d-30aa6b529698" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="39b3fca9-a85a-4478-828d-6b5e938f843f" LastKnownName="java.awt.Graphics2D" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ef0965b2-8aa6-4996-8ba2-27ea59bcd262" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="37bfe61c-fbcc-4aea-852c-e92c2a1c5f00" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="42e820c7-03ef-432b-b895-62a11ef55bf5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5af47839-82fd-4bde-ab54-3bb78c14cdb0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9a222db6-49bf-4b5e-bff5-ecf89fe9308c" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="35a55fa0-fa8c-4015-b662-68b27b91e524" name="ScreenWidth" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="91cd3cf9-75f6-4af8-ba38-83730ffee1e6" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0365bade-2e60-47c0-8d0d-f242500a316d" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="f4f8058b-44d2-48e0-bfb3-deddcdbafb88" name="ScreenHeight" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f1141662-ffba-47d6-9e92-369852b8b488" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0365bade-2e60-47c0-8d0d-f242500a316d" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="2e8f0766-1297-4cfc-9433-f3c0429089bf" name="graphics" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6e249561-706d-4898-932a-c7dc1eaeffe5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a04ee30b-aba8-4628-a40c-28fd566f9ce0" LastKnownName="Graphics2D" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="5ac5acf6-531b-4ed2-bf66-f88b6ceeb032" name="DrawImage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7184eaf2-0a2c-45dd-8e94-aefff5f958db" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ad7abed9-298e-42be-aee1-40069972f711" name="location" direction="In" isUnique="false">
+                  <elementDefinition Id="c284ec5c-c36d-4f02-a3e3-42f76312436f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="da90ae80-5009-4e0d-8701-37483256f7f0" LastKnownName="Rectangle" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="691f746c-3646-4d15-a2ca-be6f7fdf6483" name="image" direction="In" isUnique="false">
+                  <elementDefinition Id="fdea68c9-204f-4a5e-876b-978b3c8f761e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3c5fdde3-f403-4e28-a2b7-4085664b94f7" LastKnownName="Image" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3082423c-87df-4019-9350-2663248a9283" name="DrawImage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1f5bbfec-5585-417a-844e-5b46f0d1d571" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3a37ca4f-f76c-499f-b649-0d78da6f4ead" name="location" direction="In" isUnique="false">
+                  <elementDefinition Id="a152c47c-1f11-45e3-a182-013a9b030b85" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="da90ae80-5009-4e0d-8701-37483256f7f0" LastKnownName="Rectangle" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cede65a4-1c37-444d-b4a8-e85f252b8141" name="source" direction="In" isUnique="false">
+                  <elementDefinition Id="739d93b3-33f9-446b-8476-c562da42e88c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="da90ae80-5009-4e0d-8701-37483256f7f0" LastKnownName="Rectangle" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bfe27203-c93c-4c45-a8a9-9d4cf2e70eee" name="image" direction="In" isUnique="false">
+                  <elementDefinition Id="eb215fee-dcda-4a6b-926d-2fa0813eb91c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3c5fdde3-f403-4e28-a2b7-4085664b94f7" LastKnownName="Image" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b5d10f78-d035-47c6-927e-a6c8173071c2" name="DrawRectangle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="89870e96-e22a-43e7-8871-1a254d03d488" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1df0a0ec-4e1d-47b6-9946-c73f5a5626ca" name="location" direction="In" isUnique="false">
+                  <elementDefinition Id="8904dd37-8b40-4bb1-a705-d5b713a784d5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="da90ae80-5009-4e0d-8701-37483256f7f0" LastKnownName="Rectangle" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d33ba3ff-8a89-4f27-9087-1e08788bdd1a" name="color" direction="In" isUnique="false">
+                  <elementDefinition Id="bd5010ee-2bdf-41f5-abd8-3ad61b761f61" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4712ca59-f4d5-4f46-9938-b11659dd68a1" LastKnownName="Color" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e19f502a-a55a-4c37-a947-dd651be54375" name="DrawPolygon" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1106f5fb-aeaa-4df9-bfe2-170e92debebe" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3b7d51c9-69b6-4fbb-9c8d-73c101681242" name="points" direction="In" isUnique="false">
+                  <lowerValueInternal>
+                    <literalString Id="77cc96fc-ec7c-4b46-a957-b87cd5176700" name="Lower" value="*">
+                      <elementDefinition Id="805b3eac-9aff-4e84-9131-b2e97431e9fc" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="635c98ad-766b-4225-a361-d6a46be2858e" name="Upper" value="*">
+                      <elementDefinition Id="063b8fa4-65c2-4222-85b6-de8f54c29fe0" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="fae2600f-4fdb-4231-8945-a6fa7e5a78a0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3158ccaf-588f-49ea-a3da-88b3be6eab81" LastKnownName="Point" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="87a7de27-a4df-40a7-b14c-c776339196da" name="color" direction="In" isUnique="false">
+                  <elementDefinition Id="6dc06fd4-378f-40bc-bab7-94848c4469ac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4712ca59-f4d5-4f46-9938-b11659dd68a1" LastKnownName="Color" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="92ac3c5d-1f17-4d5f-bbbc-efac762d1242" name="DrawText" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="29a0bb5d-9cb8-4eb9-87a5-3f1a33edf302" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b5b63cb8-00f6-462e-ac37-887441013412" name="position" direction="In" isUnique="false">
+                  <elementDefinition Id="738393e5-4846-489b-8341-33c918398612" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3158ccaf-588f-49ea-a3da-88b3be6eab81" LastKnownName="Point" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7c68cdeb-0330-434b-a771-e54c4a0a21bd" name="text" direction="In" isUnique="false">
+                  <elementDefinition Id="6ef14f7c-0409-4e5f-ba43-d21a95b5f2db" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="603c00f1-c27c-433b-ba1d-4ae4436f5798" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e054f144-b7fd-43ad-b0b2-7c87c0039099" name="fontSize" direction="In" isUnique="false">
+                  <elementDefinition Id="bb571b88-54d9-48fd-bdad-ded28bbc6416" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0365bade-2e60-47c0-8d0d-f242500a316d" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dc648335-993a-419e-84b6-7d7e2b9675d7" name="color" direction="In" isUnique="false">
+                  <elementDefinition Id="8706ec46-defb-4e03-9630-d107932c9319" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4712ca59-f4d5-4f46-9938-b11659dd68a1" LastKnownName="Color" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="da2bc6ba-c50b-48da-9007-cd0dde6d6c13" name="SetTransform" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a4cbdae9-0e61-4181-8334-45e44137e4e3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="16830352-0ff9-4405-a98e-d8869af642b7" name="transform" direction="In" isUnique="false">
+                  <elementDefinition Id="7e2e724a-4ecd-42ea-b04e-2ca2ac3b4aa8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b676c693-61ca-4987-a681-d20f21623009" LastKnownName="RenderTransform" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e912c014-1993-4cc2-97c2-69609adc4837" name="Renderer" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="94aba444-14ce-4aa1-8afc-3556363ce130" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5743e8df-a139-461e-a5f4-ed4b009994d1" name="graphics" direction="In" isUnique="false">
+                  <elementDefinition Id="bfd5fb13-1d28-4cdd-9350-9968ca981b6b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="a04ee30b-aba8-4628-a40c-28fd566f9ce0" LastKnownName="Graphics2D" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="904365c0-101d-48e8-823e-fe26c1c43501" name="Point" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fff2b7d9-c95f-4017-b657-e79f4f6d116f" />
+        <ownedAttributesInternal>
+          <property Id="dd8f0137-1415-489a-a9b8-3329afe3772e" name="X" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="cff7ca63-4387-40d4-b9d4-27d9d789f2aa" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="22816b35-c32d-4848-8449-0f3035179c8e" name="Y" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a1cf4e7b-ab7d-4d43-9624-e0d603fbac31" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d4ce9d03-53ac-49d3-92ed-27bdec2248fc" name="Rectangle" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="aaaf895b-fdae-42d5-b1bf-c2bd4c486d91" />
+        <generalsInternal>
+          <generalization Id="5b225fe0-20d8-4cf1-b017-5ad0b62e83c1" isSubstitutable="false">
+            <classMoniker Id="904365c0-101d-48e8-823e-fe26c1c43501" LastKnownName="Point" />
+            <elementDefinition Id="134789a2-d90e-47f7-a5d3-e507f3d6bea7" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="ad96b5f3-d614-4b7f-aa3c-9bb2c5275cc9" name="Width" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e2e7d0b6-5e5c-41f2-b6b1-fee904d1e90b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+          <property Id="22c473b9-8e7d-45b6-9b14-6be4fbede97c" name="Height" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="08ef83d5-c192-4a46-aefe-36d8d613a044" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c157ce3a-0c56-40ac-b30d-be72a1921e6a" LastKnownName="float" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="da90ae80-5009-4e0d-8701-37483256f7f0" name="Rectangle" isAbstract="false" isLeaf="false" cachedFullName="Continuity::Rectangle">
+        <elementDefinition Id="aaaf895b-fdae-42d5-b1bf-c2bd4c486d91" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4712ca59-f4d5-4f46-9938-b11659dd68a1" name="Color" isAbstract="false" isLeaf="false" cachedFullName="Color">
+        <elementDefinition Id="f5463033-ee39-4d36-a2f7-0d6f5be62620" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3158ccaf-588f-49ea-a3da-88b3be6eab81" name="Point" isAbstract="false" isLeaf="false" cachedFullName="Continuity::Point">
+        <elementDefinition Id="fff2b7d9-c95f-4017-b657-e79f4f6d116f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="39b3fca9-a85a-4478-828d-6b5e938f843f" name="java.awt.Graphics2D" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3b332388-d97e-4217-8af7-8eb5fbc89022" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a04ee30b-aba8-4628-a40c-28fd566f9ce0" name="Graphics2D" isAbstract="false" isLeaf="false" cachedFullName="Graphics2D">
+        <elementDefinition Id="068d0e6e-71a3-4b9e-9ef2-b40367f4a712" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b676c693-61ca-4987-a681-d20f21623009" name="RenderTransform" isAbstract="false" isLeaf="false" cachedFullName="Continuity::RenderTransform">
+        <elementDefinition Id="32653b3c-8908-45ba-a061-adc6bb788286" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="8e3dcf0b-31b9-48cb-b262-17795d0f0594" name="Continuity">
+    <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />
+    <profileInstances>
+      <packageHasProfileInstances Id="dab7bd47-6846-4b9a-8f21-097854c6e6c8">
+        <profileInstance Id="caf59c97-a5fb-464d-a9aa-51e345d59ad4" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="6832f502-4ac8-4d54-91b0-97bce90868bc">
+        <profileInstance Id="4b20eeef-5e79-4bd9-9ead-68e398db77e0" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
