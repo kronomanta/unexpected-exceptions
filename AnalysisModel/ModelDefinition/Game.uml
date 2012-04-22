@@ -26,6 +26,13 @@
               LastKnownName="Renderer"
               LastKnownLocation="Renderer.uml" />
           </dependency>
+          <dependency
+            Id="a234617d-298b-4332-bc07-2696695ed224">
+            <enumerationMoniker
+              Id="5bc5d1a9-e353-476b-b5c2-39007faa5368"
+              LastKnownName="ContinuityGameState"
+              LastKnownLocation="Continuity.uml" />
+          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association
@@ -105,6 +112,27 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="b1dcef36-36be-463d-a091-db33bdd881d8"
+            name="state"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="a3aa6863-abba-4f2b-b0f0-6c7cb08146a7"
+                LastKnownName="ContinuityGameState"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="0bddcf44-d786-4884-8000-0bbd425e088e"

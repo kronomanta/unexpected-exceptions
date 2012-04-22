@@ -366,6 +366,14 @@
             <elementDefinition Id="7bd4aa12-3969-495e-b664-2c8c19277fe7" />
           </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="8553904d-aad2-42a7-aeec-21afae6b5bf9" name="state" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b1dcef36-36be-463d-a091-db33bdd881d8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b3f00650-ff3b-4fa1-93f4-b1673443eecc" LastKnownName="ContinuityGameState" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="318917b2-9478-4ac7-911f-984963be19e0" name="Tick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="0bddcf44-d786-4884-8000-0bbd425e088e" />
@@ -675,6 +683,11 @@
     <packageHasNamedElement>
       <referencedType Id="0d1fc1e3-f62a-4a0b-a948-1eb404961978" name="ActionEvent" isAbstract="false" isLeaf="false" cachedFullName="ActionEvent">
         <elementDefinition Id="b28aa878-680d-40ab-8ced-2425c4ebc8ee" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b3f00650-ff3b-4fa1-93f4-b1673443eecc" name="ContinuityGameState" isAbstract="false" isLeaf="false" cachedFullName="ContinuityGameState">
+        <elementDefinition Id="a3aa6863-abba-4f2b-b0f0-6c7cb08146a7" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

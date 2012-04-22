@@ -89,6 +89,10 @@
             <classMoniker Id="940d9ce8-dee5-4d15-8362-b0b2bda1c59a" LastKnownName="Renderer" />
             <elementDefinition Id="7bd4aa12-3969-495e-b664-2c8c19277fe7" />
           </dependency>
+          <dependency Id="3d786349-bde8-46e3-b959-adc4b1327f91">
+            <enumerationMoniker Id="c7425dd3-faf7-4c50-8878-6e7855369cf3" LastKnownName="ContinuityGameState" />
+            <elementDefinition Id="a234617d-298b-4332-bc07-2696695ed224" />
+          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association Id="b8c7ef86-b25b-4a0e-ac2d-8af2c2f796e8" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
@@ -124,6 +128,14 @@
             <elementDefinition Id="28ef872e-7597-4de0-93d3-dd70307af2c0" />
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="1e936d64-6eea-4507-ac00-3765d1b489f8" name="state" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b1dcef36-36be-463d-a091-db33bdd881d8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1a7a717d-3382-4b77-8644-e10dfd44d377" LastKnownName="ContinuityGameState" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="ead062fa-3935-41e2-b157-a99c45939de9" name="Tick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="0bddcf44-d786-4884-8000-0bbd425e088e" />
@@ -687,6 +699,24 @@
         <elementDefinition Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08" />
       </referencedType>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1a7a717d-3382-4b77-8644-e10dfd44d377" name="ContinuityGameState" isAbstract="false" isLeaf="false" cachedFullName="ContinuityGameState">
+        <elementDefinition Id="a3aa6863-abba-4f2b-b0f0-6c7cb08146a7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="c7425dd3-faf7-4c50-8878-6e7855369cf3" name="ContinuityGameState" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5bc5d1a9-e353-476b-b5c2-39007faa5368" />
+        <ownedLiterals>
+          <enumerationLiteral Id="d6c83138-5023-44ba-9585-a03e1c437538" name="Menu">
+            <elementDefinition Id="9ab89235-b789-41df-93d6-cb76f40acb24" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="dffb277e-94ea-49cd-8556-b0a11b5355c3" name="Game">
+            <elementDefinition Id="f6420771-b508-427d-b8f7-db065b8a2c82" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
   </packagedElements>
   <package Id="b76ce26f-92c1-4e9f-94e4-4777a20950f4" name="Continuity">
     <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />

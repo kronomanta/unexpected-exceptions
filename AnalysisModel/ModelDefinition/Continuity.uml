@@ -7219,6 +7219,13 @@
               LastKnownName="IDrawableGameComponent"
               LastKnownLocation="Game.uml" />
           </interfaceRealization>
+          <dependency
+            Id="343c9caa-6567-4f7b-8d13-ecc28f89e754">
+            <classMoniker
+              Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
+              LastKnownName="AnimationDrawer"
+              LastKnownLocation="Continuity.uml" />
+          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association
@@ -7357,6 +7364,25 @@
               <classMoniker
                 Id="8b025473-9290-4cb3-a21b-9f0421cd787f"
                 LastKnownName="LevelPartComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="46d8793d-4706-46df-af93-96a7909bcb65"
+            name="animationDrawer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
+                LastKnownName="AnimationDrawer"
                 LastKnownLocation="Continuity.uml" />
             </type_NamedElement>
           </property>
@@ -8172,6 +8198,242 @@
       <undefinedType
         Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08"
         name="Level" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a3aa6863-abba-4f2b-b0f0-6c7cb08146a7"
+        name="ContinuityGameState" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="5bc5d1a9-e353-476b-b5c2-39007faa5368"
+        name="ContinuityGameState"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="9ab89235-b789-41df-93d6-cb76f40acb24"
+            name="Menu" />
+          <enumerationLiteral
+            Id="f6420771-b508-427d-b8f7-db065b8a2c82"
+            name="Game" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
+        name="AnimationDrawer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="5ccb7c61-ef06-4935-93b5-3a395e07d07c">
+            <interfaceMoniker
+              Id="372dbce9-29e7-425d-a745-0b7ce73bea74"
+              LastKnownName="IDrawableGameComponent"
+              LastKnownLocation="Game.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="bb188e19-8d9e-4c98-a00b-7b07de7f6996"
+            name="Position"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d7d5f499-8552-4c93-a5a5-9b135d78c3a8"
+                LastKnownName="Point"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="7d7250c4-1096-4eef-be02-c6fe0b8549b0"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="af0e002b-4c9e-4853-910f-2a66a3311b2c"
+                  name="gameTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e76e91cf-8f56-4aa6-a3d4-4b275c7aa796"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c139fcf6-3903-4342-a2ca-7dd316252fac"
+                  name="renderer"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b0878085-64ba-4a13-ad4e-13fd65c7b786"
+                      LastKnownName="Renderer"
+                      LastKnownLocation="Renderer.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ca2a2096-9383-4a4a-8be6-b77ea2aa57b7"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="78cebc5a-3d3d-414e-85a4-2fa13153d203"
+                  name="gameTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e76e91cf-8f56-4aa6-a3d4-4b275c7aa796"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1ef572da-7a12-49d1-863c-dc8d1adbc98b"
+            name="AnimationDrawer"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1cff2b29-6358-4e27-89c7-e8189884dc8a"
+                  name="image"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fabed9dd-7f90-4611-967b-9fa5580af130"
+                      LastKnownName="Image"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="25b651a5-7f21-41e8-a7e5-17e980c72f09"
+                  name="frameWidth"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3ba8170b-849c-4132-b001-a7f03ddb6b74"
+                  name="frameHeight"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5801f4ff-e25f-49cf-b99b-e5ed388d00de"
+            name="SetAnimation"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a2c6e689-3be8-4213-83d2-0d237775c874"
+                  name="row"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="314abe9b-dde8-4e6d-b038-a334deefb32d"
+                  name="column"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="96027553-397b-46ab-b8ce-a76384735db3"
+                  name="length"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d7d5f499-8552-4c93-a5a5-9b135d78c3a8"
+        name="Point" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
