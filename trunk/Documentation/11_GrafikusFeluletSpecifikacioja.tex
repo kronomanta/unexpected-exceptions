@@ -127,6 +127,7 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 	\begin{description}
 		\item[Felelősség] \hfill \\
 		Minden, a játékban résztvevő objektumnak változhat időben az állapota, azok számára egy interfész. Azoknak kell rendelkezni egy olyan metódussal, amivel lehet frissíteni az állapotokat az eltelt idő alapján.
+
 		\item[Metódusok]\hfill \\
 		\textbf{\emph{Update(GameTime)}}: Az interfészt megvalósító objektum szimulációs metódusának deklarálása.
 	\end{description}
@@ -135,8 +136,10 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 	\begin{description}
 		\item[Felelősség] \hfill \\
 		A mozgások szimulálásánál a szükséges eltelt idők meghatározásához használt struktúra.
+		
 		\item[Attribútumok]\hfill \\
-		\textbf{\emph{float ElapsedTime}}: A struktúra példányosításakor az előző lekéréstől számított eltelt idő.
+		\textbf{\emph{float ElapsedTime}}: A struktúra példányosításakor az előző lekéréstől számított eltelt idő másodpercben.
+
 		\textbf{\emph{float TotalTime}}: A struktúra példányosításakor a játék futásának ideje másodpercben.
 	\end{description}
 	
@@ -144,8 +147,10 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 	\begin{description}
 		\item[Felelősség] \hfill \\
 		A grafikus felületen megjeleníthető	objektumok számára egy interfész. Ebből vannak leszármaztatva, így a program futása közben tökéletes szétválaszthatók az egyszerű objektumoktól azok, amely a grafikus felületen is megjelenhetnek.
+
 		\item[Ősosztályok] \hfill \\
 		DrawableGameComponent
+
 		\item[Metódusok]\hfill \\
 		\textbf{\emph{Draw(GameTime,Renderer)}}: Adott időre vonatkozó rajzolómetódus deklarálása. 
 	\end{description}
@@ -154,13 +159,17 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 	\begin{description}
 		\item[Felelősség] \hfill \\
 		A menü működéséért, megjelenítésért felelős objektum.
+
 		\item[Interfészek]\hfill \\
 		IDrawableGameComponent
+
 		\item[Attribútumok]\hfill \\
 		\textbf{\emph{Action MenuSceneAction}}: Éppen aktuálisan beállított esemény, amelyet a felhasználó váltott ki a menüben. Például új játékot szeretne indítani.
+
 		\item[Metódusok]\hfill \\
 		\textbf{\emph{Draw(GameTime,Renderer)}}: A menüben lévő kirajzolható objektumokra sorban meghívja a saját rajzolási metódusokat.
-		\textbf{\emph{Update(GameTime)}}: A menüben lévő objektumokra leszimulálja a mozgást a megadott időtartamra.
+
+		\textbf{\emph{Update(GameTime)}}: Az inputok alapján eldönteni, hogy milyen értéke legyen a MenuSceneAction attribútumnak.
 	\end{description}
 
 
@@ -178,8 +187,10 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		IDrawableGameComponent
 		\item[Attribútumok]\hfill \\
 		\textbf{\emph{Action GameSceneAction}}: Éppen aktuálisan beállított esemény, amelyet a felhasználó váltott ki adott pályához kapcsolódóan.
+
 		\item[Metódusok]\hfill \\
 		\textbf{\emph{Draw(GameTime,Renderer)}}: A pályán lévő kirajzolható objektumokra sorban meghívja a saját rajzolási metódusokat.
+
 		\textbf{\emph{Update(GameTime)}}: A pályán lévő objektumokra leszimulálja a mozgást a megadott időtartamra.
 	\end{description}
 	
@@ -192,12 +203,136 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 \subsubsection{ContinuityGame}
 	\begin{description}
 		\item[Felelősség] \hfill \\
-		A játék működéséhez szükséges elemeket fogja össze. Ő vezérli a játék működését, tartalmazza a pályákat,  menüt. Ettől az osztálytól indul hierarchikusan lefelé az összes szükséges objektum vezérlése, szimulálása, megjelenítése.
+		A különböző jelenetek, scene-k közötti átváltásokat kezeli. Ezen osztály dönti el, hogy melyik jelenetet kell betölteni.
 		\item[Metódusok]\hfill \\
-		\textbf{\emph{Tick(Renderer)}}: A játék folyamán minden képkockához meghívódik ezen metódus. Azon műveletek találhatók ebben, amelyek minden képkocka megjelenítéséhez szükséges, hogy minden körben lefussanak.
+		\textbf{\emph{Tick(Renderer)}}: Meghívja az aktuális scene Update és Draw metódusát, majd ezt követően megvizsgálja, hogy kell-e váltani másik scene-re.
+	\end{description}
+	
+	
+	
+\subsubsection{GameSceneCamera}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A teljes játéktérből a megfelelő síkrészt láttatja.
+		\item[Interfészek] \hfill \\
+		IGameComponent
+		\item[Attribútumok] \hfill \\
+		\textbf{\emph{RenderTransform Transform}}: A kamera transzformáció-beállításait tárolja.
+
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{Update(GameTime)}}: Beállítja a transzformációját a kamerának.
+
+		\textbf{\emph{SetPlayerFollowMode(Boolean)}}: Megadjuk, hogy a játékosokat követő vagy a tili-toli módban vagyunk.
+		
+		\textbf{\emph{GameSceneCamera(PlayerComponent player1, PlayerComponent player2, int levelWidth, int levelHeight}}: Megadjuk, hogy mely játékos modelleket figyeljen a kamera, illetve a pálya méretét is átadjuk neki.
 	\end{description}
 
+\subsubsection{PlayerComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A játékos megjelenítését vezérlő osztály.
+		\item[Interfészek] \hfill \\
+		IDrawableGameComponent
+		\item[Attribútumok] \hfill \\
+		\textbf{\emph{SpriteDrawer spriteDrawer}}: A játékos animált mozgásának megjelenítését valósítja meg.
 
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Továbbhívja a spriteDrawer objektum Draw metódusára, amely aztán kirajzolja a megfelelő állapotát a játékosnak.
+
+		\textbf{\emph{Update(GameTime)}}: Frissíti a játékos pozícióját a spriteDrawer számára, majd meghívja annak az Update metódusát.
+
+		\textbf{\emph{PlayerComponent(Player, LevelPartComponent[])}}: Megadjuk, hogy melyik játékos objektumra vonatkozik a megjelenítés, és átadjuk a pályaelemeket listáját.
+		
+	\end{description}
+	
+
+\subsubsection{SpriteDrawer}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A játékosok animált mozgását megvalósító osztály.
+		\item[Interfészek] \hfill \\
+		IDrawableGameComponent
+		\item[Attribútumok] \hfill \\
+		\textbf{\emph{Point Position}}: Hova kell rajzolni a kívánt képet.
+
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{SpriteDrawer(Image image,int frameWidth, int frameHeight)}}: Megadjuk azt a képet, amelyen szerepelnek a kívánt képkockák az animáláshoz, illetve egy képkocka méretét.
+
+		\textbf{\emph{SetAnimation(int row, int column, int length}}: Beállítja, hogy az adott képsorozatból melyik képkockától kezdve mennyi képkockát kell az adott mozgásnál ismételni.
+
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Kirajzolja a megfelelő képkockát/képkockákat a sorozatból
+
+		\textbf{\emph{Update(GameTime)}}: Meghatározza, hogy mely képkockákat kell kirajzolni.
+		
+	\end{description}
+	
+\subsubsection{LevelPartComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy adott pályaelem megjelenítésért felelős osztály.
+		\item[Interfészek] \hfill \\
+		IDrawableGameComponent
+
+		\item[Attribútumok] \hfill \\
+		\textbf{\emph{int CurrentX}}: A pályaelem x koordinátája.
+
+		\textbf{\emph{int CurrentY}}: A pályaelem y koordinátája.
+
+		\textbf{\emph{LevelPart LevelPart}}: A megadott objektum, amely alapján történik a kirajzolás.
+		
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{LevelPartComponent(LevelPart)}}: Konstruktorban megadjuk a pályaelem objektumát.
+
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Kirajzolja a pályaelemet.
+
+		\textbf{\emph{DrawBorder(Renderer)}}: A pályaelem külső keretét rajzolja ki.
+
+		\textbf{\emph{Update(GameTime)}}: Frissíti a pályaelemek pozícióját.
+	\end{description}
+	
+\subsubsection{DoorComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Az ajtót megjelenítő osztály.
+		\item[Interfészek] \hfill \\
+		IDrawableGameComponent
+
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{DoorComponent(Door)}}: Konstruktorba lehet megadni, hogy melyik ajtó objektumhoz tartozzon a kirajzoltatás.
+
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Kirajzolja az ajtót.
+
+		\textbf{\emph{Update(GameTime)}}: Pusztán az interfész követeli meg a létét, semmit nem csinál.
+	\end{description}
+	
+\subsubsection{KeyHolderComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A kulcsot megjelenítő osztály.
+		\item[Interfészek] \hfill \\
+		IDrawableGameComponent
+
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{KeyHolderComponent(KeyHolder)}}: Konstruktorba lehet megadni, hogy melyik kulcs objektumhoz tartozzon a kirajzoltatás.
+
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Kirajzolja a kulcsot.
+
+		\textbf{\emph{Update(GameTime)}}: Pusztán az interfész követeli meg a létét, semmit nem csinál.
+	\end{description}
+	
+\subsubsection{FrameRateCounterComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Folyamatosan kiszámolja, hogy hány képkockát rajzolunk ki másodpercenként.
+		\item[Interfészek] \hfill \\
+		IDrawableGameComponent
+
+		\item[Metódusok] \hfill \\
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Kirajzolja az aktuális értéket.
+
+		\textbf{\emph{Update(GameTime)}}: Kiszámolja az értékét.
+	\end{description}
+	
 \subsection{Kapcsolat az alkalmazói rendszerrel}
 
 \subsection{Napló}
@@ -205,7 +340,7 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 \begin{journal}
 \journalentry{2012.04.04. 13:30}{2}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, döntés a grafikus megjelenítés mikéntjéről, a feladatok kiosztása.}
 \journalentry{2012.04.22. 14:00}{1}{Tarjáni}{Dokumentumsablon, osztályleírások elkészítése.}
-\journalentry{2012.04.22. 16:00}{1}{Kanyó}{Osztályleírások bővítése, javítása.}
+\journalentry{2012.04.22. 16:00}{2}{Kanyó}{Osztályleírások bővítése, javítása.}
 
 \end{journal}
 
