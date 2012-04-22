@@ -1,0 +1,132 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Papírméret, betűméret, margó, magyar karakterek                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt]{article}
+\special{papersize=210mm,297mm}
+
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{2.5cm}{2.5cm}
+
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fedlap inicializálása                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fedlap}
+
+\csapat{unexpected\_exceptions}{59}
+\konzulens{Ferencz Endre}
+
+\taga{Biró Loránd}{NCZAGL}{lol.kylerrr@gmail.com}
+\tagb{Kanyó Tibor}{NXWUKE}{kanyo.tibi@gmail.com}
+\tagc{Magyar Dániel}{SUFFGT}{samuraidanm@gmail.com}
+\tagd{Tarjáni Tamás}{S499KV}{tarjanitomi@gmail.com}
+\tage{Vajsz Kornél}{VUYNAW}{roncsipar@gmail.com}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fejléc és lábléc                                                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+
+\setlength{\headheight}{1.4em}
+\setlength{\headsep}{2em}
+
+\fancyhf{}
+\fancyhead[OL] { \leftmark{} }
+\fancyhead[OR] { \tmpcsapat }
+\fancyfoot[OC] { \thepage }
+\fancyfoot[OR] { \tmpdatum }
+
+\pagestyle{fancy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Napló                                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{longtable}
+
+\newenvironment{journal}
+{
+	\hbadness 10000
+	\begin{longtable}{|p{60pt}|l|l|p{216pt}|}
+	\hline
+	\textbf{Kezdet} & \textbf{Időtartam} & \textbf{Résztvevők} & \textbf{Leírás} \\
+	\hline
+	\endfirsthead
+	\hline
+	\textbf{Kezdet} & \textbf{Időtartam} & \textbf{Résztvevők} & \textbf{Leírás} \\
+	\hline
+	\endhead
+}
+{
+	\end{longtable}
+}
+
+\newcommand{\journalentry}[4]
+{
+	{#1} & {#2} óra & \parbox{50pt}{#3} & {#4} \\
+	\hline
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% UseCase leírás                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{usecase}
+{
+	\hbadness 10000
+	\begin{longtable}[l]{|p{100pt}|p{328pt}|}
+	\hline
+	\endfirsthead
+	\hline
+	\endhead
+}
+{
+	\hline
+	\end{longtable}
+}
+
+\newcommand{\usecaseentry}[2]
+{
+	\hline
+	\textbf{#1} & {#2}\\
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FileList leírás                                                               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{filelist}
+{
+	\hbadness 10000
+
+	\begin{longtable}{|p{145pt}|p{35pt}|p{63pt}|p{163pt}|}
+	\hline
+	\textbf{Fájl neve} & \textbf{Méret} & \textbf{Keletkezés ideje} & \textbf{Tartalom} \\
+	\hline
+	\endfirsthead
+	\hline
+	\textbf{Fájl neve} & \textbf{Méret} & \textbf{Keletkezés ideje} & \textbf{Tartalom} \\
+	\hline
+	\endhead
+}
+{
+	\end{longtable}
+}
+
+\newcommand{\filelistentry}[4]
+{
+	{#1} & {#2} b & {#3} & {#4} \\
+	\hline
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Egyebek                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{graphicx}		% Kepek beillesztesehez
+\usepackage{epstopdf}		% EPS fajlok felismeresehez
+\graphicspath{{Images/}}	% Az Images mappaban keresse a kepeket

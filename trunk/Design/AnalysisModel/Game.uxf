@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>410</x>
+      <y>110</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Game::Main
+--
+_+main(args[]: String)_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>70</x>
+      <y>260</y>
+      <w>310</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Model::LevelDescriptor
+--
++ X: int
++ Y: int
++ Blocks: BlockDescriptor[]
+--
+_+ parse(levelPartElement): LevelPartDescriptor_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>650</x>
+      <y>250</y>
+      <w>270</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>GameLogic::Level
+--
+- LevelParts: LevelPart[][]
++ X: int
++ Y: int
++ Blocks: Block[]
++ Neighbours: Map&lt;Direction, LevelPart&gt;
++ Passability: Map&lt;Direction, bool&gt;
+--
++ GetSide(direction: Direction): bool[]
++ Update()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>350</x>
+      <y>450</y>
+      <w>390</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>GameLogic::Player
+--
++ Update(time: float, goLeft: bool, goRight: bool, jump: bool)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>140</y>
+      <w>140</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>30;170;120;170;120;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>480</x>
+      <y>140</y>
+      <w>50</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>30;310;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>520</x>
+      <y>140</y>
+      <w>150</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>130;170;30;170;30;30</additional_attributes>
+  </element>
+</diagram>

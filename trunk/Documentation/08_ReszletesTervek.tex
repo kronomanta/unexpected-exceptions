@@ -1,0 +1,993 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicializálás                                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Common}
+
+\anyag{8. Részletes tervek}
+\datum{2012. április 1.}
+\setcounter{section}{7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokumentum                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\fedlap
+
+\section{Részletes tervek}
+
+\subsection{Osztályok és metódusok tervei}
+
+Az osztályok leírása során, amely osztálynál nem szerepel egy-egy tulajdonság, például \textbf{Ősosztály} vagy \textbf{Interfész}, az értelemszerűen azt jelöli, hogy az adott osztály nem rendelkezik vele.
+
+\subsubsection{LevelDescriptor}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy pálya felépítéséhez szükséges leíró információkat tárolja. A mérete legalább 1x2 vagy 2x1 kell hogy legyen.
+		
+		\item[Attribútumok] \hfill \\
+		\textbf{- Width: int} - Pályaelemek száma egy sorban.
+		
+		\textbf{- Height: int} - Pályaelemek száma egy oszlopban.
+		
+		\textbf{- Parts: LevelPartDescriptor[]} - Az adott pályához tartozó pályaelemek listája.
+		
+		\textbf{- Objects: LevelObjectDescriptor[]} - A pályán szereplő minden objektumot tartalmazó lista.
+				
+		\item[Metódusok] \hfill \\
+		\textbf{+ load(String): LevelDescriptor} - Betölti a megadott fájlból a pálya leíró objektumot. A Java API-ban megtalálható DocumentBuilder osztály segítségével parseolunk a string paraméterben megadott fájlból. Statikus metódus.
+						
+	\end{description}
+	
+\subsubsection{LevelObjectDescriptor}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Adott pálya pályaelemein szereplő objektumok leírója.
+		
+		\item[Attribútumok]\hfill \\
+		\textbf{- X: int} - Az adott objektum a pályaelemen való hollétének x koordinátája.
+		
+		\textbf{- Y: int} - Az adott objektum a pályaelemen való hollétének y koordinátája.
+		
+		\textbf{- LevelPartIndex: int} - A tartalmazó pályaelem indexe.
+		
+		\textbf{- Type: LevelObjectType} - Az objektum típusa. Lehet Spawn (player startpont), Key (kulcs) vagy Door (kijárat).
+						
+	\end{description}
+	
+\subsubsection{LevelObjectType}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A pályán elhelyezhető objektumok típusainak felsorolása. A lehetséges értékek: Key, Door, Spawn.
+		
+	\end{description}
+	
+\subsubsection{LevelPartDescriptor}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Adott pályaelem paramétereinek leírója.
+
+		\item[Attribútumok] \hfill \\
+		\textbf{- X: int} - Adott pályaelemnek a pályán való hollétének x koordinátája.
+
+		\textbf{- Y: int} - Adott pályaelemnek a pályán való hollétének y koordinátája.
+
+		\textbf{- Blocks: BlockDescriptor[]} - Adott pályaelemen szereplő minden blokkot tartalmazó lista.
+
+	\end{description}
+	
+\subsubsection{BlockDescriptor}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A blokkokat, azaz a faldarabokat leíró osztály.
+
+		\item[Attribútumok] \hfill \\
+		\textbf{- X: int} - Az adott blokknak a pályaelemen való hollétének x koordinátája.
+
+		\textbf{- Y: int} - Az adott blokknak a pályaelemen való hollétének y koordinátája.
+
+		\textbf{- Width: int} - Adott blokknak a szélessége.
+
+		\textbf{- Height: int} - Adott blokknak a magassága.
+
+		\textbf{- Type: BlockType} - A blokk típusa. Lehet LeftRamp (balra dőlő rámpa), RightRamp (jobbra dőlő rámpa) vagy Normal (teljes fal).
+
+	\end{description}
+	
+\subsubsection{BlockType}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A pályaelemen elhelyezkedő blokkok típusainak felsorolása. A lehetséges értékek: Normal, LeftRamp, RightRamp.
+
+	\end{description}
+	
+\subsubsection{IBounds}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		 Minden GameObject helyét és méretét ez alapján határozzuk meg. Az ebből leszármaztatott osztály tudja, hogy metszi-e egy másik ugyan ilyen típusú objektum, és hogy egy adott pont benne van-e. Egyfajta hitboxként funkcionál. 
+		 
+		\item[Attribútumok]\hfill \\
+		\textbf{\# Left: float} - Az alakzat x koordinátája.
+		
+		\textbf{\# Top: float} - Az alakzat y koordinátája.
+		
+		\textbf{\# Width: float} - A befoglaló téglalap szélessége.
+		
+		\textbf{\# Height: float} - A befoglaló téglalap magassága.
+		
+		\item[Metódusok]\hfill \\
+		\textbf{+ getCenter(): Vector2} - Visszaadja adott iBounds interfészt megvalósító objektum középpontját.
+		
+		\textbf{+ GetIntersectionDepthWidth(IBounds): Vector2} - Visszaadja egy vektorban, hogy a paraméterül adott objektumba milyen mértékben ér bele az adott objektum ütközés esetén.
+		
+		\textbf{+ Intersects(IBounds): Boolean} - Eldönti, hogy a paraméterül kapott másik iBounds interfészű objektummal metszik-e egymást.
+		
+		\textbf{+ Contains(float x, float y): Boolean} - Egy (x,y) koordinátájú pontról megmondja, hogy az adott objektum területén van-e.
+								
+	\end{description}
+	
+\subsubsection{RectangleBounds}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy téglalap alakzatot reprezentáló osztály. Ütközésdetektálásnál téglalapként való alakzatként adja vissza az irányvektort. A téglalap alakú blokkok, objektumok érintkezését tudjuk kezelni ezen osztállyal.
+
+		\item[Interfészek] \hfill \\
+		IBounds
+
+		\item[Attribútumok] \hfill \\
+		\textbf{\# Left: float} - A befoglaló téglalap x koordinátája.
+		
+		\textbf{\# Top: float} - A befoglaló téglalap y koordinátája.
+		
+		\textbf{\# Width: float} - A befoglaló téglalap szélessége.
+		
+		\textbf{\# Height: float} - A befoglaló téglalap magassága.
+		
+		\item[Metódusok]\hfill \\
+		\textbf{+ getCenter(): Vector2} - Visszaadja adott iBounds interfészt megvalósító objektum középpontját.
+		
+		\textbf{+ GetIntersectionDepthWidth(IBounds): Vector2} - Visszaadja egy vektorban, hogy a paraméterül adott objektumba milyen mértékben ér bele az adott objektum ütközés esetén. Ez két Rectangle metszetnek az előjeles mélységének kiszámítását jelenti, amit egy Vector2 típusú objektumban ad vissza a metódus. A mélység számítása során először az objektumok szélességeinek, ill. magasságainak felét számolja ki, majd a középpontok koordinátáit. A középpontok koordinátái alapján kiszámolja a középpontok távolságát, végül ezen távolságok és az szélességek-magasságok fele alapján kapjuk meg a metszés mélységét.
+		
+		\textbf{+ Intersects(IBounds): Boolean} - Eldönti, hogy a paraméterül kapott másik iBounds interfészű objektummal metszik-e egymást. Kizárásos alapon, akkor hamis ha az adott objektumhoz viszonyítva a paraméterként kapott objektum bal szélének pozíciója nagyobb mint az adott objektum jobb széle, vagy jobb széle kisebb mint bal széle, vagy legalsó része az adott objektum felső része felett, illetve legfelső része az alsó része alatt van. Egyébként igaz.
+		
+		\textbf{+ Contains(float x, float y): Boolean} - Egy (x,y) koordinátájú pontról megmondja, hogy az adott objektum területén van-e. A keresett pontnak egyszerre kell kisebbnek lennie Right és Top, illetve nagyobbnak Left és Bottom attribútumoknál.
+						
+	\end{description}
+	
+\subsubsection{TriangleBounds}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Háromszög alakzatot reprezentáló osztály. Ütközésdetektálásnál háromszögként való alakzatként adja vissza az irányvektort. Ezekkel tudjuk kezelni a ferde alakzatokat a pályaelemeken.
+			
+		\item[Ősosztályok] \hfill \\
+		RectangleBounds
+
+		\item[Attribútumok] \hfill \\
+		\textbf{+ Type: TriangleType} - Megmutatja, melyik irányba lejt a háromszög.
+
+		\item[Metódusok]\hfill \\
+		\textbf{+ Contains(float x, float y): Boolean} - Egy (x,y) koordinátájú pontról megmondja, hogy az adott háromszög területén van-e. A keresett pontra először úgy hívódik meg a függvény, mintha az egy egyszerű négyszög lenne, majd a dőlési iránytól függően tovább keressük a négyszög megfelelő felében.
+
+		\textbf{+ GetIntersectionDepthWidth(IBounds): Vector2} - Visszaadja egy vektorban, hogy a paraméterül adott objektumba milyen mértékben ér bele az adott objektum ütközés esetén. Ez két Rectangle metszetnek az előjeles mélységének kiszámítását jelenti, amit egy Vector2 típusú objektumban ad vissza a metódus. Első körben a dőlési irány alapján ellenőrizzük hogy a paraméterként kapott objektum bal, ill. jobb végének X koordinátája nagyobb, ill. kisebb mint az adott objektumé. Amennyiben ez teljesül, a paraméterül kapott objektum alsó részének vonalát nézzük, hogyan ütközik a háromszög ferde vonalával. Abban az esetben ha erre a vizsgálatra nem kerül sor, vagy nem ütközött a két objektum, vagy az ütközés olyan irányból történt, amerről a háromszög négyszögként viselkedik.
+		
+	\end{description}
+	
+\subsubsection{TriangleType}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Adott háromszög, pontosabban TriangleBounds osztály lejtési irányát mutatja meg. Lehetséges értékek: BottomLeft és BottomRight.
+		
+	\end{description}
+	
+\subsubsection{Vector2}
+	\begin{description}
+	\item[Felelősség] \hfill \\
+	Egyszerű vektor osztály, egy kétdimenziós vektorként működik. Létrehozás után csak olvasni lehet, változtatni nem.
+	\item[Attribútumok] \hfill \\
+	\textbf{- X: float} - A vektor x koordinátája.
+	
+	\textbf{- Y: float} - A vektor y koordinátája.
+
+	\end{description}
+	
+\subsubsection{GameObject}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Minden, a pályaelemekben található objektum (Block, KeyHolder, Door, Player) ebből az osztályból származik. Egy IBounds interfészű osztály segítségével tárolja a méretét és helyét, illetve tudja, hogy melyik pályaelemben található. A tárolt IBoundsot megvalósító objektum Intersects metódusára építve végzi az ütközésdetekciót. A GameObject maga frissíti a pozícióját. Absztrakt osztály.
+		
+		\item[Attribútumok]\hfill \\
+		\textbf{\# LevelPart: LevelPart} - Referencia arra a pályaelemre, amelyikben van.
+		
+		\textbf{\# Bounds: IBounds} - Adott GameObjektum kiterjedését és pozícióját tároló objektum.
+		
+		\item[Metódusok]\hfill \\
+		\textbf{+ CollidesWith(GameObject): Boolean} - Ütközésdetektáló metódus. Az IBounds Intersects függvényétől annyiban különbözik, hogy azt is vizsgálja, hogy a két vizsgált objektum egy pályaelemben található-e, azaz vagyis ténylegesen metszhetik-e egymást.
+						
+	\end{description}
+	
+\subsubsection{LevelPart}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy pályaelemet reprezentáló osztály. Tárolja a helyét a pályán belül, a benne előforduló blokkokat, a szomszédos pályaelemeket, illetve, hogy ezek közül melyikbe lehet átmenni.
+
+		\item[Attribútumok]\hfill \\		
+		\textbf{- X: int} - A pályaelem X irányú pozíciója.
+		
+		\textbf{- Y: int} - A pályaelem Y irányú pozíciója.
+		
+		\textbf{- Blocks: Block[]} - A pályaelemben szereplő blokkok.
+		
+		\textbf{- Neighbours: LevelPart[]} - A szomszédos pályaelemeket tároló Direction szerint címezhető tábla.
+		
+		\textbf{- Passabilities: Boolean[]} - A különböző irányokba való átjárhatóságot tároló Direction szerint címezhető tábla.
+
+		\textbf{- LevelParts: LevelPart[][]} - Adott pálya összes pályeleméről, azok pályán levő pozíciója alapján számolt kétdimenziós tömb.
+		
+		\item[Metódusok]\hfill \\
+		\textbf{+ Update(): void} - Egy UpdatePosition() inicializálás után az IsPassable(Direction) illetve GetNeighbour(int, int) függvények segítségével újraszámolja a Neighbours és a Passabilities listákat.
+
+		\textbf{- UpdatePosition(): void} - Adott objektum pozíciójának frissítése a LevelParts 2D tömb alapján.
+
+		\textbf{- IsInBlock(float x, float y): Boolean} - Adott (x, y) pozíciót nézi meg, van-e ott blokk vagy sem. GetSide(Direction) segédfüggvénye.
+
+		\textbf{- GetSide(Direction): Boolean[]} - Visszaadja a megadott Direction oldalak szélein található összes blokkot. (pl. a GetSide(Down) függvényhívás visszatérési értéke az adott LevelPart alján lévő blokkok tömbje - adott indexre true, ha van blokk, false, ha nincs)
+
+		\textbf{- IsPassableTo(Direction): Boolean} - Megadja, hogy a játékos elhagyhatja-e a pályaelemet az adott irányba, azaz pontosan illeszkedik-e a két pályaelem közötti bejárni kívánt két oldal blokktömbjei egymással.
+
+		\textbf{- GetNeighbour(int x, int y): LevelPart} - Visszaadja azt az üres résszel szomszédos pályaelemet, amelyiket mozgatni kell a távoli nézetben. Funkcionalitását tekintve csupán a túlidexelést ellenőrzi, valóban az (x, y) pozíciójú LevelPartot adja vissza, viszont az Update() függvényben ahhoz megfelelően van címezve hogy a keresett üres résszel szomszédos, mozgatható pályaelemeket adja vissza.
+
+	\end{description}
+	
+\subsubsection{Level}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Ez a fő vezérlő osztály az egész játéklogikában. Ő hozza létre a játékost, az ajtót, a kulcs helyeket, illetve a pályát alkotó pályaelemeket vezérlő osztályokat. Ez az osztály végzi a játék állapotának frissítését és a pályaelemek tili-toli módú irányítását is.
+		
+		\item[Attribútumok]\hfill \\
+		\textbf{- Width: int} - A pálya szélessége.
+		
+		\textbf{- Height: int} - A pálya magassága.
+		
+		\textbf{- Parts: LevelPart[][]} - A pályát alkotó pályaelemek 2D listája.
+		
+		\textbf{- KeyHolders: KeyHolder[]} - Mindazon helyek a pályán, ahol van/volt kulcs.
+		
+		\textbf{- Door: Door} - A pálya végét jelképező ajtó.
+		
+		\textbf{- State: LevelState} - Ez az attribútum jelzi a pálya állapotát.
+		
+		\textbf{- Player1: Player} - Az első játékost leíró Player objektum.
+
+		\textbf{- Player2: Player} - A második játékost leíró Player objektum.
+		
+		\item[Metódusok]\hfill \\
+		\textbf{+ Update(): void} - Megvizsgálja a Playerek aktuális pozícióját és frissíti a pálya és a KeyHolder tömb elemeinek, végül a LevelState állapotát ha szükséges.
+		
+		\textbf{+ Slide(Direction): void} - Egy pályaelem csúsztatását valósítja meg. Először megkeresi az üres pozíciót, majd ellenőrzi, van-e ott pályaelem ahonnan az üres pozícióba akarunk tolni (pl. ha van, egy felfele irányú csúsztatás esetén az üres terület alatti pályaelemet mozgatjuk felfele) végül frissítjük a pályaelemek pozícióját, hogy az aktuális átjárhatóságok tárolva maradjanak.
+						
+	\end{description}
+	
+\subsubsection{LevelState}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Megmutatja adott pályának az állapotát. Lehetséges értékei: Normal (játék alapállapota, még nincsen megszerezve az összes kulcs), CanComplete (ajtó aktív, minden kulcs összeszedve), Completed (pálya megoldva, ajtó tetszőleges játékos által megérintve).
+
+	\end{description}
+
+\subsubsection{Block}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Nem átjárható, a falat reprezentáló GameObject, aktív szerepe nincs.
+		
+		\item[Ősosztályok]\hfill \\
+		GameObject
+
+		\item[Attribútumok] \hfill \\
+		\textbf{- Type: BlockType} - Tárolja, sima falról van-e szó, vagy jobbra, ill. balra lejtő háromszögről.
+						
+	\end{description}
+		
+\subsubsection{KeyHolder}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy kulcs lehetséges helyét jelölő GameObject. Tárolja, hogy ott van-e még a kulcs, vagy a játékos már felvette.
+		
+		\item[Ősosztályok]\hfill \\
+		GameObject
+		
+		\item[Attribútumok]\hfill \\
+		\textbf{- HasKey: Boolean} - Megmutatja van-e még nála kulcs, vagy a játékosok már felvették.
+
+	\end{description}
+	
+\subsubsection{Door}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A pálya végét jelentő GameObject, csak az ajtó pozícióját tárolja. Az ajtó átjárhatóságát a Level LevelState típusú State attribútuma jelöli.
+		
+		\item[Ősosztályok]\hfill \\
+		GameObject
+						
+	\end{description}
+	
+\subsubsection{Player}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A játékos által irányítható avatár, a kapott inputok alapján a saját mozgatásáért felelős.
+		
+		\item[Ősosztályok]\hfill \\
+		GameObject
+
+		\item[Attribútumok] \hfill \\
+		\textbf{- SpawnPoint: LevelObjectDescriptor} - Adott játékos kezdőhelye a pályaelemen belül.
+
+		\textbf{- LevelPart: SpawnLevelPart} - Adott játékos kezdő pályaeleme.
+
+		\textbf{- LogicalX: float} - Játékos X koordinátája a pályaelemen belül.
+
+		\textbf{- LogicalY: float} - Játékos Y koordinátája a pályaelemen belül.
+
+		\textbf{- VerticalSpeed: float} - Játékos aktuális sebessége az Y koordináta szerint.
+
+		\textbf{- IsOnGround: Boolean} - Megmutatja, a földön van-e a játékos.
+
+		\textbf{- JumpState: PlayerJumpSate} - Megmutatja a játékos aktuális ugrási állapotát.
+		
+		\item[Metódusok]\hfill \\
+		\textbf{+ Update(float time, Boolean goLeft, Boolean goRight, Boolean jump): void} - Frissíti a Player helyzetét attól függően, hogy éppen milyen mozgásparancsokat kap. Miután adott rövid időszeletre megnézte a mozgás végeredményét, rendre leellenőrzi, nem ment-e kívül a pályaelemen, frissíti a játékos helyzetét, végül megnézi, nem történt-e ütközés. Ezt addig ismétli amíg az aktuális mozgáshoz szükséges időszeletek elfogynak.
+		
+		\textbf{- HandleJump(Boolean jump): void} - Ugráskezelő függvény. Ha a játékos ugrani akar, ellenőrzi, képes-e erre (CanJump), majd értelemszerűen amíg a levegőben van átállítja az állapotot CannotJump-ra. Amennyiben a levegőben szerettünk volna ugrani, a metódus ezt megjegyzi (WaitsForJump állapot) és amint a földre ér a játékos, ugrik egyet.
+
+		\textbf{- HandleCollisions(): void} - Blokkal való ütközés során korrigálja a Player pozícióját, hogy ne legyen képes a falakon átjárni. Adott pályaelem blokkjait egyenként vizsgálja, milyen mélységben ütköznek adott játékossal, végül korrigál és a játékost, ha történt ütközés, a blokk területén végzett mozgásokat visszavonja ami által a Player a blokkon kívül a megfelelő helyre kerül. Végül, mintha mozgás történt volna, a játékos pozícióját frissíti, ezúttal pillanat szerint.
+
+		\textbf{- HandleLevelPartBoundaries(): void} - A LevelPart Passabilities és Neighbours attribútumai segítségével ellenőrzi a játékos átmehet-e szomszédos pályaelembe. Amennyiben lefele megy, de nem illeszkedik az aktuális az alsó szomszédos pályaelemmel a játékos meghal.
+
+		\textbf{- ResetToSpawnPoint(): void} - Amennyiben adott játékos meghal, a újrakezdi a pályát eredeti starthelyén.
+
+		\textbf{- UpdateLocation(): void} - Frissíti a Playerhez tartozó RectangleBounds pozícióját az adott LevelParton belül.
+						
+	\end{description}
+	
+\subsubsection{PlayerJumpState}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Megmutatja a játékus ugrási állapotát. Lehetséges értékek: CanJump (ugorhat), CannotJump (nem ugorhat), WaitsForJump (ahogy a földre érkezik, ugrásba kezd).
+
+	\end{description}
+	
+\subsubsection{Direction}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy felsorolás amivel irányt jelezhetünk, többek között a tili-toli csúsztatás irányát adhatjuk meg vele. Lehetséges értékei: Left, Up, Right, Down.
+
+	\end{description}
+
+\subsubsection{DirectionHelper}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Szemantikai segédosztály, ami egy segédfüggvényt tartalmaz.
+
+		\item[Metódusok] \hfill \\
+		\textbf{+ GetOpposite(Direction): Direction} - Szemantikai segédfüggvény, ami visszaadja az adott irányhoz viszonyított ellentétes irányt, például Left esetén Right-ot, Up esetén Down-t. Statikus függvény.
+
+	\end{description}
+	
+\subsubsection{Main}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A program főciklusa itt fut. Minden metódusa és attribútuma statikus.
+
+		\item[Attribútumok] \hfill \\
+		\textbf{+ SilentMode: Boolean} - Flag: ha igaz, a renderelő kimenetét leszámítva minden egyéb kimenetet lekapcsol.
+
+		\textbf{+ Animate: Boolean} - Flag: ha igaz, real-time történik a megjelenítés, azaz a renderer minden egyes frame-et kirajzol. Amennyiben hamis, csak az utolsó frame jelenik meg.
+
+		\textbf{+ Resolution: int} - Megmutatja hányszoros nagyításban jelenjen meg a renderelt kép.
+
+		\item[Metódusok] \hfill \\
+		\textbf{+ Main(String[]): void} - A program főciklusa. Először a ReadLevelPath() segítségével beolvassa a tesztelni kívánt pálya elérési útját, majd a LevelDescriptor osztály Load(LevelPath) metódusa segítségével beolvassa a pályát a nyers xml formátumból egy Level objektumba. A Level objektumon keresztül lekéri a két Player referenciáját majd az adott pályát kirendereli a képernyőre. Ezek után a ReadFps() metódust hívja meg, ahol a tesztelő maga választja meg a teszteléshez használni kívánt FPS számot. Ezt követően a StoryboardReader ReadCommands() metódusa segítségével beolvassa egy StoryboardCommands típusú objektumba a standard bemeneten kapott tesztutasításokat. Tili-toli mozgást végző slide utasítást egyből végrehajt. Játékos mozgásból többet is meg lehet adni. Ezeket a "go" paranccsal lehet elsütni. Ilyen eset akkor van, amikor a soron következő StoryboardCommand objektum GoCommand flagje true. Ilyenkor az adott StoryboardCommand objektumból kiolvassuk a futtatási időt jelentő képkockák számát. A kiolvasott képkocka-szám alapján végigkövetjük adott játékos(ok) útját. Aktív Animate flag esetén minden képkockát kirajzolunk, inaktív Animate flag esetén csupán az utolsót amit kockánként egy-egy sor előz meg, ami a játékosok koordinátáját és a pályaállapotot mutatja. Végül amennyiben aktív ajtóval nem történt ütközés, a ciklusban visszatérünk a parancsok beolvasására.
+
+		\textbf{- ProcessArguments(String[]): Boolean} - A kapott String[] tömbön keresztül beolvassa a kapott argumentumokat, majd azok alapján beállítja a Main osztály statikus attribútumait. "-help" illetve "-h" attribútum esetén meghívja a PrintHelp() metódust.
+
+		\textbf{- ReadLevelPath(): String} - Beolvassa a ConsoleHelper osztály segítségével az adott pálya elérési útját.
+
+		\textbf{- ReadFps(): int} - Beolvassa a ConsoleHelper osztály segítségével a számoláshoz és megjelenítéshez szükséges FPS számot.
+
+		\textbf{- PrintHelp(): void} - Kiírja a képernyőre a főciklusnak megadható parancsokat, illetve paramétereket.
+	
+	\end{description}
+	
+\subsubsection{ConsoleHelper}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Ezen osztály segítségével olvasunk be a standard bemenetről. Minden metódusa statikus.
+
+		\item[Metódusok] \hfill \\
+		\textbf{+ ReadLine(): String} - Visszatér a System.in folyamról beolvasott adatokkal. Azért kell egy saját readLine implementáció, mert a javanak problémái lehetnek a windows-os CRLF sorvégekkel.
+
+	\end{description}
+	
+\subsubsection{LevelRenderer}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Adott pályát és annak pályaelemeit kirakja a standard kimenetre. Minden metódusa statikus.
+
+		\item[Metódusok] \hfill \\
+		\textbf{+ Render(Level): void} - Lekérdezi a pálya méretét, majd pályaelemenként meghívja a RenderLevelPart(Level, LevelPart) metódust.
+
+		\textbf{+ RenderLevelPart(Level, LevelPart): String[]} - Megnézi a paraméterként kapott LevelPart objektumon elhelyezkedő blokkokat, illetve a paraméterként kapott Level objektumon elhelyezkedő GameObject absztrakt osztályt megvalósító objektumokat és a Main osztály statikus Resolution attribútuma alapján kirajzolja őket a standard kimenetre. Fal esetén 'X', játékos esetén '1' ill. '2', kulcs esetén 'K', ajtó esetén 'D', rámpák esetén '$\backslash$' ill '/' jelölést alkalmaz.
+
+	\end{description}
+	
+\subsubsection{StoryboardReader}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A standard bemeneten érkező parancsokat feldolgozó osztály. Minden metódusa statikus.
+
+		\item[Metódusok] \hfill \\
+		\textbf{+ ReadCommands(): StoryboardCommand} - Egy StoryboardCommand objektumokat tartalmazó List-ben a ConsoleHelper segítségével beolvasott parancsokat egyenként ellenőrzi. Helytelen parancsok esetén hibaüzenetet ad, helyes parancsok esetén eltárolja azokat. Helyes go vagy slide parancs érkeztével a vezérlést visszaadja az őt meghívó objektumnak.
+
+	\end{description}
+	
+\subsubsection{StoryboardCommand}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A főciklusban egy StoryboardCommand objektumokból álló List tárolja minden egyes megadott parancs paramétereit.
+
+		\item[Attribútumok] \hfill \\
+		\textbf{+ PlayerCommand: Boolean} - Flag: azt jelöli, Playerre vonatkozik-e a parancs.
+
+		\textbf{+ Player: int} - Azt jelöli, hanyadik Player kapta a parancsot.
+
+		\textbf{+ MoveLeft: Boolean} - Flag: a Player balra megy.
+
+		\textbf{+ MoveRight: Boolean} - Flag: a Player jobbra megy.
+
+		\textbf{+ Stop: Boolean} - Flag: a Player megáll.
+
+		\textbf{+ Jump: Boolean} - Flag: a Player ugrik.
+
+		\textbf{+ SlideCommand: Boolean} - Flag: azt jelöli, tili-toli jellegű-e a parancs.
+
+		\textbf{+ SlideDirection: Direction} - A tili-toli irányát mutatja.
+
+		\textbf{+ GoCommand: Boolean} - Flag: azt jelöli, adott parancslista elsüthető-e a következő alkalommal amikor odaér a főciklus.
+
+		\textbf{+ Frames: int} - Hány frame-ig számoljuk a parancslista hatását.
+
+	\end{description}
+
+\newpage
+
+\subsection{A tesztek részletes tervei, leírásuk a teszt nyelvén}
+
+Mivel a prototípus lehetőséget ad arra, hogy a beadott forgatókönyvet animáltan rajzoltassuk ki, az elvárt eredmények pontokba inkább az elvárt történések szöveges leírását tettük. Amennyiben megkérdőjelezhető lenne a futás valamely mozzanatának helyessége, lehetőség van a prototípussal a konkrét pozíciók kiírására.
+
+\subsubsection{Játékos irányítása \#1}
+\begin{description}
+	
+	\item[Leírás] A két játékos egy 1x1 pályarészből álló pályán van amikben több össze-vissza elhelyezett téglalap alakú blokk található. A két játékos minden irányban ugrál és mozog.
+	
+	\item[Ellenőrzött funkcionalitás] Ezzel a teszttel megfigyelhető hogy a játékosok egyszerű mozgatása (jobbra, balra, ugrálás) és az ütközésvizsgálat a téglalap alakú blokkokkal a várt módon történnek.
+	
+	\item[Várható hibahelyek] Ennél a tesztnél elsősorban a játékosok és a téglalap alakú blokkok ütközése a kritikus pont. A játékosok akármelyik irányból is ütköznek a blokkokkal, semmi képp sem haladhatnak át rajta vagy "lóghatnak" bele, továbbá az hogy már a falhoz érünk miközben a fal felé haladunk nem befolyásolhatja a játékosok függőleges mozgását.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|K        D|
+		|    XX    |
+		|   XXXX   |
+		|  XXXXXX  |
+		|          |
+		|XX      XX|
+		|          |
+		|   XXXX   |
+		| 1      2 |
+		|XXXXXXXXXX|
+		------------	
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="1" Height="1">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="9" Width="10" Height="1" />
+		            <Block X="3" Y="7" Width="4" Height="1" />
+		            <Block X="0" Y="5" Width="2" Height="1" />
+		            <Block X="8" Y="5" Width="2" Height="1" />
+		            <Block X="2" Y="3" Width="6" Height="1" />
+		            <Block X="3" Y="2" Width="4" Height="1" />
+		            <Block X="4" Y="1" Width="2" Height="1" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="1" Y="8" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="8" Y="8" />
+		        <Object Type="Key" LevelPartIndex="0" X="0" Y="0" />
+		        <Object Type="Door" LevelPartIndex="0" X="9" Y="0" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/01.xml
+		21
+		p1 right
+		p1 jump
+		p2 left
+		p2 jump
+		go 20
+		p1 jump
+		p2 jump
+		go 10
+		p1 left
+		p1 jump
+		p2 right
+		go 20
+		p1 jump
+		go 10
+		p2 left
+		go 20
+		p2 stop
+		p1 right
+		go 35
+		p1 left
+		go 10
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] Amennyiben az első számú játékos sikeresen átmászott a legfelső blokkon jobbról balra, majd a legalsó levegőben lévő blokk alá állt be, és eközben kizárólag a második játékoson haladt keresztül blokkokon pedig nem, a teszt sikeresnek számít.
+	
+\end{description}
+
+\newpage
+
+\subsubsection{Játékos irányítása \#2}
+\begin{description}
+	
+	\item[Leírás] A két játékos ugyancsak egy 1x1 pályarészből álló pályán van amikben több össze-vissza elhelyezett téglalap és háromszög alakú blokk is található. A két játékos minden irányban ugrál és mozog.
+	
+	\item[Ellenőrzött funkcionalitás] Ezzel a teszttel megfigyelhető hogy a játékosok egyszerű mozgatása és az ütközésvizsgálat a háromszög alakú blokkokkal a várt módon történnek.
+	
+	\item[Várható hibahelyek] Ennél a tesztnél elsősorban a játékosok és a háromszög alakú blokkok ütközése a kritikus pont. A játékosok akármelyik irányból is ütköznek a blokkokkal, semmi képp sem haladhatnak át rajta vagy "lóghatnak" bele. Amennyiben a háromszög alakú blokk, avagy a rámpa dőlésszöge meghaladja a 45 fokot, a játékosnak nem szabad hogy sikerüljön felsétálnia rajta.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|K D       |
+		|      \   |
+		|      \\  |
+		|     /\\\ |
+		|    //\\\\|
+		|   XXXXXXX|
+		|          |
+		|\        /|
+		|\\\  12 //|
+		|XXXXXXXXXX|
+		------------
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="1" Height="1">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="9" Width="10" Height="1" />
+		            <Block X="0" Y="7" Width="4" Height="2" Type="RightRamp" />
+		            <Block X="8" Y="6" Width="2" Height="3" Type="LeftRamp" />
+					
+		            <Block X="3" Y="5" Width="7" Height="1" />
+		            <Block X="3" Y="3" Width="3" Height="2" Type="LeftRamp" />
+		            <Block X="6" Y="1" Width="4" Height="4" Type="RightRamp" />
+					
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="5" Y="8" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="6" Y="8" />
+		        <Object Type="Key" LevelPartIndex="0" X="0" Y="0" />
+		        <Object Type="Door" LevelPartIndex="0" X="2" Y="0" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/02.xml
+		21
+		p1 left
+		p1 jump
+		p2 right
+		p2 jump
+		go 20
+		p1 right
+		p1 jump
+		p2 jump
+		go 20
+		p2 jump
+		go 5
+		p1 jump
+		go 15
+		p2 jump
+		go 15
+		p1 left
+		go 5
+		p2 jump
+		go 30
+		p1 right
+		go 15
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] Amennyiben az első számú játékos sikeresen átmászott a legfelső háromszögön balról jobbra, és vissza tudott sétálni a kezdő ponthoz, miközben a második játékosnak többszöri próbálkozás után se sikerült felkapaszkodnia a 45 fokosnál meredekebb lejtőre, a teszt sikeres.
+	
+\end{description}
+
+\newpage
+
+\subsubsection{Kulcsok és ajtó}
+\begin{description}
+	
+	\item[Leírás] A két játékos ismét egy  1x1 pályarészből álló pályán van amikben 3 kulcs, illetve az ajtó található. A két játékos minden irányban mozog.
+	
+	\item[Ellenőrzött funkcionalitás] Ezzel a teszttel megfigyelhető hogy a játékosok ajtóval való ütközése csak akkor vezet a pálya teljesítéséhez, ha nincs több kulcs a pályán, illetve a kulcsokkal való ütközéskor a kulcsok eltűnnek.
+	
+	\item[Várható hibahelyek] Ennél a tesztesetnél elsősorban a játékosok kulcsokkal illetve ajtóval való ütközése a kritikus pont. A játékosok akárhogyan is ütköznek az ajtóval, amíg nincs minden kulcs felvéve (tetszőleges játékos által) addig a játék folytatódik. Fontos, hogy mindkét játékos fel tudja venni a kulcsokat.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|2  DK KK 1|
+		|XXXXXXXXXX|
+		|XXXXXXXXXX|
+		------------	
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="2" Height="1">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="9" Y="7" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="0" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="7" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="4" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="6" Y="7" />
+		        <Object Type="Door" LevelPartIndex="0" X="3" Y="7" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	\newpage
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/level03.xml
+		20
+		p2 right
+		go 15
+		p2 left
+		go 10
+		p1 left
+		go 5
+		p1 right
+		go 5
+		p2 right
+		go 15
+		p2 left
+		go 10
+		p1 left
+		go 15
+		p1 right
+		go 10
+		p2 right
+		go 15
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] A második játékos átmegy az ajtón, felvéve az első kulcsot, majd az ajtó előtt oda-vissza lépked, míg az első játékos fel nem veszi az összes kulcsot (minden kulcs felvétele előtt legalább egyszer áthalad a játékos az ajtón). A teszt sikeresen zárul, ha mindaddig nem teljesített a pálya, míg minden kulcs felvételre nem kerül.
+	
+	\end{description}
+\newpage
+
+\subsubsection{Pályarész határok}
+\begin{description}
+	
+	\item[Leírás] Egy egyszerű 2x2-1 pályarészből álló pályán való egyszerű mozgást tesztelünk. Miközben a pályarészeket néha-néha elcsúsztatjuk a játékosokkal legalább egyszer áthaladunk valamely pályarész határán majd később valamikor megakadunk egy másikon. A teszt során az egyik játékos egyszer "szakadékba" zuhan és visszakerül a kezdő pozíciójára, a másik pedig úgy sétál bele a lyukba hogy van alatta illeszkedő pályarész, és sikeresen átkerül rá.
+	
+	\item[Ellenőrzött funkcionalitás] Pályaelemek tili-toli mozgatása és keresztülhaladás pályarészeken.
+	
+	\item[Várható hibahelyek] Amennyiben valamely játékos nem hal meg amikor szakadékba zuhan, nem sikerül átmennie egy illeszkedő pályarészre, vagy épp sikerül átmennie egy nem illeszkedőre, a teszt sikertelen.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------------------
+		| K D      ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|   21     ||          |
+		|XXXXXXXXXX||XXXXXXX  X|
+		|XXXXXXXXXX||XXXXXXX  X|
+		------------------------
+		            ------------
+		            |XXXXXXX  X|
+		            |          |
+		            |       /XX|
+		            |      //  |
+		            |     ///  |
+		            |    ////  |
+		            |   /////  |
+		            |  //////  |
+		            |XXXXXXXXXX|
+		            |XXXXXXXXXX|
+		            ------------
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="2" Height="2">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		        </LevelPart>
+		        <LevelPart X="1" Y="0">
+		            <Block X="0" Y="8" Width="7" Height="2" />
+		            <Block X="9" Y="8" Width="1" Height="2" />
+		        </LevelPart>
+		        <LevelPart X="1" Y="1">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		            <Block X="1" Y="2" Width="7" Height="7" Type="LeftRamp" />
+		            <Block X="8" Y="2" Width="2" Height="1" />
+		            
+		            <Block X="0" Y="0" Width="7" Height="1" />
+		            <Block X="9" Y="0" Width="1" Height="1" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="4" Y="8" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="3" Y="8" />
+		        <Object Type="Key" LevelPartIndex="0" X="1" Y="0" />
+		        <Object Type="Door" LevelPartIndex="0" X="3" Y="0" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/04.xml
+		21
+		p1 right
+		p2 left
+		go 20
+		p2 right
+		go 50
+		slide down
+		p1 stop
+		p1 jump
+		p2 left
+		go 20
+		slide left
+		p2 right
+		p1 jump
+		go 20
+		p1 left
+		go 60
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] A játékosok csak az illeszkedő pályarészekre tudtak áthaladni, az első játékos sikeresen áthaladt egyik pályarészről a másikra felülről lefele és vissza is, a második ugyan ezt megpróbálva illeszkedő elem híján meghal. Az első játékos akkor is megpróbál áthaladni alulról felfele amikor már nincs illeszkedő pályaelem, de ekkor csak visszapattan mintha ott plafon lenne.
+	
+\end{description}
+
+\newpage
+
+\subsubsection{Főpróba}
+\begin{description}
+	
+	\item[Leírás] Egy konkrét pálya végigvitelének tesztelése, a cél a program általános működésének vizsgálata.
+	
+	\item[Ellenőrzött funkcionalitás] Játékosok és pályaelemek mozgatása, halál, kulcsok felvétele, illetve kooperatív módú győzelem.
+	
+	\item[Várható hibahelyek] Az itt leírt funkcionalitásoknak már az előző tesztekben részleteztük a várható hibahelyeit.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|    K     |
+		|   XX     |
+		|21 XXXX   |
+		|XXXXXXXXXX|
+		|XXXXXXXXXX|
+		------------
+		------------------------
+		|XXX  XXXXX||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|      D  K|| K        |
+		|XXXXXXXXXX||XXX  XXXXX|
+		|XXXXXXXXXX||XXX  XXXXX|
+		------------------------
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="2" Height="2">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		            <Block X="3" Y="6" Width="2" Height="1" />
+		            <Block X="3" Y="7" Width="4" Height="1" />
+		        </LevelPart>
+		        <LevelPart X="0" Y="1">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		            <Block X="0" Y="0" Width="3" Height="1" />
+		            <Block X="5" Y="0" Width="5" Height="1" />
+		        </LevelPart>
+		        <LevelPart X="1" Y="1">
+		            <Block X="0" Y="8" Width="3" Height="2" />
+		            <Block X="5" Y="8" Width="5" Height="2" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="1" Y="7" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="0" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="4" Y="5" />
+		        <Object Type="Key" LevelPartIndex="1" X="9" Y="7" />
+		        <Object Type="Key" LevelPartIndex="2" X="1" Y="7" />
+		        <Object Type="Door" LevelPartIndex="1" X="6" Y="7" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/05.xml
+		21
+		p1 right
+		p1 jump
+		go 20
+		p2 right
+		p2 jump
+		go 20
+		slide up
+		go 25
+		p1 jump
+		go 13
+		slide right
+		go 52
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] A két játékos mozog, egy pályaelemet mozgatunk, a játékosok átmennek az előbb mozgatott pályaelembe, az egyikük (1-es) leesik egy olyan szakadékba, amelynek nincs másik pályaelemben folytatása és meghal. Ekkor a kezdőhelyén éled újra, és ismét elindul az előző útján, eközben mozgatunk egy pályaelemet és a 2-es számú játékos leesik az immár a helyén lévő végső pályaelembe. Itt felveszi az utolsó kulcsot, majd végül az 1-es játékos az ajtóhoz megy és vége a pályának. Az összes előző tesztekben lefektetett elvárásunk továbbra is él.
+	
+\end{description}
+
+\newpage
+
+
+\subsection{A tesztelést támogató programok tervei}
+
+A teszteléshez nem készítünk külön programot, több okból:
+\begin{itemize}
+\item Minden, a teszteléshez szükséges funkciót megvalósít már maga a program: képes akár fájlból, akár konzolból bemeneti parancsokat elfogadni, illetve a kimenetet fájlba vagy a konzolképernyőre irányítani. Emellett lehetőségünk van kirajzoltatni a pálya aktuális állapotát minden szimulált időpillanatban, ami mindkét kimeneten könnyen ellenőrizhetővé teszi a futást. Konzolképernyőn megfelelő beállításokkal ez folyamatos futásnak látszódik, ami szerintünk a legkényelmesebb és az adott program teszteléséhez legkézenfekvőbb tesztelési mód.
+\item Amennyiben a tesztelő esetleg nem elégszik meg a folyamatos megjelenítéssel vagy elszalasztott bizonyos történéseket, lehetősége nyílik a kimenet szöveges részeinek segítségével megbizonyosodni a helyes működésről. Ezek leírják az egyes játékosok helyzetét a szimulált időpillanatokban, és ha azok megegyeznek az elvárt helyzetekkel, akkor a program helyes futási eredményt hozott. Ez nyilván csak akkor teljesül, ha tudjuk, hogy milyen viselkedést várhatunk el a programtól bizonyos parancsok kiadása után, és hogy a várt és a valós viselkedés megegyezik-e. Mivel minden alapvető funkció (mozgások, tili-toli, pályaelemek közötti mozgás, stb.) vizsgálatához tartozik teszteset, ezért az összetettebb teszteknél építhetünk ezek eredményére; vagyis ha tudjuk, hogy egy tesztben már helyesen reagált a program, akkor feltételezhetjük, hogy ez nem "romlott el", és koncentrálhatunk az aktuális tesztre.
+\item Egy, a kimenetet és az elvárt kimenetet szavanként összehasonlító program esetén a tesztelőknek igen csekély belelátása lenne a program tényleges működésébe, lényegé-ben az összehasonlító programnak kellene elhinniük, hogy a működés megfelel-e az elvártnak, vagy sem. Így a tesztelés értelmét vesztené, ezt pedig szeretnénk elkerülni.
+\item Végül, egy ilyen összehasonlításhoz az elvárt kimenetet tartalmazó leírás elkészítése a kimenet terjedelmessége miatt a hasznosságához képest aránytalanul sok befektetett munkát igényelne (összes sor begépelése, elírások javítása). A különféle "trükkös" megoldásoknak (pl. egy futtatás során kapott kimenet beadása elvárt kimenetként) pedig szintén nem látjuk értelmét, ezek újfent csak a tesztelés alapvető célját ásnák alá.
+\end{itemize}
+
+
+\subsection{Bemeneti nyelv {\small (kiegészítés a 7. sz. fejezethez)}}
+
+\subsubsection{A prototípus indítása}
+
+A prototípus több indítási argumentumot értelmez ami a működését befolyásolja:
+
+\begin{description}
+	\item[-{}-resolution vagy -r]: A pálya kirajzolásának nagyítását adhatjuk meg vele, egy nullánál nagyobb egész számot vár utána. (Pl. "-r 2") Ez akkor nagyon hasznos ha a rámpák körvonalait szeretnénk pontosabban látni.
+	\item[-{}-animate vagy -a]: Ezzel a switch-el beállíthatjuk, hogy legyenek-e animálva a játékban történő változások képi megjelenései.
+	\item[-{}-silent vagy -s]: Ezzel kikapcsolható az összes kimenet a pályák kirajzolásán kívül. Akkor célszerű használni ha a standard input-ot fájlból olvassuk.
+	\item[-{}-help vagy -h]: Kilistázza az összes lehetséges parancsot.
+\end{description}
+
+A prototípus indítása után a program a standard input-on várja a betöltendő pálya elérési útvonalát, majd egy számot ami a szimuláció FPS-ét állítja be. Mi a teszteket 21 fps-en fogjuk végezni. A szoftver csak ezek után olvassa a 7.1.2. pontban tárgyalt vezérlő utasításokat.
+
+\emph{Ha az fps-t tíz alá vesszük akkor a jelenleg választott paraméterek mellett (például játékos sebessége miatt) a játékos keresztül "pattanhat" az 1 egység széles falakon. Azért nem választottunk kerek számot, például a 20-at, mert úgy a játékos olyan pozíciókra kerül amit a szöveges renderelésünk úgy értelmezhet hogy egyszerre két helyen is ott van a játékos. Ez azért van mert az a függvény ami azt ellenőrzi hogy egy pont benne van-e egy blokkban, akkor is true-val tér vissza ha csak az élén van. Ebből adódóan ha a játékos középpontja például a 3,0 koordinátán van, mindkét szomszédos területegységek középpontjai (2,5 és 3,5) benne van az egységnyi széles játékos területén.}
+
+\newpage
+
+\subsubsection{Pálya leírása és bevitele}
+
+A pályák szabványos XML nyelven készülnek. A leíró tartalmazza, hogy mekkora a pálya mérete, mennyi pályaelem van benne, illetve a pályán elhelyezhető objektumok milyenségét és pozícióját. A pályaelemeknél szerepelnek az őket felépítő blokkok leírásai. Egy blokknál egyszerűen a \emph{Type} attribútum megadásával lehet változtatni a típusát, hogy normál négyszög alakú legyen, vagy háromszög. Például egy 2x2-s méretű pálya, három pályaelemmel, két kulccsal a két játékos számára így nézhet ki:
+
+\begin{verbatim}
+<?xml version="1.0" encoding="utf-8"?>
+<Level Width="2" Height="2">
+    <Parts>
+        <LevelPart X="0" Y="0">
+            <Block X="0" Y="8" Width="10" Height="2" />
+            <Block X="3" Y="6" Width="2" Height="1" />
+            <Block X="3" Y="7" Width="4" Height="1" />
+        </LevelPart>
+        <LevelPart X="0" Y="1">
+            <Block X="0" Y="8" Width="10" Height="2" />
+            <Block X="0" Y="0" Width="3" Height="1" />
+            <Block X="5" Y="0" Width="5" Height="1" />
+        </LevelPart>
+        <LevelPart X="0" Y="0">
+            <Block X="0" Y="8" Width="10" Height="2" />
+            <Block X="2" Y="6" Width="4" Height="2" Type="LeftRamp" />
+        </LevelPart>
+    </Parts>
+    <Objects>
+        <Object Type="Spawn" LevelPartIndex="0" X="1" Y="7" />
+        <Object Type="Spawn" LevelPartIndex="0" X="0" Y="7" />
+        <Object Type="Key" LevelPartIndex="0" X="4" Y="5" />
+        <Object Type="Key" LevelPartIndex="1" X="9" Y="7" />
+        <Object Type="Door" LevelPartIndex="1" X="6" Y="7" />
+    </Objects>
+</Level>
+\end{verbatim}
+
+A fentieket összevonva, egy pálya leírójának kötelezően kell tartalmazni a pálya méretét, egy híján a teljes területet lefedő darabszámú pályaelemet, pontosan két kiindulási pontot a játékosok számára, egy darab ajtót illetve legalább egy darab kulcsot. A \emph{LevelDescriptor.Load(String)} metódus paraméterül egy ilyen leírást tartalmazó fájl nevét kapja meg, melyből felépíti a pályát.
+
+Minden pályabetöltéskor, legyen az az első pálya, avagy egyszerűen a következő, egy ilyen fájlt olvas be a \emph{LevelDesciptor}, és ezt tölti be aktuális pályának. A program indulásakor kezdésként megkérdi, hogy mely pályát szeretnénk betölteni, ahol a megadott relatív elérési útvonalon szereplő fájlt próbálja meg beolvasni. Ezt természetesen a storyboardot használva, azt a standard inputra irányítva, annak első parancsaként automatizálhatunk is.
+
+\newpage
+
+\subsection{Napló}
+
+\begin{journal}
+\journalentry{2012.03.29. 6:15}{3,25}{Vajsz}{Osztályok és metódusok terveinek első felének megírása.}
+\journalentry{2012.03.30. 17:30}{1,5}{Tarjáni}{Dokumentumsablon elkészítése, {\itshape "Tesztelést támogató programok"} fejezet megírása.}
+\journalentry{2012.03.31. 2:30}{2}{Vajsz}{Osztályok és metódusok terveinek második felének megírása, dokumentumsablonba való formázása.}
+\journalentry{2012.03.31. 10:30}{1,5}{Kanyó}{A dokumentum nyelvtani ellenőrizése, javítása. A pálya leírása és annak betöltésének folyamatának elkészítése.}
+\journalentry{2012.04.01. 20:00}{1,5}{Biró}{A bemeneti nyelv megírása.}
+\journalentry{2012.04.02. 08:00}{1}{Magyar}{Dokumentáció ellenőrzése, apróbb finomítások a 8.3, 8.4 fejezetben.}
+\journalentry{2012.04.02. 20:00}{2}{Biro}{8.2 fejezet 1,2,4,5 teszteset leírásának pótlása.}
+\journalentry{2012.04.02. 20:30}{1,5}{Magyar}{8.2 fejezet 3 teszteset leírásának pótlása és kapcsolódó munkák.}
+\end{journal}
+
+\end{document}

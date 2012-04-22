@@ -1,0 +1,12 @@
+levels/level01.xml
+20
+slide right
+go 20
+slide up
+go 10
+slide left
+go 13
+slide down
+go 17
+p2 left
+go 15

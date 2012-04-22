@@ -1,0 +1,137 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicializálás                                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Common}
+
+\anyag{6. Szkeleton beadás}
+\datum{2012. március 19.}
+\setcounter{section}{5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokumentum                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\fedlap
+
+\section{Szkeleton beadás}
+
+\subsection{Fordítási és futtatási útmutató}
+
+\subsubsection{Fájllista}
+Az osztályok package-ekbe, így a fájlok mappákba vannak szervezve.
+
+Az \textbf{src/main} mappa tartalma:
+\begin{filelist}
+	\filelistentry{Main.java}{1778}{2012.03.17. 17:10}{A program futását kezelő osztály}
+	\filelistentry{SkeletonHelper.java}{2881}{2012.03.17. 17:12}{Információk kiírását segítő osztály.}
+\end{filelist}
+
+A \textbf{src/model} mappa tartalma:
+\begin{filelist}
+	\filelistentry{BlockDescriptor.java}{836}{2012.03.17. 17:15}{Magát a faldarab leíró osztálya}
+	\filelistentry{BlockType.java}{81}{2012.03.17. 17:15}{A faldarab típusait tartalmazó osztály}
+	\filelistentry{LevelDescriptor.java}{960}{2012.03.17. 17:18}{Egy pálya leíró osztálya}
+	\filelistentry{LevelObjectDescriptor.java}{817}{2012.03.17. 17:18}{Egy pályán elhelyezhető objektum leírója}
+	\filelistentry{LevelObjectType.java}{76}{2012.03.17. 17:20}{A pályán elhelyezhető objektumok típusait tartalmazó osztály}
+	\filelistentry{LevelPartDescriptor.java}{702}{2012.03.17. 17:20}{Egy pályaelem paramétereit tartalmazó osztály}
+\end{filelist}
+
+A \textbf{src/gameLogic} mappa tartalma:
+\begin{filelist}
+	\filelistentry{Block.java}{536}{2012.03.17. 17:24}{A pálya építőelemét megvalósító osztály}
+	\filelistentry{Direction.java}{81}{2012.03.17. 17:24}{Az irányokat tartalmazó osztály}
+	\filelistentry{Door.java}{321}{2012.03.17. 17:25}{Az ajtót megvalósító osztály}
+	\filelistentry{GameObject.java}{1100}{2012.03.17. 17:20}{A játékban szereplő objektumok ősosztálya, és a legtöbb tulajdonságukat kezelő osztály}
+	\filelistentry{IBounds.java}{1530}{2012.03.18. 22:09}{A blokkok ősosztálya}
+	\filelistentry{KeyHolder.java}{528}{2012.03.17. 17:27}{A kulcsot megvalósító osztály}
+	\filelistentry{Level.java}{2314}{2012.03.17. 17:26}{A pálya irányítását végző osztály}
+	\filelistentry{LevelPart.java}{2499}{2012.03.17. 17:32}{Az egyes pályaelemeket vezérlő osztály}
+	\filelistentry{Player.java}{3255}{2012.03.17. 17:20}{A játékos kezelő osztály}
+	\filelistentry{PlayerJumpState.java}{310}{2012.03.17. 17:23}{A játékos ugrásának állapotait tartalmazó osztály}
+	\filelistentry{RectangleBounds.java}{3231}{2012.03.18. 22:09}{A négyszög alakú építőblokkok osztálya}
+	\filelistentry{TriangleBounds.java}{3619}{2012.03.18. 22:09}{A háromszög alakú blokkok osztálya}
+	\filelistentry{Vector2.java}{768}{2012.03.17. 17:35}{2D vektorosztály}
+\end{filelist}
+
+A \textbf{src} mappa tartalma:
+\begin{filelist}
+	\filelistentry{manifest.txt}{61}{2012.03.17. 19:30}{A fordításhoz szükséges leíró fájl}
+\end{filelist}
+
+A gyökérben található fájlok:
+\begin{filelist}
+	\filelistentry{build.bat}{314}{2012.03.17. 19:30}{A fordítást indító fájl}
+	\filelistentry{run.bat}{53}{2012.03.17. 19:30}{Az alkalmazást elindító fájl}
+\end{filelist}
+
+\newpage
+
+\subsubsection{Fordítás}
+A fordítást intéző parancsok a \emph{make.bat} batch fájlba vannak gyűjtve, így a futtatható \emph{jar} fájl előállításához mindössze ezt kell elindítani. Előfeltétele hogy a JDK-val feltelepült \emph{java.exe}, \emph{javac.exe} és \emph{jar.exe} állományok elérhetőek legyenek tetszőleges könyvtárból. A fájl az alábbi utasításokat tartalmazza:
+
+\begin{verbatim}
+@echo off
+if not exist bin (mkdir bin)
+
+echo Compiling classes...
+javac src/main/*.java src/model/*.java src/gameLogic/*.java -d bin
+        -encoding UTF-8
+
+cd bin
+echo Creating jar...
+jar cfm ../ContinuitySkeleton.jar ../src/manifest.txt main/*.class
+        model/*.class gameLogic/*.class
+cd ..
+
+echo Done
+@echo on
+\end{verbatim}
+
+\subsubsection{Futtatás}
+
+A futtatás megkönnyítése érdekében létrehoztunk egy batch fájlt: \emph{run.bat}. Ezen fájlt kell futtatni a főkönyvtárából.
+
+Ezen fájl az alábbi parancsot végrehajtva elindítja az elkészült jar fájlt: 
+\begin{verbatim}
+@echo off
+java -jar ContinuitySkeleton.jar
+@echo on
+\end{verbatim}
+
+A szkeleton egy konzolos programként fog futni.
+
+\subsection{Értékelés}
+\begin{tabular}{|p{130pt}|c|p{150pt}|}
+\hline 
+\textbf{Tag neve} & \textbf{Munka százalékban} & \textbf{Aláírás}\\ 
+\hline 
+Biró Loránd & 22\% & \\ 
+\hline 
+Kanyó Tibor & 19\% & \\
+\hline 
+Magyar Dániel & 19\% & \\
+\hline 
+Tarjáni Tamás & 19\% & \\
+\hline 
+Vajsz Kornél & 21\% & \\
+\hline 
+\end{tabular} 
+
+\newpage
+
+\subsection{Napló}
+
+\begin{journal}
+
+\journalentry{2012.03.17. 17:00}{6}{Biró}{Szkeleton írása.}
+\journalentry{2012.03.18. 14:00}{1}{Tarjáni}{Dokumentum sablon elkészítése, fájllista elkezdése.}
+\journalentry{2012.03.18. 17:00}{3}{Kanyó}{Fájllista létrehozása, igazítása. A lista sablonjának javítása. Batch fájlok létrehozása a futtatáshoz, fordításhoz és JDK beállításához. A Fordítás és Futtatás rész megírása.}
+\journalentry{2012.03.18. 20:00}{2}{Vajsz}{IBounds.java, RectangleBounds.java, TriangleBounds.java kidolgozása.}
+\journalentry{2012.03.19. 08:00}{1}{Magyar}{Dokumentáció, kommentezés kiegészítése.}
+
+\end{journal}
+
+\end{document}

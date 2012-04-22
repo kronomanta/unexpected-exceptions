@@ -1,0 +1,20 @@
+levels/03.xml
+20
+p2 right
+go 15
+p2 left
+go 10
+p1 left
+go 5
+p1 right
+ro 5
+p2 right
+go 15
+p2 left
+go 10
+p1 left
+go 15
+p1 right
+go 10
+p2 right
+go 15

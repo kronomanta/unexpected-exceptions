@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>40</x>
+      <y>240</y>
+      <w>160</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>GameTime
+--
++ ElapsedTime: float
++ TotalTime: float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>250</x>
+      <y>40</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Image
+--
++ Width: int
++ Height: int
+--
+_+ Load(fileName: string): Image_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>480</x>
+      <y>40</y>
+      <w>80</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Color
+--
++ R: byte
++ G: byte
++ B: byte</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>20</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>RenderTransform
+--
++ X: int
++ Y: int
++ ScaleX: float
++ ScaleY: float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>280</x>
+      <y>190</y>
+      <w>410</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Renderer
+--
++ CanvasWidth: int
++ CanvasHeight: int
+--
++ DrawImage(x: int, y: int, image: Image)
++ DrawRectangle(x: int, y: int, width: int, height: int, color: Color)
++ DrawText(x: int, y: int, text: string, size: int, color: Color)
++ SetTransform(transform: RenderTransform)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>330</x>
+      <y>90</y>
+      <w>170</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80;150;80;150;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>90</y>
+      <w>200</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>180;30;180;80;30;80;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>90</y>
+      <w>90</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>70;30;70;80;30;80;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>20</x>
+      <y>400</y>
+      <w>200</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/GameComponent/
+--
++ IsEnabled: bool
++ UpdateOrder: int
+--
+/+ Update(time: GameTime)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>260</x>
+      <y>400</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/DrawableGameComponent/
+--
++ IsVisible: bool
++ DrawOrder: int
+--
+/+ Draw(time: GameTime, renderer: Renderer)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>400</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>/Scene/
+--
++ Components: List&lt;GameComponent&gt;
+--
+/+ Update(time: GameTime)/
+/+ Draw(time: GameTime, renderer: Renderer)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>90</x>
+      <y>270</y>
+      <w>50</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>300</y>
+      <w>290</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;70;270;70;270;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>190</x>
+      <y>410</y>
+      <w>90</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;70;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>360</x>
+      <y>300</y>
+      <w>140</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>120;30;120;70;30;70;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>90</x>
+      <y>450</y>
+      <w>650</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>630;30;630;60;30;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>120</x>
+      <y>480</y>
+      <w>30</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>0..*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>90</x>
+      <y>270</y>
+      <w>680</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;80;660;80;660;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>640</x>
+      <y>580</y>
+      <w>220</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>/Game/
+--
++ Scenes: List&lt;Scene&gt;
++ ActiveScene: Scene
+--
++ Tick()
++ SetActiveScene(scene: Scene)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>730</x>
+      <y>450</y>
+      <w>50</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;130;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>760</x>
+      <y>480</y>
+      <w>30</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>1..*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>410</x>
+      <y>590</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>KeyboardInfo
+--
++ IsKeyDown(key): bool
++ IsKeyPressed(key): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>560</x>
+      <y>590</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;80;30</additional_attributes>
+  </element>
+</diagram>

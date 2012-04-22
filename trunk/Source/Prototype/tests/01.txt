@@ -1,0 +1,23 @@
+levels/01.xml
+21
+p1 right
+p1 jump
+p2 left
+p2 jump
+go 20
+p1 jump
+p2 jump
+go 10
+p1 left
+p1 jump
+p2 right
+go 20
+p1 jump
+go 10
+p2 left
+go 20
+p2 stop
+p1 right
+go 35
+p1 left
+go 10
