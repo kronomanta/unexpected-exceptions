@@ -115,7 +115,7 @@
         </suppliersInternal>
         <targetEnds>
           <association
-            Id="9a222db6-49bf-4b5e-bff5-ecf89fe9308c"
+            Id="ab934099-4495-4c5e-8652-4ef95e14449e"
             isDerived="false"
             sourceEndRoleName=""
             targetEndRoleName=""
@@ -128,26 +128,26 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="37bfe61c-fbcc-4aea-852c-e92c2a1c5f00"
+                  Id="80de7d9a-a615-4612-9e99-514ab6fb5020"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="Shared"
+                  aggregation="Composite"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="5af47839-82fd-4bde-ab54-3bb78c14cdb0"
+                  Id="b90260ea-e4d9-44dd-abe1-f6b772f20390"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false"
+                  isComposite="true"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
@@ -624,15 +624,46 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <suppliersInternal>
-          <dependency
-            Id="2ad403f0-b3f2-4ce7-b2c6-2fd226cea849">
+        <targetEnds>
+          <association
+            Id="af938efb-eaea-477e-8d8a-172d8761fc6b"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
             <classMoniker
               Id="89dc6ac6-d5f6-4fb6-bd50-86b551e9e211"
               LastKnownName="java.awt.image.BufferedImage"
               LastKnownLocation="Continuity.uml" />
-          </dependency>
-        </suppliersInternal>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b811c5cd-d819-44b2-87e1-4271798ad805"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a60af47a-f940-4c8c-8f63-0efcadf6cffb"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="e90d1598-1587-4fbb-9edf-bceff8af724a"

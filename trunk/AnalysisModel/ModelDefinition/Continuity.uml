@@ -6909,7 +6909,7 @@
     <packageHasNamedElement>
       <class
         Id="0a680eb5-d740-498e-b8c7-e6f4592dbcd0"
-        name="GameCanvasTimerListener"
+        name="GameFrameTimerListener"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -6922,6 +6922,27 @@
               LastKnownLocation="Continuity.uml" />
           </interfaceRealization>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="a9984196-8b41-463d-aba5-4ff034e652b5"
+            name="canvas"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b85821b8-eb9e-4e0f-8720-122db5178ee7"
+                LastKnownName="GameCanvas"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="cda6340a-869f-43c6-bd4f-c58be18ce54d"
@@ -7173,7 +7194,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="0d8268f2-5d1f-485c-bf61-253476b3d76d"
+                  Id="e8ef766f-682f-4e80-ac0b-9acd55c97b8f"
                   name="player1"
                   direction="In"
                   isUnique="false">
@@ -7187,7 +7208,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="6caf6c45-bf04-4701-9e35-746ca6bb0215"
+                  Id="d62e3925-49c7-48e8-aa1c-b3b49e2d5ca2"
                   name="player2"
                   direction="In"
                   isUnique="false">
@@ -7195,6 +7216,59 @@
                     <classMoniker
                       Id="93473433-2a5b-4f3f-8fd6-f813ac0f5b0e"
                       LastKnownName="PlayerComponent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9268b4a2-59d7-4ae7-a6cd-4ab4cf344f8b"
+                  name="levelWidth"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="48347304-6568-40e3-9fff-eaaf0cec7f39"
+                  name="levelHeight"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                      LastKnownName="int"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="76ed4151-b7d5-44bb-b9ea-03d500b8f666"
+            name="SetPlayerFollowMode"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b552b63a-8991-439c-95ed-2989064ad207"
+                  name="followMode"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="5fee3536-b5ff-4aed-9d10-ab54b4e0e1a7"
+                      LastKnownName="bool"
                       LastKnownLocation="Continuity.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -7219,13 +7293,6 @@
               LastKnownName="IDrawableGameComponent"
               LastKnownLocation="Game.uml" />
           </interfaceRealization>
-          <dependency
-            Id="343c9caa-6567-4f7b-8d13-ecc28f89e754">
-            <classMoniker
-              Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
-              LastKnownName="AnimationDrawer"
-              LastKnownLocation="Continuity.uml" />
-          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association
@@ -7315,6 +7382,44 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="576d72a7-5361-4c99-94b1-b7d7dc158a49"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
+              LastKnownName="SpriteDrawer"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d78fbfe0-d965-405d-a274-a937d3d4b230"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5dc4e512-dd5f-439f-bf28-fe4429c53458"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -7382,7 +7487,7 @@
             <type_NamedElement>
               <classMoniker
                 Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
-                LastKnownName="AnimationDrawer"
+                LastKnownName="SpriteDrawer"
                 LastKnownLocation="Continuity.uml" />
             </type_NamedElement>
           </property>
@@ -7781,7 +7886,7 @@
           </property>
           <property
             Id="23e6bf3f-368f-4a2f-930c-6dd992d3b384"
-            name="keyHolderImage"
+            name="keyImage"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -7973,6 +8078,42 @@
               <undefinedTypeMoniker
                 Id="590d025a-c396-4b40-a468-a14681adeb1b"
                 LastKnownName="LevelPart"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b0dea67f-fa01-4df9-a137-f27b31842a4f"
+            name="CurrentX"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                LastKnownName="int"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="bf5fcd24-3fba-4238-9ff4-25167b075d31"
+            name="CurrentY"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf"
+                LastKnownName="int"
                 LastKnownLocation="Continuity.uml" />
             </type_NamedElement>
           </property>
@@ -8223,7 +8364,7 @@
     <packageHasNamedElement>
       <class
         Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc"
-        name="AnimationDrawer"
+        name="SpriteDrawer"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
@@ -8434,6 +8575,18 @@
       <undefinedType
         Id="d7d5f499-8552-4c93-a5a5-9b135d78c3a8"
         name="Point" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="e6774cc8-b51f-448d-a95d-ca5a412a9546"
+        name="GameSceneCamera"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b85821b8-eb9e-4e0f-8720-122db5178ee7"
+        name="GameCanvas" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
