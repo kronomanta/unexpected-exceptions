@@ -122,6 +122,80 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 						
 	\end{description}
 	
+	
+\subsubsection{IGameComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Minden, a játékban résztvevő objektumnak változhat időben az állapota, azok számára egy interfész. Azoknak kell rendelkezni egy olyan metódussal, amivel lehet frissíteni az állapotokat az eltelt idő alapján.
+		\item[Metódusok]\hfill \\
+		\textbf{\emph{Update(GameTime)}}: Az interfészt megvalósító objektum szimulációs metódusának deklarálása.
+	\end{description}
+	
+\subsubsection{GameTime}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A mozgások szimulálásánál a szükséges eltelt idők meghatározásához használt struktúra.
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{float ElapsedTime}}: A struktúra példányosításakor az előző lekéréstől számított eltelt idő.
+		\textbf{\emph{float TotalTime}}: A struktúra példányosításakor a játék futásának ideje másodpercben.
+	\end{description}
+	
+\subsubsection{IDrawableGameComponent}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A grafikus felületen megjeleníthető	objektumok számára egy interfész. Ebből vannak leszármaztatva, így a program futása közben tökéletes szétválaszthatók az egyszerű objektumoktól azok, amely a grafikus felületen is megjelenhetnek.
+		\item[Ősosztályok] \hfill \\
+		DrawableGameComponent
+		\item[Metódusok]\hfill \\
+		\textbf{\emph{Draw(GameTime,Renderer)}}: Adott időre vonatkozó rajzolómetódus deklarálása. 
+	\end{description}
+
+\subsubsection{MenuScene}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A menü működéséért, megjelenítésért felelős objektum.
+		\item[Interfészek]\hfill \\
+		IDrawableGameComponent
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{Action MenuSceneAction}}: Éppen aktuálisan beállított esemény, amelyet a felhasználó váltott ki a menüben. Például új játékot szeretne indítani.
+		\item[Metódusok]\hfill \\
+		\textbf{\emph{Draw(GameTime,Renderer)}}: A menüben lévő kirajzolható objektumokra sorban meghívja a saját rajzolási metódusokat.
+		\textbf{\emph{Update(GameTime)}}: A menüben lévő objektumokra leszimulálja a mozgást a megadott időtartamra.
+	\end{description}
+
+
+\subsubsection{MenuSceneAction}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A felhasználó a menüben különböző eseményeket tud generálni, például új játékot indíthat. Ezen osztály a menüben kiadható eseményeket sorolja fel. Lehetséges értékek: None, Play, Continue.
+	\end{description}
+	
+\subsubsection{GameScene}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy-egy pálya működéséért, megjelenítésért felelős objektum.
+		\item[Interfészek]\hfill \\
+		IDrawableGameComponent
+		\item[Attribútumok]\hfill \\
+		\textbf{\emph{Action GameSceneAction}}: Éppen aktuálisan beállított esemény, amelyet a felhasználó váltott ki adott pályához kapcsolódóan.
+		\item[Metódusok]\hfill \\
+		\textbf{\emph{Draw(GameTime,Renderer)}}: A pályán lévő kirajzolható objektumokra sorban meghívja a saját rajzolási metódusokat.
+		\textbf{\emph{Update(GameTime)}}: A pályán lévő objektumokra leszimulálja a mozgást a megadott időtartamra.
+	\end{description}
+	
+\subsubsection{GameSceneAction}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A felhasználó eseményeket generálhat gombnyomásra, például kiléphet a játékból. Ezen osztály a pályán kiadható eseményeket sorolja fel. Lehetséges értékek: None, Quit.
+	\end{description}
+	
+\subsubsection{ContinuityGame}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		A játék működéséhez szükséges elemeket fogja össze. Ő vezérli a játék működését, tartalmazza a pályákat,  menüt. Ettől az osztálytól indul hierarchikusan lefelé az összes szükséges objektum vezérlése, szimulálása, megjelenítése.
+		\item[Metódusok]\hfill \\
+		\textbf{\emph{Tick(Renderer)}}: A játék folyamán minden képkockához meghívódik ezen metódus. Azon műveletek találhatók ebben, amelyek minden képkocka megjelenítéséhez szükséges, hogy minden körben lefussanak.
+	\end{description}
 
 
 \subsection{Kapcsolat az alkalmazói rendszerrel}
@@ -131,7 +205,7 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 \begin{journal}
 \journalentry{2012.04.04. 13:30}{2}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, döntés a grafikus megjelenítés mikéntjéről, a feladatok kiosztása.}
 \journalentry{2012.04.22. 14:00}{1}{Tarjáni}{Dokumentumsablon, osztályleírások elkészítése.}
-
+\journalentry{2012.04.22. 16:00}{1}{Kanyó}{Osztályleírások bővítése, javítása.}
 
 \end{journal}
 
