@@ -24,6 +24,8 @@
 
 \subsubsection{A felület működési elve}
 
+Az eddig elkészült rendszer a játékszabályokat ismeri és magának a játéknak a szimulálására képes, de az olyan magas szintű funkciók mint a megjelenítés, a menürendszer vagy az inputok figyelése nem ismert a számára. Ezek a logikák a most tervezett osztályokban valósulnak meg. Az eddig elkészült \emph{gameLogic} package-et csak a \emph{GameScene} használja, amikor betölti az aktuális \emph{Level} objektumot minden \emph{GameObject}-hez létrehoz egy ahhoz tartozó \emph{IDrawableGameComponent} objektumot ami annak a megjelenítéséért felelős. (A 3. osztálydiagram ezeket a kapcsolatokat mutatja.) A kiírásban szereplő definíciók alapján az alapelv se nem pull, se nem push, mert az \emph{IDrawableGameComponent} objektumok csak a \emph{GameObject} osztályok aktuális állapotát rajzolják ki és semmilyen esemény nincs értelmezve a játéklogikában amiről "értesülne" a megjelenítés. De amennyiben muszáj lenne választani akkor nyilván pull lenne, mert a játéklogikát megvalósító osztályok semmilyen formában nem tudnak a megjelenítési rétegről. Ez az architektúra a játéklogika könnyű tesztelhetőségét tette lehetővé.
+
 \subsubsection{A felület osztály-struktúrája}
 
 \subsection{A grafikus objektumok felsorolása}
