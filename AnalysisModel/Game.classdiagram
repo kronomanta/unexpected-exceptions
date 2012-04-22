@@ -161,6 +161,18 @@
               <referencedTypeMoniker Id="7beaa29b-6465-4330-9671-6aef0f8800f7" LastKnownName="MenuSceneAction" />
             </type_NamedElement>
           </property>
+          <property Id="c689f4c7-da27-4a16-b4b2-960383662c81" name="backgroundImage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="70bafc0c-bf26-4836-a706-ddc15a64c852" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cb2050ce-035d-4312-b8ab-0ee8fb165402" LastKnownName="Image" />
+            </type_NamedElement>
+          </property>
+          <property Id="f04da97b-c226-41b9-8d1b-92dbe45cc133" name="helpImage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="82a54c16-596b-4b0b-ae32-ac81b0a3c348" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="cb2050ce-035d-4312-b8ab-0ee8fb165402" LastKnownName="Image" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="f0080e56-6f09-4294-8b60-0902eac08045" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -208,7 +220,85 @@
             <interfaceMoniker Id="b6b2f489-0283-451a-81f1-1971f0e80021" LastKnownName="IDrawableGameComponent" />
             <elementDefinition Id="2714f7d8-3102-42fc-9be6-138905e754c7" />
           </interfaceRealization>
+          <dependency Id="16212171-df5b-4908-b644-d4c83035bcc0">
+            <enumerationMoniker Id="244eaacf-ac6e-4595-8c0c-8eca6ac21d8c" LastKnownName="GameSceneAction" />
+            <elementDefinition Id="d9da6275-355e-4f53-9865-1ec92d3440d0" />
+          </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="a54705c9-de51-4efb-930c-56d684e9d305" name="Action" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="acfdc3e6-ebdf-4b87-936d-64a0c2204e27" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="39620c3b-0860-4697-92e0-750a2cc91829" LastKnownName="GameSceneAction" />
+            </type_NamedElement>
+          </property>
+          <property Id="ffc60bbe-d5ed-47b5-b0c8-f2d0a59b4e94" name="player1" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1eb97ea7-6a69-458c-a3d6-17c4e43573d4" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="01a744c0-affa-44b0-9857-de3945504199" LastKnownName="PlayerComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="ca5babcb-91a8-464f-9b64-aa8ced5526fb" name="player2" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9dc60efd-49d1-4661-bc58-e6296d907b21" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="01a744c0-affa-44b0-9857-de3945504199" LastKnownName="PlayerComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="e996f7ee-b06b-4da3-9d17-c7263d553b39" name="camera" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c10021f4-d1eb-4599-8786-3ed56c781134" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="604dc5c0-7576-4d54-afea-6fd0831ce5ed" LastKnownName="GameSceneCamera" />
+            </type_NamedElement>
+          </property>
+          <property Id="e721849e-bdc5-4e65-89aa-07fff9032164" name="levelParts" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <lowerValueInternal>
+              <literalString Id="edeb726c-f925-4905-9135-c41b368e86a2" name="Lower" value="*">
+                <elementDefinition Id="e6c86b82-cded-47e6-8a71-71e93a9c3861" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="d92477ae-b77d-4c5b-a949-92eb1ce5354a" name="Upper" value="*">
+                <elementDefinition Id="f0491997-68f6-4b18-ae05-7f167ed83702" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="12cd0857-9949-4d3f-8ef9-efe4e0dd3334" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1edfc101-1848-4f2e-b251-89837c1b3e0e" LastKnownName="LevelPartComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="e6eef0c5-2fe8-43de-af8a-b419d17c81ce" name="doors" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <lowerValueInternal>
+              <literalString Id="c631cae1-93e0-4bc1-923b-125f74400045" name="Lower" value="*">
+                <elementDefinition Id="aa4dbaa5-df53-4bf2-9256-4a9239c000dc" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="0e280251-bc7c-48fc-8c8b-d3bda4cbd812" name="Upper" value="*">
+                <elementDefinition Id="1985227f-7fa2-4c8e-b253-5b056a1ef7d9" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="09325bb3-d270-4d17-b777-3a51ca7ad285" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="a6a987fe-9269-4b88-935f-05232b7535e5" LastKnownName="DoorComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="9709fecd-06f2-4bb3-ac71-3d307897e121" name="keyHolders" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <lowerValueInternal>
+              <literalString Id="4a2a56f9-7c6c-4c74-9b06-2ea421175ec6" name="Lower" value="*">
+                <elementDefinition Id="43024483-02aa-4b9c-98fb-8f3ada0f0b0b" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="b2e7565b-d8b2-4145-8da1-b077d0eee1d2" name="Upper" value="*">
+                <elementDefinition Id="87de8588-203b-4007-bf23-357a58eb61f7" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="027f0316-0674-4e84-b8a9-a2edfad19f12" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4d794385-e484-4392-891a-1a8a8fdf7a10" LastKnownName="KeyHolderComponent" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="675226da-f47a-4e00-820f-17a028100dfe" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="7f360233-113f-4501-bea5-edf177dce4e9" />
@@ -243,6 +333,9 @@
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
+          </operation>
+          <operation Id="af3c3697-1724-4b06-bd6e-6d2a351b22c8" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="15a18de2-6a8f-4a45-9397-d373b8922884" />
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -522,6 +615,54 @@
     <packageHasNamedElement>
       <referencedType Id="7beaa29b-6465-4330-9671-6aef0f8800f7" name="MenuSceneAction" isAbstract="false" isLeaf="false" cachedFullName="Continuity::MenuSceneAction">
         <elementDefinition Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="244eaacf-ac6e-4595-8c0c-8eca6ac21d8c" name="GameSceneAction" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="920657e9-e0c5-4e6b-ac27-2a1019abf064" />
+        <ownedLiterals>
+          <enumerationLiteral Id="20a00aaf-3b8c-4226-9ffb-55e2077481c0" name="None">
+            <elementDefinition Id="cd1fc525-c69a-4de4-9c70-fee7c4208a46" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="4170befc-027c-46a9-8fce-1fcbbbbae8b0" name="Quit">
+            <elementDefinition Id="542157f4-87e6-4c84-861d-bc1c2293da6d" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="39620c3b-0860-4697-92e0-750a2cc91829" name="GameSceneAction" isAbstract="false" isLeaf="false" cachedFullName="Continuity::GameSceneAction">
+        <elementDefinition Id="920657e9-e0c5-4e6b-ac27-2a1019abf064" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cb2050ce-035d-4312-b8ab-0ee8fb165402" name="Image" isAbstract="false" isLeaf="false" cachedFullName="Image">
+        <elementDefinition Id="fabed9dd-7f90-4611-967b-9fa5580af130" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="01a744c0-affa-44b0-9857-de3945504199" name="PlayerComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::PlayerComponent">
+        <elementDefinition Id="93473433-2a5b-4f3f-8fd6-f813ac0f5b0e" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="604dc5c0-7576-4d54-afea-6fd0831ce5ed" name="GameSceneCamera" isAbstract="false" isLeaf="false" cachedFullName="Continuity::GameSceneCamera">
+        <elementDefinition Id="a3bf78ca-61a2-4c62-8cf0-2f9c303d0fa7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1edfc101-1848-4f2e-b251-89837c1b3e0e" name="LevelPartComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::LevelPartComponent">
+        <elementDefinition Id="8b025473-9290-4cb3-a21b-9f0421cd787f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="a6a987fe-9269-4b88-935f-05232b7535e5" name="DoorComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::DoorComponent">
+        <elementDefinition Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="4d794385-e484-4392-891a-1a8a8fdf7a10" name="KeyHolderComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::KeyHolderComponent">
+        <elementDefinition Id="67a95cb6-a445-408a-b14f-b51823f5589c" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>
