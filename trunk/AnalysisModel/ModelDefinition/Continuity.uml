@@ -8075,22 +8075,6 @@
         name="LevelPart" />
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <class
-        Id="e72f8421-e85e-40a6-b6da-a66edf11eb37"
-        name="Class1"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="2a04b504-4747-4992-b15b-8510af5722b4"
-        name="LevelPartBor"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <undefinedType
         Id="8736f6de-0e06-44b4-9dfb-c9ef381a558b"
         name="Renderer" />
@@ -8183,6 +8167,11 @@
           </operation>
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08"
+        name="Level" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

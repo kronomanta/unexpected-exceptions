@@ -298,6 +298,18 @@
               <referencedTypeMoniker Id="4d794385-e484-4392-891a-1a8a8fdf7a10" LastKnownName="KeyHolderComponent" />
             </type_NamedElement>
           </property>
+          <property Id="e562346c-c96e-46f8-ad02-c73ba0f656bb" name="frameRateCounter" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="609e9760-c265-4b01-afc5-d496a8bc116a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c634d58e-76e2-4e05-afff-be0a67a1c4ba" LastKnownName="FrameRateCounterComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="292f7bc3-803a-4a55-90cc-0d8379d0d623" name="level" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fb6f736b-5983-4111-b2b1-f4a7c78f8eff" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="17283eb5-7990-4509-b27f-fc7e87d998a7" LastKnownName="Level" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="675226da-f47a-4e00-820f-17a028100dfe" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -663,6 +675,16 @@
     <packageHasNamedElement>
       <referencedType Id="4d794385-e484-4392-891a-1a8a8fdf7a10" name="KeyHolderComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::KeyHolderComponent">
         <elementDefinition Id="67a95cb6-a445-408a-b14f-b51823f5589c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c634d58e-76e2-4e05-afff-be0a67a1c4ba" name="FrameRateCounterComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::FrameRateCounterComponent">
+        <elementDefinition Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="17283eb5-7990-4509-b27f-fc7e87d998a7" name="Level" isAbstract="false" isLeaf="false" cachedFullName="Level">
+        <elementDefinition Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

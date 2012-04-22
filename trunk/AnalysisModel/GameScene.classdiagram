@@ -28,12 +28,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="6bb258be-9bcb-4d55-854d-45b9ddd8f258" name="GameSceneCamera" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a3bf78ca-61a2-4c62-8cf0-2f9c303d0fa7" />
-        <suppliersInternal>
-          <interfaceRealization Id="16bf35af-3ebd-460d-beda-a77adf5a0803">
-            <interfaceMoniker Id="458dc18c-903e-4b54-adcf-5cda474995b6" LastKnownName="IGameComponent" />
-            <elementDefinition Id="0c8962eb-0284-4006-a89d-fa1b3b90e527" />
-          </interfaceRealization>
-        </suppliersInternal>
         <targetEnds>
           <association Id="f4182c03-ef6e-41ca-87db-d40842f8c7f2" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="c6e06008-40f5-4aa3-9004-144c0335a54d" LastKnownName="PlayerComponent" />
@@ -109,34 +103,8 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <Interface Id="458dc18c-903e-4b54-adcf-5cda474995b6" name="IGameComponent" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="11c6fae9-659c-4473-9113-d42ce9d26347" />
-        <ownedOperations>
-          <operation Id="81fbc37c-10c1-4085-97e4-48a3dd5dbe39" name="Update" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="e4828f56-d7ad-41b0-84b8-89d40c353977" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3c2f407f-c893-476f-93cd-e5c2dcce29e6" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="36a9f35b-2804-488b-ba2e-c9e1072f2635" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="d130cc5e-cc2f-42da-a08d-6ed27f7fe8f9" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperations>
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
       <class Id="c6e06008-40f5-4aa3-9004-144c0335a54d" name="PlayerComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="93473433-2a5b-4f3f-8fd6-f813ac0f5b0e" />
-        <suppliersInternal>
-          <interfaceRealization Id="57a996cc-97d1-4fca-af72-58af70ed810e">
-            <interfaceMoniker Id="f7eed97f-6858-4018-849c-5c73b59b2034" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="836ee3cc-88a2-4ed2-8e15-e559bd23608a" />
-          </interfaceRealization>
-        </suppliersInternal>
         <targetEnds>
           <association Id="9e63dcbc-8e74-4342-aae7-8a2afcc9e191" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="a21c5783-493a-41e7-99f1-d2096a65a206" LastKnownName="Player" />
@@ -274,40 +242,6 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
-    <logicalClassDesignerModelHasTypes>
-      <Interface Id="f7eed97f-6858-4018-849c-5c73b59b2034" name="IDrawableGameComponent" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="372dbce9-29e7-425d-a745-0b7ce73bea74" />
-        <generalsInternal>
-          <generalization Id="14c59a20-1a39-429b-b082-6b8bad142940" isSubstitutable="false">
-            <interfaceMoniker Id="458dc18c-903e-4b54-adcf-5cda474995b6" LastKnownName="IGameComponent" />
-            <elementDefinition Id="8d368dd8-a01e-48ae-a274-8ff0dc5b011f" />
-          </generalization>
-        </generalsInternal>
-        <ownedOperations>
-          <operation Id="77f618c3-95e8-4b46-9e0a-c7ed37cb50df" name="Draw" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="1b1ace52-405a-4f51-88e1-eca47e5fa733" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="51a3cf75-4fa1-44a0-b345-e37508fbbd60" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="bf284f1b-2c1f-454d-8b59-2fa740392cc9" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="d130cc5e-cc2f-42da-a08d-6ed27f7fe8f9" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="599f2c4a-58a4-4523-a82c-f115d954b9cd" name="renderer" direction="In" isUnique="false">
-                  <elementDefinition Id="071f3182-cf1e-47f6-afef-c1a9b556f813" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="447b47ef-af08-422f-b881-3ea6387f3428" LastKnownName="Renderer" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperations>
-      </Interface>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="c103719b-f93a-4712-9fe1-e7f744b8d90f" name="Player" isAbstract="false" isLeaf="false" cachedFullName="Player">
         <elementDefinition Id="232568a7-66c6-422d-8834-8e80a2d70107" />
@@ -381,12 +315,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="3e945f6d-5281-4f41-aa6c-508f6c791785" name="DoorComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4" />
-        <suppliersInternal>
-          <interfaceRealization Id="e5aa65d5-02eb-4862-af8c-56319142844e">
-            <interfaceMoniker Id="f7eed97f-6858-4018-849c-5c73b59b2034" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="798c88b4-ee96-413b-aa9f-2670baa667e7" />
-          </interfaceRealization>
-        </suppliersInternal>
         <targetEnds>
           <association Id="755d22b2-5fa5-4e64-afce-714a06be438e" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="d5c1a1e6-acd7-4479-81f6-656174d18c41" LastKnownName="Door" />
@@ -478,12 +406,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="c5b0c86e-36b4-481d-802e-637841b83e5f" name="KeyHolderComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="67a95cb6-a445-408a-b14f-b51823f5589c" />
-        <suppliersInternal>
-          <interfaceRealization Id="c29230f9-04f4-43fa-8e95-d2037cdc9133">
-            <interfaceMoniker Id="f7eed97f-6858-4018-849c-5c73b59b2034" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="1985479d-4e5f-45e8-8b00-cd62bd5db023" />
-          </interfaceRealization>
-        </suppliersInternal>
         <targetEnds>
           <association Id="286659eb-d3ee-4e8e-b6f2-2f7bf4548f62" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="699a729a-8a68-4402-8e57-28eef3aee629" LastKnownName="KeyHolder" />
@@ -598,12 +520,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="ef3ea35b-0b52-4f56-879f-856a814b7a76" name="GameScene" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f5a1b7a5-010d-44a4-9177-c19d19014f9c" />
-        <suppliersInternal>
-          <interfaceRealization Id="0ea3e05d-ef62-47ea-938b-0bf9561cae61">
-            <interfaceMoniker Id="f7eed97f-6858-4018-849c-5c73b59b2034" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="2714f7d8-3102-42fc-9be6-138905e754c7" />
-          </interfaceRealization>
-        </suppliersInternal>
         <targetEnds>
           <association Id="00f0c0e3-6c88-4d40-a278-9a9774448a7a" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="c6e06008-40f5-4aa3-9004-144c0335a54d" LastKnownName="PlayerComponent" />
@@ -658,7 +574,7 @@
               <associationHasOwnedEnds>
                 <memberEnd Id="6ed46ac4-c943-4fd5-b59a-0690eb682040" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
                   <lowerValueInternal>
-                    <literalString Id="2f2ed002-97e4-40e8-a4aa-2b3790b39d1b" name="Lower" value="*">
+                    <literalString Id="2f2ed002-97e4-40e8-a4aa-2b3790b39d1b" name="Lower" value="1">
                       <elementDefinition Id="ffab9504-1558-4c82-8945-a0ae918ce4fc" />
                     </literalString>
                   </lowerValueInternal>
@@ -710,7 +626,7 @@
               <associationHasOwnedEnds>
                 <memberEnd Id="9af8101e-e74c-4a94-94b5-60c278fa6ef4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
                   <lowerValueInternal>
-                    <literalString Id="2484c987-4d77-432a-8584-3555a29c4503" name="Lower" value="*">
+                    <literalString Id="2484c987-4d77-432a-8584-3555a29c4503" name="Lower" value="1">
                       <elementDefinition Id="8a31fe27-1e26-426b-b6f7-6eaf946e2690" />
                     </literalString>
                   </lowerValueInternal>
@@ -740,6 +656,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="9a0b4abb-496d-4fbe-9a44-ce8c3110c112" />
+          </association>
+          <association Id="de07bc56-9463-4070-bdcf-06ac72aec1fa" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="0a013510-284d-4865-9bd7-2532a159d631" LastKnownName="Level" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cbb80b02-8c47-476b-9742-42c692294ea1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f983e999-c537-4698-a80f-82627889b195" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2938706c-38ce-4163-9b8d-27357e4cd245" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="35cb6b7e-41d5-4982-8b08-b7b0b59a57ce" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3a1dd03b-9828-42e5-8778-4dfc7a6b1eae" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>
@@ -815,6 +747,18 @@
               <referencedTypeMoniker Id="c8bcb521-9ab2-47df-adbe-2237109a9981" LastKnownName="KeyHolderComponent" />
             </type_NamedElement>
           </property>
+          <property Id="7c7859bb-6ed2-45bb-a19d-e0315028962f" name="frameRateCounter" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="609e9760-c265-4b01-afc5-d496a8bc116a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="2ee2aa4c-cee8-4769-a6ea-d7408d3e0e57" LastKnownName="FrameRateCounterComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="344cb3bb-c9e4-49b7-82f0-662123935312" name="level" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fb6f736b-5983-4111-b2b1-f4a7c78f8eff" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b35d1ea4-9bab-4ba0-a247-031ca2996b72" LastKnownName="Level" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="67054068-4cdc-414d-9ac7-9de20a2f19ab" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -875,12 +819,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="82c9d52d-dd14-4a8d-9373-2846ce28041c" name="LevelPartComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8b025473-9290-4cb3-a21b-9f0421cd787f" />
-        <suppliersInternal>
-          <interfaceRealization Id="b65379ca-6e8b-4ecc-b916-04e644b2e5c4">
-            <interfaceMoniker Id="f7eed97f-6858-4018-849c-5c73b59b2034" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="d8f4e594-c5c1-4562-afe7-a03232afd83e" />
-          </interfaceRealization>
-        </suppliersInternal>
         <targetEnds>
           <association Id="ae60125b-8d75-4b33-89ab-4910fffa4ce9" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="b275e992-ec70-4e5e-b4bc-5fefcbe63ca0" LastKnownName="LevelPart" />
@@ -1216,7 +1154,7 @@
       <class Id="0a013510-284d-4865-9bd7-2532a159d631" name="Level" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="e51398d5-488b-485b-a3ae-c419e6f8450d" />
         <targetEnds>
-          <association Id="139563c3-5407-4b7a-ade3-47812ed8c67a" isDerived="false" sourceEndRoleName="" targetEndRoleName="KeyHolders" isLeaf="false" isAbstract="false">
+          <association Id="139563c3-5407-4b7a-ade3-47812ed8c67a" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="699a729a-8a68-4402-8e57-28eef3aee629" LastKnownName="KeyHolder" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1225,7 +1163,7 @@
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="953087b8-a01c-40a7-b802-def2704b71b1" name="KeyHolders" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                <memberEnd Id="953087b8-a01c-40a7-b802-def2704b71b1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
                   <lowerValueInternal>
                     <literalString Id="4d113f1f-46db-4b87-ae65-70ded51bca56" name="Lower" value="1">
                       <elementDefinition Id="c0fa11e7-9b5d-41c1-b3b2-4885597d232f" />
@@ -1242,7 +1180,7 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="57dea9f1-ed07-4718-9814-60c3371cb43d" />
           </association>
-          <association Id="9a578ad0-a004-438f-b7f6-a7acc2e9899f" isDerived="false" sourceEndRoleName="" targetEndRoleName="Door" isLeaf="false" isAbstract="false">
+          <association Id="9a578ad0-a004-438f-b7f6-a7acc2e9899f" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="d5c1a1e6-acd7-4479-81f6-656174d18c41" LastKnownName="Door" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1251,14 +1189,14 @@
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="4d29e6ac-8c93-490f-af20-394363cd9c25" name="Door" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                <memberEnd Id="4d29e6ac-8c93-490f-af20-394363cd9c25" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
                   <elementDefinition Id="7e156221-2d81-4dbc-8ea1-5a0a696d23f6" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="30ee9803-0ead-4fb3-ab2e-72aabcb36fdd" />
           </association>
-          <association Id="7bd0a3d2-f268-479e-bef1-a2f3b5a67547" isDerived="false" sourceEndRoleName="" targetEndRoleName="Player" isLeaf="false" isAbstract="false">
+          <association Id="7bd0a3d2-f268-479e-bef1-a2f3b5a67547" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="a21c5783-493a-41e7-99f1-d2096a65a206" LastKnownName="Player" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1267,14 +1205,24 @@
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="6a5b3d34-2fbf-4019-be70-b5005cae5f44" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                <memberEnd Id="6a5b3d34-2fbf-4019-be70-b5005cae5f44" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <lowerValueInternal>
+                    <literalString Id="bf760124-3fd8-4ba9-ac06-1a44ad9436d0" name="Lower" value="2">
+                      <elementDefinition Id="3900fd57-38a6-44b4-bf91-7468dceaa7ea" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="d1d9d9ac-aea9-49f4-aa79-685eaf11a1d9" name="Upper" value="2">
+                      <elementDefinition Id="91cbf0ff-a6e8-4b37-8c96-7778af9b7938" />
+                    </literalString>
+                  </upperValueInternal>
                   <elementDefinition Id="03dbb794-6460-4533-92f2-12b4f2752976" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="8e577b1f-12a1-4942-bada-214dedddf488" />
           </association>
-          <association Id="cb71f278-6f56-4dc5-9d90-ce8889e1ea98" isDerived="false" sourceEndRoleName="" targetEndRoleName="LevelPart" isLeaf="false" isAbstract="false">
+          <association Id="cb71f278-6f56-4dc5-9d90-ce8889e1ea98" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="b275e992-ec70-4e5e-b4bc-5fefcbe63ca0" LastKnownName="LevelPart" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
@@ -1283,7 +1231,7 @@
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="0472d669-9d6b-42d2-b471-6f9aacc653c1" name="LevelPart" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                <memberEnd Id="0472d669-9d6b-42d2-b471-6f9aacc653c1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
                   <lowerValueInternal>
                     <literalString Id="d3e2c227-33a5-4979-95e8-8d4a91b15fd7" name="Lower" value="1">
                       <elementDefinition Id="5f04a79f-192c-40aa-870b-c61c9c5d99fc" />
@@ -1403,12 +1351,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="4bf40577-e374-4d59-8391-40e827b83082" name="FrameRateCounterComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3" />
-        <suppliersInternal>
-          <interfaceRealization Id="535e4c46-edf5-496b-b0ac-f5e2e02e0c80">
-            <interfaceMoniker Id="f7eed97f-6858-4018-849c-5c73b59b2034" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="22b96381-875d-4035-879b-14c13f171cdf" />
-          </interfaceRealization>
-        </suppliersInternal>
         <ownedOperationsInternal>
           <operation Id="a7c3b7e2-175d-4d65-ab42-0fc1ca106908" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="380171c6-7043-42ad-a458-7f89d2f404de" />
@@ -1447,6 +1389,16 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="2ee2aa4c-cee8-4769-a6ea-d7408d3e0e57" name="FrameRateCounterComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::FrameRateCounterComponent">
+        <elementDefinition Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b35d1ea4-9bab-4ba0-a247-031ca2996b72" name="Level" isAbstract="false" isLeaf="false" cachedFullName="Level">
+        <elementDefinition Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="d5375a2b-9632-4f79-8289-38ab03b01a46" name="Continuity">
     <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />

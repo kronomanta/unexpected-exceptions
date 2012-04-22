@@ -333,7 +333,7 @@
                     <literalString
                       Id="ffab9504-1558-4c82-8945-a0ae918ce4fc"
                       name="Lower"
-                      value="*" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -435,7 +435,7 @@
                     <literalString
                       Id="8a31fe27-1e26-426b-b6f7-6eaf946e2690"
                       name="Lower"
-                      value="*" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
@@ -474,6 +474,44 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="d94d374e-d11c-4ac3-b706-18f0a4ff58b6"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3a1dd03b-9828-42e5-8778-4dfc7a6b1eae"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e51398d5-488b-485b-a3ae-c419e6f8450d"
+              LastKnownName="Level"
+              LastKnownLocation="GameLogic.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f983e999-c537-4698-a80f-82627889b195"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="35cb6b7e-41d5-4982-8b08-b7b0b59a57ce"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -652,6 +690,44 @@
               <classMoniker
                 Id="67a95cb6-a445-408a-b14f-b51823f5589c"
                 LastKnownName="KeyHolderComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="609e9760-c265-4b01-afc5-d496a8bc116a"
+            name="frameRateCounter"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3"
+                LastKnownName="FrameRateCounterComponent"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="fb6f736b-5983-4111-b2b1-f4a7c78f8eff"
+            name="level"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08"
+                LastKnownName="Level"
                 LastKnownLocation="Continuity.uml" />
             </type_NamedElement>
           </property>
