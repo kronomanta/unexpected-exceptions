@@ -8100,6 +8100,90 @@
         Id="67fd4b52-cc73-40a2-9222-b51455d0014e"
         name="KeyHolderComponent[*" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3"
+        name="FrameRateCounterComponent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="22b96381-875d-4035-879b-14c13f171cdf">
+            <interfaceMoniker
+              Id="372dbce9-29e7-425d-a745-0b7ce73bea74"
+              LastKnownName="IDrawableGameComponent"
+              LastKnownLocation="Game.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="380171c6-7043-42ad-a458-7f89d2f404de"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d0f8c058-ad24-4561-91a0-63277b63e1a3"
+                  name="gameTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e76e91cf-8f56-4aa6-a3d4-4b275c7aa796"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6b21bbdc-2716-4266-bfc2-fc348a1a183e"
+                  name="renderer"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b0878085-64ba-4a13-ad4e-13fd65c7b786"
+                      LastKnownName="Renderer"
+                      LastKnownLocation="Renderer.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d9cb59da-f4e5-488d-8957-b10fae882280"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5c481474-0513-4933-8bc7-b64388152156"
+                  name="gameTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="e76e91cf-8f56-4aa6-a3d4-4b275c7aa796"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
