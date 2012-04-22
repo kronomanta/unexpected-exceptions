@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="d7236e65-5f4f-4ecc-8718-fd207247f6f8" name="GameSceneComponents" linkedPackageId="b7cf948d-fedf-46dd-a9c6-d4e9c0e4d88c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="169c6dc5-05d4-4b08-9ff7-b9657d9ca6a5">
-      <profileInstance Id="d4010113-c133-412a-b0a0-c8fcb8325419" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="87cbef9b-c841-467f-8889-e5a87e62269d">
-      <profileInstance Id="f82d75eb-8699-4cfc-a4a0-ede2c2094c9f" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="4f77b323-eca9-4686-ac29-586d6eba3275" name="DoorComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -427,6 +413,10 @@
             <interfaceMoniker Id="6f6c4f8f-c753-4e81-9670-56e12982c7bb" LastKnownName="IDrawableGameComponent" />
             <elementDefinition Id="836ee3cc-88a2-4ed2-8e15-e559bd23608a" />
           </interfaceRealization>
+          <dependency Id="6ed84486-e1a4-4729-9b82-f70f73e630ba">
+            <classMoniker Id="ccffbcc7-e948-4c19-9a38-7aa0a86ef783" LastKnownName="AnimationDrawer" />
+            <elementDefinition Id="343c9caa-6567-4f7b-8d13-ecc28f89e754" />
+          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association Id="cea030a6-0d27-445e-a67a-921d7c425d79" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
@@ -477,6 +467,12 @@
             <elementDefinition Id="e1bea885-68be-4203-9669-21a4cf2d16f6" />
             <type_NamedElement>
               <referencedTypeMoniker Id="4a446c69-881d-47fb-9950-1094b39c6dca" LastKnownName="LevelPartComponent" />
+            </type_NamedElement>
+          </property>
+          <property Id="1972c75e-4123-4662-b121-b49325489261" name="animationDrawer" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="46d8793d-4706-46df-af93-96a7909bcb65" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e69d7574-8cae-4478-85c3-b30ae5226e48" LastKnownName="AnimationDrawer" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -613,8 +609,150 @@
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ccffbcc7-e948-4c19-9a38-7aa0a86ef783" name="AnimationDrawer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc" />
+        <suppliersInternal>
+          <interfaceRealization Id="e767809c-aad6-4a33-87a9-f369a45924f5">
+            <interfaceMoniker Id="6f6c4f8f-c753-4e81-9670-56e12982c7bb" LastKnownName="IDrawableGameComponent" />
+            <elementDefinition Id="5ccb7c61-ef06-4935-93b5-3a395e07d07c" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="6c3c2199-74d4-4b02-8e99-dc1d97c417ff" name="Position" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bb188e19-8d9e-4c98-a00b-7b07de7f6996" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe39f78b-4b31-4148-af76-a3b59e6815d8" LastKnownName="Point" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="7551f34a-00d4-45e9-a5ca-15b908968205" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7d7250c4-1096-4eef-be02-c6fe0b8549b0" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e51d4dc6-58a5-421b-bd7a-019828314be7" name="gameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="af0e002b-4c9e-4853-910f-2a66a3311b2c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b1fb330b-84cc-4118-a494-5d13af6e9d1f" name="renderer" direction="In" isUnique="false">
+                  <elementDefinition Id="c139fcf6-3903-4342-a2ca-7dd316252fac" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="725197ec-4f7f-4577-a938-b5e1f7fe936e" LastKnownName="Renderer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c2c4df78-2969-40b1-bb60-483aa27bb103" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ca2a2096-9383-4a4a-8be6-b77ea2aa57b7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9e9ffb0d-da6d-4f96-aff1-411a05a467ba" name="gameTime" direction="In" isUnique="false">
+                  <elementDefinition Id="78cebc5a-3d3d-414e-85a4-2fa13153d203" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4568f99c-ce66-4517-aa5f-25e50aa20677" name="AnimationDrawer" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1ef572da-7a12-49d1-863c-dc8d1adbc98b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fada1ff5-76d2-4bc1-bc7a-5f43466132be" name="image" direction="In" isUnique="false">
+                  <elementDefinition Id="1cff2b29-6358-4e27-89c7-e8189884dc8a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="8b1966d0-ebe0-4734-ba2d-6b10e434e166" LastKnownName="Image" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9a7f80b9-d3c5-400a-9da4-668f29dddc5f" name="frameWidth" direction="In" isUnique="false">
+                  <elementDefinition Id="25b651a5-7f21-41e8-a7e5-17e980c72f09" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="12672581-9cea-432a-8d82-3d4246102b0b" name="frameHeight" direction="In" isUnique="false">
+                  <elementDefinition Id="3ba8170b-849c-4132-b001-a7f03ddb6b74" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2cf587ba-6b6f-41e0-8000-bca8b4cc7747" name="SetAnimation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5801f4ff-e25f-49cf-b99b-e5ed388d00de" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a8a16854-81e9-4d19-8a28-eff8bfd5cfd2" name="row" direction="In" isUnique="false">
+                  <elementDefinition Id="a2c6e689-3be8-4213-83d2-0d237775c874" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="06338a80-1e1f-43aa-a7bf-2845278757a7" name="column" direction="In" isUnique="false">
+                  <elementDefinition Id="314abe9b-dde8-4e6d-b038-a334deefb32d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="19bda1a5-7a08-495b-9d64-5ef09a400fcb" name="length" direction="In" isUnique="false">
+                  <elementDefinition Id="96027553-397b-46ab-b8ce-a76384735db3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e69d7574-8cae-4478-85c3-b30ae5226e48" name="AnimationDrawer" isAbstract="false" isLeaf="false" cachedFullName="Continuity::AnimationDrawer">
+        <elementDefinition Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fe39f78b-4b31-4148-af76-a3b59e6815d8" name="Point" isAbstract="false" isLeaf="false" cachedFullName="Point">
+        <elementDefinition Id="d7d5f499-8552-4c93-a5a5-9b135d78c3a8" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="b7cf948d-fedf-46dd-a9c6-d4e9c0e4d88c" name="Continuity">
     <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />
+    <profileInstances>
+      <packageHasProfileInstances Id="169c6dc5-05d4-4b08-9ff7-b9657d9ca6a5">
+        <profileInstance Id="d4010113-c133-412a-b0a0-c8fcb8325419" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="87cbef9b-c841-467f-8889-e5a87e62269d">
+        <profileInstance Id="f82d75eb-8699-4cfc-a4a0-ede2c2094c9f" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
