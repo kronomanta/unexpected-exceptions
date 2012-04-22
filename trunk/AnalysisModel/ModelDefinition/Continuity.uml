@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1"
   name="Continuity" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -3153,6 +3153,9 @@
                 LastKnownLocation="Continuity.uml" />
             </covered>
           </executionOccurrenceSpecification>
+          <lostFoundTarget
+            Id="c3ae66d1-465f-4b27-ac55-f95b9d4e8f10"
+            name="LostFoundTarget1" />
           <messageOccurrenceSpecification
             Id="eb784370-435e-4118-8315-1737f94f0a8f"
             name="MessageOccurrenceSpecification1">
@@ -3163,9 +3166,6 @@
                 LastKnownLocation="Continuity.uml" />
             </covered>
           </messageOccurrenceSpecification>
-          <lostFoundTarget
-            Id="c3ae66d1-465f-4b27-ac55-f95b9d4e8f10"
-            name="LostFoundTarget1" />
           <messageOccurrenceSpecification
             Id="f6796489-8d04-4faf-85dd-7f269726e7f7"
             name="MessageOccurrenceSpecification2">
@@ -3398,22 +3398,22 @@
             </operands>
           </combinedFragment>
           <operandOccurrenceSpecification
-            Id="f0b5f6cd-b658-482c-b6b4-e41deb22b4dc"
-            name="OperandOccurrenceSpecification9">
-            <covered>
-              <lifelineMoniker
-                Id="80b6cfa7-b52a-4c60-be33-856be449c50d"
-                LastKnownName="blockLocations[*] : Rectangle"
-                LastKnownLocation="Continuity.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="cd89c18a-e773-4a3f-8196-acb9b0cc661d"
             name="OperandOccurrenceSpecification7">
             <covered>
               <lifelineMoniker
                 Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
                 LastKnownName="player : Player"
+                LastKnownLocation="Continuity.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="f0b5f6cd-b658-482c-b6b4-e41deb22b4dc"
+            name="OperandOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="80b6cfa7-b52a-4c60-be33-856be449c50d"
+                LastKnownName="blockLocations[*] : Rectangle"
                 LastKnownLocation="Continuity.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -3468,16 +3468,6 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="113b6340-3e11-45ca-a3a5-58620607c4ac"
-            name="MessageOccurrenceSpecification12">
-            <covered>
-              <lifelineMoniker
-                Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
-                LastKnownName="player : Player"
-                LastKnownLocation="Continuity.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="8e06e3e6-8c40-4dc8-8aa6-3d7e495e322d"
             name="MessageOccurrenceSpecification13">
             <covered>
@@ -3488,8 +3478,8 @@
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="f0bcc9cf-9c32-41ff-90e1-aff429b00361"
-            name="MessageOccurrenceSpecification15">
+            Id="113b6340-3e11-45ca-a3a5-58620607c4ac"
+            name="MessageOccurrenceSpecification12">
             <covered>
               <lifelineMoniker
                 Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
@@ -3504,6 +3494,16 @@
               <lifelineMoniker
                 Id="80b6cfa7-b52a-4c60-be33-856be449c50d"
                 LastKnownName="blockLocations[*] : Rectangle"
+                LastKnownLocation="Continuity.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f0bcc9cf-9c32-41ff-90e1-aff429b00361"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
+                LastKnownName="player : Player"
                 LastKnownLocation="Continuity.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -3526,22 +3526,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="bb89493f-de3d-4f67-a56f-390c0a0d5e2e"
-            name="OperandOccurrenceSpecification8">
-            <covered>
-              <lifelineMoniker
-                Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
-                LastKnownName="player : Player"
-                LastKnownLocation="Continuity.uml" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification
             Id="2a0e629d-bb17-47f2-a2f9-1072e7b319a6"
             name="OperandOccurrenceSpecification10">
             <covered>
               <lifelineMoniker
                 Id="80b6cfa7-b52a-4c60-be33-856be449c50d"
                 LastKnownName="blockLocations[*] : Rectangle"
+                LastKnownLocation="Continuity.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="bb89493f-de3d-4f67-a56f-390c0a0d5e2e"
+            name="OperandOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
+                LastKnownName="player : Player"
                 LastKnownLocation="Continuity.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -3614,16 +3614,6 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="0ef8f537-db6a-4c83-a34b-50d76a059c2d"
-            name="MessageOccurrenceSpecification17">
-            <covered>
-              <lifelineMoniker
-                Id="428d4813-9976-45be-8f21-9475344ff1df"
-                LastKnownName="Rectangle"
-                LastKnownLocation="Continuity.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="1e207e6a-860a-4040-8cdb-f4f555923933"
             name="MessageOccurrenceSpecification16">
             <covered>
@@ -3634,8 +3624,8 @@
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="d3aa6419-cd0b-4d74-ac99-1a308b1ce50a"
-            name="MessageOccurrenceSpecification18">
+            Id="0ef8f537-db6a-4c83-a34b-50d76a059c2d"
+            name="MessageOccurrenceSpecification17">
             <covered>
               <lifelineMoniker
                 Id="428d4813-9976-45be-8f21-9475344ff1df"
@@ -3650,6 +3640,16 @@
               <lifelineMoniker
                 Id="3c5ef271-487c-4aa9-90ef-da6361aa3de6"
                 LastKnownName="player : Player"
+                LastKnownLocation="Continuity.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d3aa6419-cd0b-4d74-ac99-1a308b1ce50a"
+            name="MessageOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="428d4813-9976-45be-8f21-9475344ff1df"
+                LastKnownName="Rectangle"
                 LastKnownLocation="Continuity.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -6720,6 +6720,191 @@
       <undefinedType
         Id="b805e9ca-8305-4670-a5c1-11e8b88c86b2"
         name="Vector2" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="89dc6ac6-d5f6-4fb6-bd50-86b551e9e211"
+        name="java.awt.image.BufferedImage"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="97ef8e55-cb67-4ce2-b91c-2856c25e7ff4"
+        name="java.awt.Color"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="f5463033-ee39-4d36-a2f7-0d6f5be62620"
+        name="Color" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="3b332388-d97e-4217-8af7-8eb5fbc89022"
+        name="java.awt.Graphics2D"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="068d0e6e-71a3-4b9e-9ef2-b40367f4a712"
+        name="Graphics2D" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="634941c2-3a40-4626-84c5-df8f6989a2ba"
+        name="java.awt.event.KeyListener"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="fdab7f6b-0ce4-49d8-b9e8-7c492f9c734a">
+            <classMoniker
+              Id="9152f5b1-c638-4f99-ad32-668e7c6fe9fe"
+              LastKnownName="java.awt.event.KeyEvent"
+              LastKnownLocation="Continuity.uml" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation
+            Id="156376df-8b4c-48a7-8489-b7f8b0aa198f"
+            name="KeyPressed"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="99f6d8c2-3fff-4dd9-aab1-0107303d7ac3"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46006a69-58b4-4435-8e76-9b1356cd85a4"
+                      LastKnownName="KeyEvent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6e75e40e-df4d-4ab0-beb6-779d22a1e82a"
+            name="KeyReleased"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4a472145-334f-4f81-ab9f-58a241404d16"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46006a69-58b4-4435-8e76-9b1356cd85a4"
+                      LastKnownName="KeyEvent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="73dabc99-7522-4867-9009-2cfbc41f0760"
+            name="KeyTyped"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="08fcf298-efd3-475d-a760-f3148a85cc3d"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="46006a69-58b4-4435-8e76-9b1356cd85a4"
+                      LastKnownName="KeyEvent"
+                      LastKnownLocation="Continuity.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9152f5b1-c638-4f99-ad32-668e7c6fe9fe"
+        name="java.awt.event.KeyEvent"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="46006a69-58b4-4435-8e76-9b1356cd85a4"
+        name="KeyEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="f78d8d70-fb7f-4fec-a8d1-20bdf3f5f0dc"
+        name="java.awt.Canvas"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b777add2-18b8-433c-81d0-23cf7a531634"
+        name="javax.swing.JFrame"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="e76e91cf-8f56-4aa6-a3d4-4b275c7aa796"
+        name="GameTime" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9f1dcc2a-c1c4-4b11-9c4a-ad05c59a5db1"
+        LastKnownName="Renderer"
+        LastKnownLocation="Renderer.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="76bf3367-4add-49e2-9db1-d638c09f253a"
+        LastKnownName="Game"
+        LastKnownLocation="Game.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="55224dd3-41b1-4493-ac97-a008ac2d69c0"
+        LastKnownName="Main"
+        LastKnownLocation="Main.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b1cae1e2-789d-4996-9875-c8118cc1f188"
+        name="ContinuityGame" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

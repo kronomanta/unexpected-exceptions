@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="68ea89f0-5e4a-4662-93fa-7466100ad6bc" name="Main" linkedPackageId="6ef92442-a750-4dcc-8bf0-c99578ae600d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="b6de62a4-8f8d-4dac-91ea-83a36c4f560e">
+      <profileInstance Id="768e3791-77dd-4439-8d64-094d84149736" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="f960d59a-f6d7-4819-9f5c-027e31387192">
+      <profileInstance Id="e8edcdf7-3c87-46a0-83d2-03d346e975fc" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="bdef4353-2a0a-439e-b812-321f6f3be45c" name="java.awt.event.KeyListener" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="634941c2-3a40-4626-84c5-df8f6989a2ba" />
+        <suppliersInternal>
+          <dependency Id="550a550a-1534-456d-a898-579ea6a8186e">
+            <classMoniker Id="824f0c0f-56e2-4ed5-a0b6-0fe660409427" LastKnownName="java.awt.event.KeyEvent" />
+            <elementDefinition Id="fdab7f6b-0ce4-49d8-b9e8-7c492f9c734a" />
+          </dependency>
+        </suppliersInternal>
+        <ownedOperations>
+          <operation Id="9d1c51fa-9cae-42ee-aeb2-c3fa96ab0f5c" name="KeyPressed" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="156376df-8b4c-48a7-8489-b7f8b0aa198f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1931f9d1-43ea-41ec-8ee2-627c6e16e2a2" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="99f6d8c2-3fff-4dd9-aab1-0107303d7ac3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" LastKnownName="KeyEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="44668a5f-398d-4cbd-968b-a0882e5ba5e7" name="KeyReleased" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="6e75e40e-df4d-4ab0-beb6-779d22a1e82a" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ac1188e8-a96a-4507-8348-d666f56e18bb" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="4a472145-334f-4f81-ab9f-58a241404d16" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" LastKnownName="KeyEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1405b4aa-cb9a-4aff-be79-1724fa085bb1" name="KeyTyped" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="73dabc99-7522-4867-9009-2cfbc41f0760" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4443fd3a-fa4e-49b6-bb17-437b2dbbf770" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="08fcf298-efd3-475d-a760-f3148a85cc3d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" LastKnownName="KeyEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fbf82446-2d92-4139-b368-33f49fa3b13c" name="KeyboardState" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1c7861b9-ded9-412e-bf7b-bfa29aa01a9a" />
+        <suppliersInternal>
+          <interfaceRealization Id="ec0239ce-44cf-4600-8cb3-ef72a6d3a9ec">
+            <interfaceMoniker Id="bdef4353-2a0a-439e-b812-321f6f3be45c" LastKnownName="java.awt.event.KeyListener" />
+            <elementDefinition Id="1f545ce6-261c-4401-8d19-6691b5171613" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="81be6008-5513-464a-a972-e3e0e32ab4b5" name="pressedKeys" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <lowerValueInternal>
+              <literalString Id="2282817f-ecc2-426f-8cf4-49b915d51534" name="Lower" value="*">
+                <elementDefinition Id="733ca15c-c13f-4deb-beaf-ff2605a3044c" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="d6d1dd81-bcfa-4590-a330-7282790ecf26" name="Upper" value="*">
+                <elementDefinition Id="10c3680b-4a67-41ce-97c2-08e4ac60643f" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="4b668f9b-2687-4bc6-9b8d-c544fd399040" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="58f64f92-bc37-4404-88b1-4458cd662de3" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="c75ea536-a570-487f-bd48-167a895454f6" name="previousPressedKeys" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <lowerValueInternal>
+              <literalString Id="0f32dd9b-ddca-4bce-871d-7e5d6f917374" name="Lower" value="*">
+                <elementDefinition Id="aa82a46a-fa6c-4a79-b353-c8b7ef11a26a" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="237c0fa2-ea41-4029-b073-122673426455" name="Upper" value="*">
+                <elementDefinition Id="87287808-ef26-4589-9bb2-585843460a5f" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="92103879-3dd6-4298-8625-2a6f4cf3989d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="58f64f92-bc37-4404-88b1-4458cd662de3" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="0425fdbd-b021-45f0-be3f-07b52d72df8c" name="Instance" isLeaf="false" isStatic="true" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="014e20e6-7135-4a1d-927d-0cd8475a3fcc" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b98095bb-781d-4b9e-8c7b-a58a7894bbe9" LastKnownName="KeyboardState" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="bdbc476b-82e5-4619-912f-cd2dc9eacd87" name="KeyPressed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7156b2cf-9e99-4f98-86f7-412063fbfbf5" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="24ab48c4-ea86-4187-beb4-ba534e3c28c2" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="bcf3a9b8-60fb-4318-acea-27c45711597c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" LastKnownName="KeyEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4a025e4b-c2f7-49cf-a6ce-e1c32910d8a3" name="KeyReleased" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2786410d-666c-43da-87a2-0761c8c22794" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9733380b-4a5e-48f6-a003-7a58fc5aa338" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="9ceb25f2-87a2-4bd3-a29a-fb6e73339d73" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" LastKnownName="KeyEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f5bf5815-f825-4689-8acc-a4ffb1667bde" name="KeyTyped" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="5c5c1ec2-9a9c-41ae-959f-354149335840" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7b660e1a-c78c-4433-8abc-ef153bb756bb" name="e" direction="In" isUnique="false">
+                  <elementDefinition Id="06530771-e187-4b96-a0c7-589963fd6536" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" LastKnownName="KeyEvent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b8feb928-7e07-4fdd-a806-f87699a91048" name="IsKeyDown" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="63284299-eaf8-4949-b692-420ed0e7ba7b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d09b6ff2-3e05-4b68-ac96-553c177dad3e" name="key" direction="In" isUnique="false">
+                  <elementDefinition Id="3c93c632-5d98-4899-88d8-cba0846317d6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="58f64f92-bc37-4404-88b1-4458cd662de3" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bc814f30-7a32-4068-b875-4001f87b19d5" direction="Return" isUnique="false">
+                  <elementDefinition Id="dab5d472-8350-4e32-9355-68a9144d127f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a398c51-7e14-4c34-85d3-dbafc8950f38" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="75d96160-620f-40b9-94ae-cfda5ac2f8fa" name="IsKeyJustPressed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="701b07c6-a85f-4290-b540-986427228130" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="73e28a60-480f-4585-a239-133b499ecc1a" name="key" direction="In" isUnique="false">
+                  <elementDefinition Id="d29e774b-5690-4564-9d33-a44bef940fdd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="58f64f92-bc37-4404-88b1-4458cd662de3" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c12e9d62-81ad-4fff-97cc-eb98c78f2463" direction="Return" isUnique="false">
+                  <elementDefinition Id="487ed981-ea09-45f2-a466-8356881aa17a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7a398c51-7e14-4c34-85d3-dbafc8950f38" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="23323437-f364-4d55-861e-a5b9a819fe5d" name="Tick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="690832d2-3ed3-45fb-875d-861a99941d2e" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="824f0c0f-56e2-4ed5-a0b6-0fe660409427" name="java.awt.event.KeyEvent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9152f5b1-c638-4f99-ad32-668e7c6fe9fe" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7a838db8-1bb2-4330-83ce-2a1179efcdec" name="KeyEvent" isAbstract="false" isLeaf="false" cachedFullName="KeyEvent">
+        <elementDefinition Id="46006a69-58b4-4435-8e76-9b1356cd85a4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="58f64f92-bc37-4404-88b1-4458cd662de3" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7a398c51-7e14-4c34-85d3-dbafc8950f38" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="5fee3536-b5ff-4aed-9d10-ab54b4e0e1a7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="daef2dfd-bf67-4e3a-8205-549617f2f21b" name="Main" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9490f0d4-68a6-4810-ae4a-6978ce6668b3" />
+        <targetEnds>
+          <association Id="fca46cb0-d240-4b23-a1c9-616ba1eb2e9f" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="9a8167ed-0589-4884-9b26-881242c07c90" LastKnownName="GameFrame" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5fc2ac36-8638-4a9a-ae90-24f41d5c8e71" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9a11f5b8-6081-4302-8068-fc6b945f3d25" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="563ba51e-0930-49d6-842b-4fc387a3e4cd" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="3c952190-3da6-494b-a926-270d79ad879e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="520c1ece-692b-4a4d-84b1-c01a1824d2ae" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="863ec448-2796-4c88-80d4-5fd5a0627312" name="Main" isLeaf="false" isStatic="true" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2f90cf23-0184-47e5-bd23-1f6df0461282" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bda6894e-4bd4-46fb-8cdf-7b2e7c0d0eee" name="args" direction="In" isUnique="false">
+                  <lowerValueInternal>
+                    <literalString Id="25b1b5fe-a421-4c36-b9aa-e19cfb9db534" name="Lower" value="*">
+                      <elementDefinition Id="ba8c4d0e-dc99-42be-b256-9ca49e85e04e" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="09423a3e-10be-4471-bb9d-cb17b2c10401" name="Upper" value="*">
+                      <elementDefinition Id="bb58e1da-63e4-4074-9ae2-8f3ec306632a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="7d6eeb19-4ee4-40fe-9141-346fa3fc7c70" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="58f64f92-bc37-4404-88b1-4458cd662de3" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ef06b7ce-6646-47ce-bc99-60ee57557146" name="java.awt.Canvas" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f78d8d70-fb7f-4fec-a8d1-20bdf3f5f0dc" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7adc4bf8-6fee-4fea-b3bb-754f2232eda5" name="GameCanvas" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9301f905-9198-40c9-8319-0b7f49a86a80" />
+        <generalsInternal>
+          <generalization Id="bdae1b22-29e1-4151-9978-70924448de6f" isSubstitutable="false">
+            <classMoniker Id="ef06b7ce-6646-47ce-bc99-60ee57557146" LastKnownName="java.awt.Canvas" />
+            <elementDefinition Id="e5af3db2-ae31-4be0-926e-18eeafe1664c" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="119cdc5f-a744-44c8-9e90-d3023034232e" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="08c8d15b-73af-4a8c-b995-e5503a2d3346" LastKnownName="ContinuityGame" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b96873fa-928c-4c7b-ba4c-4d07b3877f01" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="67ff9e3f-d70f-4268-b9be-2ba558e966e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="04bacc74-e01e-4124-9021-d26e38786dc1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="f025aec8-42f8-4118-8770-cede5f068b71" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="86b61878-8f4c-461c-9061-20fa4c7da64d" />
+          </association>
+        </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="72bcccb8-ed26-4ed7-a054-6ce5bae76290" name="Tick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2e7cbc4b-be13-42e4-8d01-92f20405faa9" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8929780b-130b-4986-9fcb-611e2615ff3b" name="javax.swing.JFrame" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b777add2-18b8-433c-81d0-23cf7a531634" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9a8167ed-0589-4884-9b26-881242c07c90" name="GameFrame" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3e8656fc-338f-4943-be3a-c5b27c81b60e" />
+        <suppliersInternal>
+          <dependency Id="ee8894f9-d2af-4c87-9a5d-04d79d41fdf0">
+            <classMoniker Id="fbf82446-2d92-4139-b368-33f49fa3b13c" LastKnownName="KeyboardState" />
+            <elementDefinition Id="ca600edf-39b7-4c7a-ab99-183d39586c65" />
+          </dependency>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization Id="88dd851d-78ef-4ad9-94a1-b2f5bbddcbfa" isSubstitutable="false">
+            <classMoniker Id="8929780b-130b-4986-9fcb-611e2615ff3b" LastKnownName="javax.swing.JFrame" />
+            <elementDefinition Id="d889c72d-081a-422c-ae92-c88b87e70f30" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="f9b599c5-b61e-4096-8bc4-c2863ad8d7c5" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7adc4bf8-6fee-4fea-b3bb-754f2232eda5" LastKnownName="GameCanvas" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="440f62d0-13da-4bdb-9965-5d7c7045c856" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="42673573-95ea-4bab-b501-ac787f3d0ce8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c7b0c093-86f9-410c-a1b7-ccdb2991501e" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="9083af14-2804-4123-9f36-2ba1f1f92340" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7f8a3cf0-aae5-4ad8-90aa-d1d9dbb8be67" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b98095bb-781d-4b9e-8c7b-a58a7894bbe9" name="KeyboardState" isAbstract="false" isLeaf="false" cachedFullName="Continuity::Main::KeyboardState">
+        <elementDefinition Id="1c7861b9-ded9-412e-bf7b-bfa29aa01a9a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="08c8d15b-73af-4a8c-b995-e5503a2d3346" name="ContinuityGame" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0b932f57-1a4e-4449-ad3e-bf71ef13ac0f" />
+        <ownedOperationsInternal>
+          <operation Id="318917b2-9478-4ac7-911f-984963be19e0" name="Tick" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0bddcf44-d786-4884-8000-0bbd425e088e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="422edf4b-179e-4919-b978-92eb0fe3d32e" name="renderer" direction="In" isUnique="false">
+                  <elementDefinition Id="7fd35cd1-c933-46d6-9e97-fcf07a163e95" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f66ab501-a3db-4fae-b935-dc564fb403a6" LastKnownName="Renderer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f66ab501-a3db-4fae-b935-dc564fb403a6" name="Renderer" isAbstract="false" isLeaf="false" cachedFullName="Continuity::Renderer::Renderer">
+        <elementDefinition Id="b0878085-64ba-4a13-ad4e-13fd65c7b786" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="6ef92442-a750-4dcc-8bf0-c99578ae600d" name="Continuity">
+    <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />
+  </package>
+</logicalClassDesignerModel>
