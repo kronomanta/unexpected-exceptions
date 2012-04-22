@@ -1,0 +1,14 @@
+levels/05.xml
+21
+p1 right
+p1 jump
+go 20
+p2 right
+p2 jump
+go 20
+slide up
+go 25
+p1 jump
+go 13
+slide right
+go 52

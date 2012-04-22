@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>40</x>
+      <y>40</y>
+      <w>680</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>Level állapotai
+--
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>200</x>
+      <y>410</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Pálya befejezve</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>210</x>
+      <y>310</y>
+      <w>98</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>restart
+lt=&lt;-</panel_attributes>
+    <additional_attributes>50;30;50;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>120</x>
+      <y>80</y>
+      <w>580</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>Pálya befejezetlen
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.InitialState</type>
+    <coordinates>
+      <x>150</x>
+      <y>200</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>40</x>
+      <y>240</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.InitialState</type>
+    <coordinates>
+      <x>50</x>
+      <y>260</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>210</x>
+      <y>190</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Van kulcs</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>580</x>
+      <y>190</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Kulcsok felvéve</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>270</x>
+      <y>150</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Player az összes kulccsal ütközött
+lt=&lt;-</panel_attributes>
+    <additional_attributes>310;50;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>270</x>
+      <y>170</y>
+      <w>330</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>restart Level
+lt=&lt;-</panel_attributes>
+    <additional_attributes>30;50;310;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>180</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>300</x>
+      <y>200</y>
+      <w>378</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>Player ütközik az ajtóval
+lt=&lt;-</panel_attributes>
+    <additional_attributes>30;240;280;190;340;30</additional_attributes>
+  </element>
+</diagram>

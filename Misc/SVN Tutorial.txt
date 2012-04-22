@@ -1,0 +1,37 @@
+SVN gyorstalpalo
+----------------
+Az SVN (a subversion roviditese) egy verziokoveto rendszer, ami igazabol abbol all hogy ugyanazokon a fajlokon dolgozunk mindannyian, persze mindenki a sajat gepen. Amikor valtoztatunk a fajlokon felkuldjuk a servernek (commit), aztan masnap letoltjuk a a masok altal eszkozolt valtozasokat (update). Persze sok mas hasznos es jo dolgot is tud, pl. a kliens beepul a windowsba es nem kell kulon programmal szorakozni, jobb gombbal minden svn funkcio elerheto.
+
+Ahhoz hogy csatlakozni tudj a serverhez szukseged van egy svn kliensre is, amit pl. innen tudsz letolteni: http://tortoisesvn.net/downloads.html
+Ha 64bites oprendszered van es azt szeretned hogy totalcommanderbol is mukodjenek a funkciok akkor a 32bites es 64bites verziot is telepitened kell. Ha feltelepitetted es mukodik (ugy ellenorzod hogy rakattintasz jobb gombbal valamilyen fajlra es a felnyilo context menuben uj pontokat latsz), akkor keresel egy helyet a szamitogepeden es letrehozol egy mappat ahol a kozos fajlokat szeretned tarolni, pl. C:\Work\UnexpectedExceptions\ vagy D:\UnexpectedExceptions\. Rakattintassz jobb gombbal a mappara es az SVN checkout-ra kattintasz. Itt meg kell adnod a server cimet ami esetunkben 'http://server1.serverhive.eu/popless/UnexpectedExceptions/'
+Ezalatt adod meg a mappat ahol tarolni fogod a dolgokat, ez mar ki van toltve. Ekkor minden beallitas megvan, ra kell kattintani az Ok-ra es meg kell adni a fejlhasznalonevedet es jelszavadat. Ha minden jol sikerult letoltodik minden fajl amire szukseged lesz a munka soran.
+
+Ha minden jol sikerult lathatod a fajlokat amik elott zold pipak diszelegnek. Ezek azt jelzik hogy nem valtoztattal rajtuk, minden abban az allapotban van ahogyan letoltotted. Miutan szerkesztesz valamelyik fajlon egy piros felkialtojelre valtozik ez az ikon, jelezve hogy valtozas tortent. Ugyancsak valtozasnak szamit ha uj fajlt vagy konyvtart hoztal letre. Ezek a fajlok nincsenek meg verziokovetes alatt es masoknal se jelennenek meg. Jobb gombbal rakattintasz a konyvtarra vagy fajlra, es Tortose SVN kinyilo menuben az Add-ra kell kattintani. Ha jol sikerult minden akkor az ikonok elott egy kek plussz jelet lathatsz. Amirol mindenkepp beszelni kell az a fajlok es konyvtarak atnevezese ill. athelyezese. NE TEDD! Legalabbis ne a szokasos modon... Ha egy fajlt a.txt-kent ismert az svn es te atnevezed b.txt-re az svn szamara ez olyan mintha elveszett volna az a.txt es letrehoztal volna egy b.txt-t. Ezzel az a baj hogy megszakad a verziokovetes, olyan mintha a ket fajlnak nem lenne koze egymashoz. Athelyezesre es atnevezesre a context menuben a Tortoise SVN alatt a Rename parancs jo. Ja es ugyan ez vonatkozik a torlesre: delete parancs. Ha te szimplan letorlod a fajlt attol nalunk meg nem fog eltunni. Viszont a legjobb ha egyaltalan nem torol senki. :) (hozzateszem hogy az svn egyik elonye hogy visszahozhato a torolt fajl, nem csak az aktualis fajlokat tarolja a szerver, de az elso fajltol kezdve minden allapotot vissza tud hozni) Es konyvtarakat ne masoljatok az svn mappatokon belul! Igy osszegyujtve ez a par szabaly zavaro lehet, de csak gyakorlat kerdese es egyaltalan nem zavaro.
+
+Miutan mindenfelen valtoztatsz, a valtozasokat el kell kuldened a servernek. Ezt a legegyszerubben ugy tudod megtenni hogy megkeresed a fokonyvtarat, jobb gombal rakattintasz es Commit. Ekkor egy osszegzest kapsz arrol hogy milyen valtozasok tortentek es egy hasznos funkcio is elerheto innen: A listaban jobb gombbal rakattintassz egy tetelre es megnyomod a Compare with base parancsot. Ez sorrol sorra kielemzi az eredeti es a megvaltozott fajlokat es megmondja a pontos valtozasokat. Ebben a listaban meg azt is lathatod ha esetleg egy fajlt nem vettel be svn-be (avagy nem add-oltad). Ezt itt is meg tudod tenni: jobb gomb a tetelre es Add. Ha ugy nez ki minden stimmel leokezod es megvarod mig feltoltodnek az anyagok. Mindenkit megkerek arra hogy figyeljen miket tolt fel. Pl. egy word dokumentum szerkesztese soran atmenetileg letrejohet ugyanott egy biztonsagi masolat. Senki se kivancsi ra. :) Ugyan ez vonatkozik a kulonbozo php editorok altal letrehozott fajlokra, es pl. a website altal generalt cache fajlokra. Persze maceras minden commit elott atfesulni a listat hogy biztos nem toltok-e fel egy projectfajlt, de ezt meg tudod oldani ugy hogy a commit ablakban talalhato nem add-olt fajlokra jobbgomb es 'ignore'. Innentol kezdve az svn figyelmen kivul hagyja az adott konyvtarat vagy fajlt. Lehetoseg van globalisan meghatarozni szabalyokat arra hogy miket ignoroljon az svn. Jobb gomb, Tortoise SVN, Settings es ott a Global Ignore Patterns-be beirhatod ezt: '.* *.cache'. Ennek hatasara az osszes .-tal kezdodo vagy cache kiterjesztesu fajl ignorolva van. Tehat ott tartottunk hogy feltoltodnek a valtozasok...
+
+Ekkor elofordulhat hogy panaszkodik az svn. Ha mondjuk mindketten dolgozunk az index.html-en, es en elotted felcommitolom a serverre akkor teged nem fog engedni elkuldeni a valtozasokat hiszen te mas alapbol dolgoztal mint ami abban a pillanatban a serveren van. A server nem tudja mit kezdjen ket kulonbozo valtozassal. Ilyenkor eloszor update-elni kell, ami hatasara a masok altal eszkozolt valtozasok szinkronizalodnak a szamitogepeden. Tehat letoltod az index.html-en tortent valtozasokat es valoszinuleg ki fogja irni az svn hogy 'merged'. Ez annyit tesz hogy a kliensed ossze tudta fesulni a ket fajlt, es neked semmi dolgod nincs mar vele csak felcommitolni. Az svn ezt azert tudja megcsinalni mert a szoveges fajlokat nagyon inteligensen kezeli. Ha en az index.html header reszeben dolgoztam te meg a footer reszen, az nem jelent 'conflict'-ot. Ha megis conflict lenne akkor manualisan kell osszefesulni a fajlokat, de ezt nem irom le ide. (Minden munkamegkezdes elott erdemes update-elni, mert peldaul ha a specifikaciot akarod megnyitni es nem update-elszs akkor lehet hogy egy tobb nappal ezelotti verziot fogsz olvasni.)
+
+Osszefoglalva
+-------------
+Update = letoltes
+Commit = feltoltes
+Ne commitolj folosleges fajlokat!
+Csak svn-nel nevezz at!
+Csak svn-nel helyezz at!
+Csak svn-nel torolj!
+Ne masolj mappakat svn-en belul!
+
+Barkinek kerdese van keressen batran, ha olyan dologgal talalkozik amit nem taglaltam eme ropke leirasban inkabb kerdezzen. Persze nagy baj nem lehet, de jobb ha minel hamarabb letisztazodik mindenkinek az svn hasznalata.
+
+Iranyelvek grafikai munkak megosztasara:
+----------------------------------------
+Az svn gyengepontja a mediafajlok. Ha egy 6megas txt-ben atirok egy sort akkor serveren kb 100bajt tarteruletet foglal a valtozas leirasa, viszont egy psd fajlt nem tud igy feldolgozni. A 10megas psd legaprobb valtozasa is +10 megat jelent a serveren, fel kell tolteni az egeszet ujra. Nem arrol van szo hogy nincs tarterulet a serveren, csak jobban atlathato az egesz ha nincs commitolva minden valtozas. Persze ez ellenkezik az svn hasznalat alapelveivel, viszont a grafikai munkak elsosorban csak befejezesuk utan lesznek felhasznalva igy eleg akkor szinkronban lennie a psd-nek ha tenylegesen szuksegunk van ra.
+
+Sitebuilder munkak:
+-------------------
+Itt is igaz hogy a befejezes utan fogjuk igazan hasznalni, de itt mar jobban kijon az svn elonye, a legutobbi alkalommal is elofordult hogy a design implementalasa soran derult ki hogy javitani kell a sitebuilden. Ezesetben kozpontositva van minden valtozas es mindig szinkronban van.
+
+Utoszo:
+-------
+Ha barmi kerdesetek merul fel, vagy bizonytalanok lennetek az svn hasznalataval kapcsolatban keressetek batran!

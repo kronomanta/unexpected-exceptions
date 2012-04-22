@@ -1,0 +1,667 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicializálás                                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Common}
+
+\anyag{10. Prototípus beadás}
+\datum{2012. április 5.}
+\setcounter{section}{9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokumentum                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\fedlap
+
+\section{Prototípus beadás}
+
+\subsection{Fordítási és futtatási útmutató}
+
+\subsubsection{Fájllista}
+Az osztályok package-ekbe, így a fájlok mappákba vannak szervezve. 
+
+Az \textbf{levels} mappa tartalma:
+\begin{filelist}
+	\filelistentry{01.xml}{726}{2012.04.02. 22:39}{Tesztpálya a játékos mozgásának és a blokkokkal való ütközés-detektálásának helyes működéséhez}
+	\filelistentry{02.xml}{755}{2012.04.02. 22:39}{Tesztpálya a ferde blokkokkal való ütközés detektálásához}
+	\filelistentry{03.xml}{556}{2012.04.02. 22:39}{Tesztpálya a kulcsok felvételéhez, illetve az ajtó helyes működéséhez}
+	\filelistentry{04.xml}{881}{2012.04.02. 22:39}{Tesztpálya a tili-toli mód, továbbá a pályaelemek közötti átjárás ellenőrzéséhez}
+	\filelistentry{05.xml}{972}{2012.04.02. 22:39}{Tesztpálya a főpróbához, melyen a játék helyes működésének ellenőrzése a cél}
+\end{filelist}
+
+Az \textbf{tests} mappa tartalma:
+\begin{filelist}
+	\filelistentry{01.txt}{195}{2012.04.02. 22:39}{Forgatókönyv a \emph{Játékos irányítása \#1} tesztesethez}
+	\filelistentry{02.txt}{191}{2012.04.02. 22:39}{Forgatókönyv a \emph{Játékos irányítása \#2} tesztesethez}
+	\filelistentry{03.txt}{164}{2012.04.02. 22:39}{Forgatókönyv a \emph{Kulcsok és ajtó} tesztesethez}
+	\filelistentry{04.txt}{162}{2012.04.02. 22:39}{Forgatókönyv a \emph{Pályarész határok} tesztesethez}
+	\filelistentry{05.txt}{124}{2012.04.02. 22:39}{Forgatókönyv a \emph{Főpróba} tesztesethez}
+\end{filelist}
+
+\newpage
+
+Az \textbf{src/main} mappa tartalma:
+\begin{filelist}
+	\filelistentry{ConsoleHelper.java}{588}{2012.03.24. 18:38}{A Windowsos rendszereknél használt CRLF sorvégjelzővel előforduló hibákat kezelő osztály}
+	\filelistentry{LevelRenderer.java}{3593}{2012.03.24. 18:38}{A pálya kirajzolásáért felelős osztály}
+	\filelistentry{Main.java}{8289}{2012.03.24. 18:38}{A program futását kezelő osztály}
+	\filelistentry{StoryboardCommand.java}{416}{2012.03.24. 18:38}{Egy forgatókönyv parancsot reprezentáló osztály}
+	\filelistentry{StoryboardReader.java}{2864}{2012.03.24. 18:38}{A beadott teljes forgatókönyvet feldolgozza és utasításokká alakítja }
+\end{filelist}
+
+A \textbf{src/model} mappa tartalma:
+\begin{filelist}
+	\filelistentry{BlockDescriptor.java}{1177}{2012.03.24. 18:38}{A faldarab leíró osztálya}
+	\filelistentry{BlockType.java}{81}{2012.03.24. 18:38}{A faldarab típusait tartalmazó osztály}
+	\filelistentry{LevelDescriptor.java}{2450}{2012.03.24. 18:38}{Egy pálya leíró osztálya}
+	\filelistentry{LevelObjectDescriptor.java}{1050}{2012.03.24. 18:38}{Egy pályán elhelyezhető objektum leírója}
+	\filelistentry{LevelObjectType.java}{76}{2012.03.24. 18:38}{A pályán elhelyezhető objektumok típusait tartalmazó osztály}
+	\filelistentry{LevelPartDescriptor.java}{1005}{2012.03.24. 18:38}{Egy pályaelem paramétereit tartalmazó osztály}
+\end{filelist}
+
+A \textbf{src/gameLogic} mappa tartalma:
+\begin{filelist}
+	\filelistentry{Block.java}{786}{2012.03.24. 18:38}{A pálya építőelemét megvalósító osztály}
+	\filelistentry{Direction.java}{81}{2012.03.24. 18:38}{Az irányokat tartalmazó osztály}
+	\filelistentry{DirectionHelper.java}{437}{2012.03.24. 18:38}{A megadott iránynak az ellentettjét visszaadó osztály}
+	\filelistentry{Door.java}{448}{2012.03.24. 18:38}{Az ajtót megvalósító osztály}
+	\filelistentry{GameObject.java}{862}{2012.03.24. 18:38}{A játékban szereplő objektumok ősosztálya, és a legtöbb tulajdonságukat kezelő osztály}
+	\filelistentry{IBounds.java}{1563}{2012.03.24. 18:38}{A blokkok ősosztálya}
+	\filelistentry{KeyHolder.java}{644}{2012.03.24. 18:38}{A kulcsot megvalósító osztály}
+	\filelistentry{Level.java}{5625}{2012.03.24. 23:55}{A pálya irányítását végző osztály}
+	\filelistentry{LevelPart.java}{3966}{2012.03.24. 18:38}{Az egyes pályaelemeket vezérlő osztály}
+	\filelistentry{LevelState.java}{301}{2012.03.24. 18:38}{A pálya állapotait tartalmazó felsorolás}
+	\filelistentry{Player.java}{4906}{2012.04.02. 22:39}{A játékost kezelő osztály}
+	\filelistentry{PlayerJumpState.java}{310}{2012.03.24. 18:38}{A játékos ugrásának állapotait tartalmazó osztály}
+	\filelistentry{RectangleBounds.java}{4764}{2012.03.24. 18:38}{A négyszög alakú építőblokkok osztálya}
+	\filelistentry{TriangleBounds.java}{3853}{2012.04.02. 22:39}{A háromszög alakú blokkok osztálya}
+	\filelistentry{TriangleType.java}{82}{2012.03.24. 18:38}{A ferde talaj dőlésének irányát lehet megadni: balra vagy jobbra lejtsen}
+	\filelistentry{Vector2.java}{704}{2012.03.24. 18:38}{2D vektorosztály}
+\end{filelist}
+
+A \textbf{src} mappa tartalma:
+\begin{filelist}
+	\filelistentry{manifest.txt}{61}{2012.03.24. 19:30}{A fordításhoz szükséges leíró fájl}
+\end{filelist}
+
+A gyökérben található fájlok:
+\begin{filelist}
+	\filelistentry{build.bat}{315}{2012.03.24. 19:30}{A fordítást indító fájl}
+	\filelistentry{run.bat}{66}{2012.03.24. 19:30}{Az alkalmazást elindító fájl}
+\end{filelist}
+
+\newpage
+
+\subsubsection{Fordítás}
+A fordítóprogram és annak működési módja megegyezik a 6.1.2 Fordítás nevű fejezetben leírtakkal. A \emph{build.bat} fájlt futtatva a konzolból, előáll a a lefordított jar fájl. A fájl az alábbi utasításokat tartalmazza, melyben csak a jar neve változott:
+
+\begin{verbatim}
+@echo off
+if not exist bin (mkdir bin)
+
+echo Compiling classes...
+javac src/main/*.java src/model/*.java src/gameLogic/*.java -d bin
+        -encoding UTF-8
+
+cd bin
+echo Creating jar...
+jar cfm ../ContinuityPrototype.jar ../src/manifest.txt main/*.class
+        model/*.class gameLogic/*.class
+cd ..
+
+echo Done
+@echo on
+\end{verbatim}
+
+\subsubsection{Futtatás}
+A futtatás megkönnyítése érdekében létrehoztunk egy batch fájlt: \emph{run.bat}. Ezen fájlt kell futtatni a főkönyvtárból. A fájl maximum négy darab értéket vár indítási paraméternek, ezek választható értékei a \emph{Bemeneti nyelv} fejezet \emph{Indítási argumentumok} nevű részben vannak kifejtve. Ezen fájl az alábbi parancsot végrehajtva elindítja az elkészült jar fájlt: 
+
+\begin{verbatim}
+@echo off
+java -jar ContinuityPrototype.jar %1 %2 %3 %4
+@echo on
+\end{verbatim}
+
+Egy példa az indítási paraméterek átadására lehet az alábbi parancssorbeli utasítás, melynek hatására a megadott \emph{test01.txt} forgatókönyvet kezdi el futtatni, és az eredményt pedig a \emph{result.txt} fájlba menti:
+
+\begin{verbatim}
+run.bat -a -s -r 2 < tests/test01.txt > result.txt
+\end{verbatim}
+
+Szemmel láthatóan több paraméter lett átadva, mint négy, viszont valójában az utolsó két parancs a standard bemenet és kimenet átirányítására vonatkozik, nem pedig az alkalmazásnak szól.
+
+
+\subsection{A tesztek részletes tervei, leírásuk a teszt nyelvén (kiegészítés a 8. sz. fejezethez)}
+
+Mivel a prototípus lehetőséget ad arra, hogy a beadott forgatókönyvet animáltan rajzoltassuk ki, az elvárt eredmények pontokba inkább az elvárt történések szöveges leírását tettük. Amennyiben megkérdőjelezhető lenne a futás valamely mozzanatának helyessége, lehetőség van a prototípussal a konkrét pozíciók kiírására.
+
+\subsubsection{Játékos irányítása \#1}
+\begin{description}
+	
+	\item[Leírás] A két játékos egy 1x1 pályarészből álló pályán van amikben több össze-vissza elhelyezett téglalap alakú blokk található. A két játékos minden irányban ugrál és mozog.
+	
+	\item[Ellenőrzött funkcionalitás] Ezzel a teszttel megfigyelhető hogy a játékosok egyszerű mozgatása (jobbra, balra, ugrálás) és az ütközésvizsgálat a téglalap alakú blokkokkal a várt módon történnek.
+	
+	\item[Várható hibahelyek] Ennél a tesztnél elsősorban a játékosok és a téglalap alakú blokkok ütközése a kritikus pont. A játékosok akármelyik irányból is ütköznek a blokkokkal, semmi képp sem haladhatnak át rajta vagy "lóghatnak" bele, továbbá az hogy már a falhoz érünk miközben a fal felé haladunk nem befolyásolhatja a játékosok függőleges mozgását.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|K        D|
+		|    XX    |
+		|   XXXX   |
+		|  XXXXXX  |
+		|          |
+		|XX      XX|
+		|          |
+		|   XXXX   |
+		| 1      2 |
+		|XXXXXXXXXX|
+		------------	
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="1" Height="1">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="9" Width="10" Height="1" />
+		            <Block X="3" Y="7" Width="4" Height="1" />
+		            <Block X="0" Y="5" Width="2" Height="1" />
+		            <Block X="8" Y="5" Width="2" Height="1" />
+		            <Block X="2" Y="3" Width="6" Height="1" />
+		            <Block X="3" Y="2" Width="4" Height="1" />
+		            <Block X="4" Y="1" Width="2" Height="1" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="1" Y="8" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="8" Y="8" />
+		        <Object Type="Key" LevelPartIndex="0" X="0" Y="0" />
+		        <Object Type="Door" LevelPartIndex="0" X="9" Y="0" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/01.xml
+		21
+		p1 right
+		p1 jump
+		p2 left
+		p2 jump
+		go 20
+		p1 jump
+		p2 jump
+		go 10
+		p1 left
+		p1 jump
+		p2 right
+		go 20
+		p1 jump
+		go 10
+		p2 left
+		go 20
+		p2 stop
+		p1 right
+		go 35
+		p1 left
+		go 10
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] Amennyiben az első számú játékos sikeresen átmászott a legfelső blokkon jobbról balra, majd a legalsó levegőben lévő blokk alá állt be, és eközben kizárólag a második játékoson haladt keresztül blokkokon pedig nem, a teszt sikeresnek számít.
+	
+\end{description}
+
+\newpage
+
+\subsubsection{Játékos irányítása \#2}
+\begin{description}
+	
+	\item[Leírás] A két játékos ugyancsak egy 1x1 pályarészből álló pályán van amikben több össze-vissza elhelyezett téglalap és háromszög alakú blokk is található. A két játékos minden irányban ugrál és mozog.
+	
+	\item[Ellenőrzött funkcionalitás] Ezzel a teszttel megfigyelhető hogy a játékosok egyszerű mozgatása és az ütközésvizsgálat a háromszög alakú blokkokkal a várt módon történnek.
+	
+	\item[Várható hibahelyek] Ennél a tesztnél elsősorban a játékosok és a háromszög alakú blokkok ütközése a kritikus pont. A játékosok akármelyik irányból is ütköznek a blokkokkal, semmi képp sem haladhatnak át rajta vagy "lóghatnak" bele. Amennyiben a háromszög alakú blokk, avagy a rámpa dőlésszöge meghaladja a 45 fokot, a játékosnak nem szabad hogy sikerüljön felsétálnia rajta.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|K D       |
+		|      \   |
+		|      \\  |
+		|     /\\\ |
+		|    //\\\\|
+		|   XXXXXXX|
+		|          |
+		|\        /|
+		|\\\  12 //|
+		|XXXXXXXXXX|
+		------------
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="1" Height="1">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="9" Width="10" Height="1" />
+		            <Block X="0" Y="7" Width="4" Height="2" Type="RightRamp" />
+		            <Block X="8" Y="6" Width="2" Height="3" Type="LeftRamp" />
+					
+		            <Block X="3" Y="5" Width="7" Height="1" />
+		            <Block X="3" Y="3" Width="3" Height="2" Type="LeftRamp" />
+		            <Block X="6" Y="1" Width="4" Height="4" Type="RightRamp" />
+					
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="5" Y="8" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="6" Y="8" />
+		        <Object Type="Key" LevelPartIndex="0" X="0" Y="0" />
+		        <Object Type="Door" LevelPartIndex="0" X="2" Y="0" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/02.xml
+		21
+		p1 left
+		p1 jump
+		p2 right
+		p2 jump
+		go 20
+		p1 right
+		p1 jump
+		p2 jump
+		go 20
+		p2 jump
+		go 5
+		p1 jump
+		go 15
+		p2 jump
+		go 15
+		p1 left
+		go 5
+		p2 jump
+		go 30
+		p1 right
+		go 15
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] Amennyiben az első számú játékos sikeresen átmászott a legfelső háromszögön balról jobbra, és vissza tudott sétálni a kezdő ponthoz, miközben a második játékosnak többszöri próbálkozás után se sikerült felkapaszkodnia a 45 fokosnál meredekebb lejtőre, a teszt sikeres.
+	
+\end{description}
+
+\newpage
+
+\subsubsection{Kulcsok és ajtó}
+\begin{description}
+	
+	\item[Leírás] A két játékos ismét egy  1x1 pályarészből álló pályán van amikben 3 kulcs, illetve az ajtó található. A két játékos minden irányban mozog.
+	
+	\item[Ellenőrzött funkcionalitás] Ezzel a teszttel megfigyelhető hogy a játékosok ajtóval való ütközése csak akkor vezet a pálya teljesítéséhez, ha nincs több kulcs a pályán, illetve a kulcsokkal való ütközéskor a kulcsok eltűnnek.
+	
+	\item[Várható hibahelyek] Ennél a tesztesetnél elsősorban a játékosok kulcsokkal illetve ajtóval való ütközése a kritikus pont. A játékosok akárhogyan is ütköznek az ajtóval, amíg nincs minden kulcs felvéve (tetszőleges játékos által) addig a játék folytatódik. Fontos, hogy mindkét játékos fel tudja venni a kulcsokat.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|2  DK KK 1|
+		|XXXXXXXXXX|
+		|XXXXXXXXXX|
+		------------	
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="2" Height="1">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="9" Y="7" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="0" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="7" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="4" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="6" Y="7" />
+		        <Object Type="Door" LevelPartIndex="0" X="3" Y="7" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	\newpage
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/level03.xml
+		20
+		p2 right
+		go 15
+		p2 left
+		go 10
+		p1 left
+		go 5
+		p1 right
+		go 5
+		p2 right
+		go 15
+		p2 left
+		go 10
+		p1 left
+		go 15
+		p1 right
+		go 10
+		p2 right
+		go 15
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] A második játékos átmegy az ajtón, felvéve az első kulcsot, majd az ajtó előtt oda-vissza lépked, míg az első játékos fel nem veszi az összes kulcsot (minden kulcs felvétele előtt legalább egyszer áthalad a játékos az ajtón). A teszt sikeresen zárul, ha mindaddig nem teljesített a pálya, míg minden kulcs felvételre nem kerül.
+	
+	\end{description}
+\newpage
+
+\subsubsection{Pályarész határok}
+\begin{description}
+	
+	\item[Leírás] Egy egyszerű 2x2-1 pályarészből álló pályán való egyszerű mozgást tesztelünk. Miközben a pályarészeket néha-néha elcsúsztatjuk a játékosokkal legalább egyszer áthaladunk valamely pályarész határán majd később valamikor megakadunk egy másikon. A teszt során az egyik játékos egyszer "szakadékba" zuhan és visszakerül a kezdő pozíciójára, a másik pedig úgy sétál bele a lyukba hogy van alatta illeszkedő pályarész, és sikeresen átkerül rá.
+	
+	\item[Ellenőrzött funkcionalitás] Pályaelemek tili-toli mozgatása és keresztülhaladás pályarészeken.
+	
+	\item[Várható hibahelyek] Amennyiben valamely játékos nem hal meg amikor szakadékba zuhan, nem sikerül átmennie egy illeszkedő pályarészre, vagy épp sikerül átmennie egy nem illeszkedőre, a teszt sikertelen.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------------------
+		| K D      ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|   21     ||          |
+		|XXXXXXXXXX||XXXXXXX  X|
+		|XXXXXXXXXX||XXXXXXX  X|
+		------------------------
+		            ------------
+		            |XXXXXXX  X|
+		            |          |
+		            |       /XX|
+		            |      //  |
+		            |     ///  |
+		            |    ////  |
+		            |   /////  |
+		            |  //////  |
+		            |XXXXXXXXXX|
+		            |XXXXXXXXXX|
+		            ------------
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="2" Height="2">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		        </LevelPart>
+		        <LevelPart X="1" Y="0">
+		            <Block X="0" Y="8" Width="7" Height="2" />
+		            <Block X="9" Y="8" Width="1" Height="2" />
+		        </LevelPart>
+		        <LevelPart X="1" Y="1">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		            <Block X="1" Y="2" Width="7" Height="7" Type="LeftRamp" />
+		            <Block X="8" Y="2" Width="2" Height="1" />
+		            
+		            <Block X="0" Y="0" Width="7" Height="1" />
+		            <Block X="9" Y="0" Width="1" Height="1" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="4" Y="8" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="3" Y="8" />
+		        <Object Type="Key" LevelPartIndex="0" X="1" Y="0" />
+		        <Object Type="Door" LevelPartIndex="0" X="3" Y="0" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/04.xml
+		21
+		p1 right
+		p2 left
+		go 20
+		p2 right
+		go 50
+		slide down
+		p1 stop
+		p1 jump
+		p2 left
+		go 20
+		slide left
+		p2 right
+		p1 jump
+		go 20
+		p1 left
+		go 60
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] A játékosok csak az illeszkedő pályarészekre tudtak áthaladni, az első játékos sikeresen áthaladt egyik pályarészről a másikra felülről lefele és vissza is, a második ugyan ezt megpróbálva illeszkedő elem híján meghal. Az első játékos akkor is megpróbál áthaladni alulról felfele amikor már nincs illeszkedő pályaelem, de ekkor csak visszapattan mintha ott plafon lenne.
+	
+\end{description}
+
+\newpage
+
+\subsubsection{Főpróba}
+\begin{description}
+	
+	\item[Leírás] Egy konkrét pálya végigvitelének tesztelése, a cél a program általános működésének vizsgálata.
+	
+	\item[Ellenőrzött funkcionalitás] Játékosok és pályaelemek mozgatása, halál, kulcsok felvétele, illetve kooperatív módú győzelem.
+	
+	\item[Várható hibahelyek] Az itt leírt funkcionalitásoknak már az előző tesztekben részleteztük a várható hibahelyeit.
+
+	\item[Pálya]
+	\begin{verbatim}
+	
+		------------
+		|          |
+		|          |
+		|          |
+		|          |
+		|          |
+		|    K     |
+		|   XX     |
+		|21 XXXX   |
+		|XXXXXXXXXX|
+		|XXXXXXXXXX|
+		------------
+		------------------------
+		|XXX  XXXXX||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|          ||          |
+		|      D  K|| K        |
+		|XXXXXXXXXX||XXX  XXXXX|
+		|XXXXXXXXXX||XXX  XXXXX|
+		------------------------
+	\end{verbatim}
+
+	\item[Pálya leíró]
+	\begin{verbatim}
+	
+		<?xml version="1.0" encoding="utf-8"?>
+		<Level Width="2" Height="2">
+		    <Parts>
+		        <LevelPart X="0" Y="0">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		            <Block X="3" Y="6" Width="2" Height="1" />
+		            <Block X="3" Y="7" Width="4" Height="1" />
+		        </LevelPart>
+		        <LevelPart X="0" Y="1">
+		            <Block X="0" Y="8" Width="10" Height="2" />
+		            <Block X="0" Y="0" Width="3" Height="1" />
+		            <Block X="5" Y="0" Width="5" Height="1" />
+		        </LevelPart>
+		        <LevelPart X="1" Y="1">
+		            <Block X="0" Y="8" Width="3" Height="2" />
+		            <Block X="5" Y="8" Width="5" Height="2" />
+		        </LevelPart>
+		    </Parts>
+		    <Objects>
+		        <Object Type="Spawn" LevelPartIndex="0" X="1" Y="7" />
+		        <Object Type="Spawn" LevelPartIndex="0" X="0" Y="7" />
+		        <Object Type="Key" LevelPartIndex="0" X="4" Y="5" />
+		        <Object Type="Key" LevelPartIndex="1" X="9" Y="7" />
+		        <Object Type="Key" LevelPartIndex="2" X="1" Y="7" />
+		        <Object Type="Door" LevelPartIndex="1" X="6" Y="7" />
+		    </Objects>
+		</Level>
+	\end{verbatim}
+	
+	\item[Forgatókönyv]
+	\begin{verbatim}
+
+		levels/05.xml
+		21
+		p1 right
+		p1 jump
+		go 20
+		p2 right
+		p2 jump
+		go 20
+		slide up
+		go 25
+		p1 jump
+		go 13
+		slide right
+		go 52
+	\end{verbatim}
+	
+	\item[Elvárt kimenet] A két játékos mozog, egy pályaelemet mozgatunk, a játékosok átmennek az előbb mozgatott pályaelembe, az egyikük (1-es) leesik egy olyan szakadékba, amelynek nincs másik pályaelemben folytatása és meghal. Ekkor a kezdőhelyén éled újra, és ismét elindul az előző útján, eközben mozgatunk egy pályaelemet és a 2-es számú játékos leesik az immár a helyén lévő végső pályaelembe. Itt felveszi az utolsó kulcsot, majd végül az 1-es játékos az ajtóhoz megy és vége a pályának. Az összes előző tesztekben lefektetett elvárásunk továbbra is él.
+	
+\end{description}
+
+\newpage
+
+\subsection{Tesztek jegyzőkönyvei}
+
+\subsubsection{Játékos irányítása 1 - JÓ}
+
+\begin{usecase}
+	\usecaseentry{Tesztelő neve}{Biró}
+	\usecaseentry{Teszt időpontja}{2012.04.12. 17:20}
+\end{usecase}
+
+
+\subsubsection{Játékos irányítása 2 - ROSSZ}
+
+\begin{usecase}
+	\usecaseentry{Tesztelő neve}{Biró}
+	\usecaseentry{Teszt időpontja}{2012.04.12. 17:40}
+	\usecaseentry{Teszt eredménye}{Hibajelenség: A játékos plafonnal való ütközéskor fent ragad egy rövid időre.}
+	\usecaseentry{Lehetséges hibaok}{A játékos vertikális sebessége nem nullázódik a pálya tetejével való ütközéskör.}
+	\usecaseentry{Változtatások}{A program megfelelő része javítva.}
+\end{usecase}
+
+
+\subsubsection{Kulcsok és ajtó - JÓ}
+
+\begin{usecase}
+	\usecaseentry{Tesztelő neve}{Magyar}
+	\usecaseentry{Teszt időpontja}{2012.04.13. 20:10}
+\end{usecase}
+
+\subsubsection{Pályarész határok - JÓ}
+
+\begin{usecase}
+	\usecaseentry{Tesztelő neve}{Biró}
+	\usecaseentry{Teszt időpontja}{2012.04.13. 22:15}
+\end{usecase}
+
+\subsubsection{Főpróba - JÓ}
+
+\begin{usecase}
+	\usecaseentry{Tesztelő neve}{Biró}
+	\usecaseentry{Teszt időpontja}{2012.04.13. 22:25}
+\end{usecase}
+
+
+\subsection{Értékelés}
+\begin{tabular}{|p{130pt}|c|p{150pt}|}
+\hline 
+\textbf{Tag neve} & \textbf{Munka százalékban} & \textbf{Aláírás}\\ 
+\hline 
+Biró Loránd & 22\% & \\ 
+\hline 
+Kanyó Tibor & 19.5\% & \\
+\hline 
+Magyar Dániel & 18.5\% & \\
+\hline 
+Tarjáni Tamás & 19.5\% & \\
+\hline 
+Vajsz Kornél & 20.5\% & \\
+\hline 
+\end{tabular} 
+\newpage
+
+\subsection{Napló}
+
+\begin{journal}
+\journalentry{2012.04.04. 13:30}{1.5}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, lefektettük a prototípus egyes részeit ki fogja megvalósítani és milyen formában.}
+\journalentry{2012.04.05. 15:30}{1}{Kanyó}{Dokumentum sablon elkészítése. Előzetes fájllista létrehozása a szkeleton alapján. Fordítási és futtatási leírás kiegészítése. Tesztek jegyzőkönyveihez sablon készítése.}
+
+\journalentry{2012.04.06. 18:00}{3.0}{Magyar}{A \emph{model} package megírása}
+\journalentry{2012.04.07. 12:00}{5.0}{Vajsz}{Megírtam a \emph{GameObject}-eket.}
+\journalentry{2012.04.07. 13:30}{4.0}{Tarjáni}{A \emph{LevelPart} és \emph{Block} megvalósítása.}
+\journalentry{2012.04.08. 11:00}{4.0}{Magyar}{A \emph{Vector2}, \emph{TriangleBounds} és a \emph{RectangleBounds} implementálása}
+\journalentry{2012.04.08. 12:30}{1.0}{Biró}{A \emph{main} package osztályainak kezdetleges verziója elkészült.}
+\journalentry{2012.04.09. 13:00}{3.5}{Kanyó}{A \emph{Level} osztály megírása.}
+\journalentry{2012.04.11. 16:00}{2.5}{Biró}{A \emph{main} package véglegesítése és a játékos mozgásának tesztelése 1-2.}
+\journalentry{2012.04.12. 17:30}{3.0}{Vajsz}{Újraírtam a \emph{Player} osztály ütközésvizsgálatát.}
+
+\journalentry{2012.04.13. 20:00}{0.5}{Magyar}{Tesztelés.}
+\journalentry{2012.04.13. 22:00}{0.5}{Biró}{Fennmaradó tesztek elvégzése.}
+\journalentry{2012.04.12. 21:00}{1}{Kanyó}{A fájllista javítása.}
+\journalentry{2012.04.12. 22:30}{0.5}{Tarjáni}{A dokumentum ellenőrzése, helyenként javítása.}
+\journalentry{2012.04.15. 23:30}{1,5}{Magyar}{Tesztek jegyzőkönyveinek formalizálása. Dokumentáció ellenőrzése}
+
+\end{journal}
+
+\end{document}

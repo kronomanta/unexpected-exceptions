@@ -1,0 +1,18 @@
+levels/04.xml
+21
+p1 right
+p2 left
+go 20
+p2 right
+go 50
+slide down
+p1 stop
+p1 jump
+p2 left
+go 20
+slide left
+p2 right
+p1 jump
+go 20
+p1 left
+go 60

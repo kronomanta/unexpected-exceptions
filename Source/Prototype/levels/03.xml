@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level Width="2" Height="1">
+	<Parts>
+		<LevelPart X="0" Y="0">
+			<Block X="0" Y="8" Width="10" Height="2" />
+		</LevelPart>
+	</Parts>
+	<Objects>
+		<Object Type="Spawn" LevelPartIndex="0" X="9" Y="7" />
+		<Object Type="Spawn" LevelPartIndex="0" X="0" Y="7" />
+		<Object Type="Key" LevelPartIndex="0" X="7" Y="7" />
+		<Object Type="Key" LevelPartIndex="0" X="4" Y="7" />
+		<Object Type="Key" LevelPartIndex="0" X="6" Y="7" />
+		<Object Type="Door" LevelPartIndex="0" X="3" Y="7" />
+	</Objects>
+</Level>
