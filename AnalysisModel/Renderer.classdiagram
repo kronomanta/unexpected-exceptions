@@ -1,15 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="961c1589-031f-423e-b62a-59defb567c5e" name="Renderer" linkedPackageId="8e3dcf0b-31b9-48cb-b262-17795d0f0594" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="961c1589-031f-423e-b62a-59defb567c5e" name="Renderer system" linkedPackageId="8e3dcf0b-31b9-48cb-b262-17795d0f0594" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="1dac80e7-5b72-43df-a476-04b4e4c28288" name="Image" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="732afec5-f2d2-46b1-9728-70e88d04ec6e" />
-        <suppliersInternal>
-          <dependency Id="0f7d5a28-bf43-48c8-bf34-1c196d680b9a">
+        <targetEnds>
+          <association Id="7d0ea701-9abb-41db-8135-2922d43a29de" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="8628ef8d-ad19-45c0-b5fe-717216824162" LastKnownName="java.awt.image.BufferedImage" />
-            <elementDefinition Id="2ad403f0-b3f2-4ce7-b2c6-2fd226cea849" />
-          </dependency>
-        </suppliersInternal>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ba7c8d1b-3410-441e-9266-68fe91e719a3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b811c5cd-d819-44b2-87e1-4271798ad805" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="465c4e75-5ab3-499b-b677-fb4fa3a47330" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="a60af47a-f940-4c8c-8f63-0efcadf6cffb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="af938efb-eaea-477e-8d8a-172d8761fc6b" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="7b9d8e5a-f945-4922-bdc8-473e6833736a" name="Width" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="e90d1598-1587-4fbb-9edf-bceff8af724a" />
@@ -141,21 +153,21 @@
           </dependency>
         </suppliersInternal>
         <targetEnds>
-          <association Id="ff9fd982-7110-4c27-b18d-30aa6b529698" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+          <association Id="93711fbc-fc3b-4563-8157-d5692d57b4ce" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
             <classMoniker Id="39b3fca9-a85a-4478-828d-6b5e938f843f" LastKnownName="java.awt.Graphics2D" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="ef0965b2-8aa6-4996-8ba2-27ea59bcd262" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="37bfe61c-fbcc-4aea-852c-e92c2a1c5f00" />
+                <memberEnd Id="034d9226-e767-40b5-8650-18a54aa6f7ba" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="80de7d9a-a615-4612-9e99-514ab6fb5020" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="42e820c7-03ef-432b-b895-62a11ef55bf5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="5af47839-82fd-4bde-ab54-3bb78c14cdb0" />
+                <memberEnd Id="7bd1d434-9d8c-4770-b026-3e8806030f01" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="b90260ea-e4d9-44dd-abe1-f6b772f20390" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="9a222db6-49bf-4b5e-bff5-ecf89fe9308c" />
+            <elementDefinition Id="ab934099-4495-4c5e-8652-4ef95e14449e" />
           </association>
         </targetEnds>
         <ownedAttributesInternal>

@@ -69,7 +69,94 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="bb36cd11-a5b1-4bc5-be91-c48e1608e209"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1c7861b9-ded9-412e-bf7b-bfa29aa01a9a"
+              LastKnownName="KeyboardState"
+              LastKnownLocation="Main.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="259df971-bf28-48fc-96da-5869ede27bbb"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dc99decb-e9a3-43c7-8c77-7f169bcf4b73"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="640cbf58-3efb-4e82-abef-46b321cc3751"
+            isDerived="false"
+            sourceEndRoleName=""
+            targetEndRoleName=""
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0a680eb5-d740-498e-b8c7-e6f4592dbcd0"
+              LastKnownName="GameFrameTimerListener"
+              LastKnownLocation="Continuity.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d8449c5e-335f-4122-bee8-a9bd930baaa5"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9b943d5e-e3b6-470a-8096-3a5c0812bbaf"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
+        <ownedOperationsInternal>
+          <operation
+            Id="d03a1856-b21b-43ef-bd4b-ae93d5063b9a"
+            name="Tick"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -79,15 +166,6 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
-        <suppliersInternal>
-          <dependency
-            Id="ca600edf-39b7-4c7a-ab99-183d39586c65">
-            <classMoniker
-              Id="1c7861b9-ded9-412e-bf7b-bfa29aa01a9a"
-              LastKnownName="KeyboardState"
-              LastKnownLocation="Main.uml" />
-          </dependency>
-        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="d889c72d-081a-422c-ae92-c88b87e70f30"

@@ -1,88 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="d7236e65-5f4f-4ecc-8718-fd207247f6f8" name="GameSceneComponents" linkedPackageId="b7cf948d-fedf-46dd-a9c6-d4e9c0e4d88c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="d7236e65-5f4f-4ecc-8718-fd207247f6f8" name="Components of the GameScene #1" linkedPackageId="b7cf948d-fedf-46dd-a9c6-d4e9c0e4d88c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="4f77b323-eca9-4686-ac29-586d6eba3275" name="DoorComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4" />
-        <suppliersInternal>
-          <interfaceRealization Id="cb2bc68c-e526-4191-8e50-165ba67a7f98">
-            <interfaceMoniker Id="6f6c4f8f-c753-4e81-9670-56e12982c7bb" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="798c88b4-ee96-413b-aa9f-2670baa667e7" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <ownedAttributesInternal>
-          <property Id="dc6a33dd-f7f4-48f4-921e-0f70cfb1f184" name="doorImage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="e7be2814-84d5-4a89-973e-5a890adb78eb" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="8b1966d0-ebe0-4734-ba2d-6b10e434e166" LastKnownName="Image" />
-            </type_NamedElement>
-          </property>
-          <property Id="6e572865-1f3e-4c9e-a0d0-429f1c85fa33" name="door" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="b05e7728-4b21-4534-a66a-0e95afe45944" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="15d9f10c-7a3c-4b0b-861f-96d535709b5f" LastKnownName="Door" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="c38375e7-91aa-4163-88be-a783a7e7a5eb" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="e5c5fdfc-a1bf-470e-a426-8f286db6ea38" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="a5224bb0-7316-49b9-abdb-04b6e9935716" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="1efc4c2e-11a1-4b79-ac77-0b4e0630f5ff" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="4e1f2bd2-44fd-490b-8ce6-bf6f98a930a6" name="renderer" direction="In" isUnique="false">
-                  <elementDefinition Id="9f0a79af-0440-4901-a4c5-1dd94873b7bf" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="725197ec-4f7f-4577-a938-b5e1f7fe936e" LastKnownName="Renderer" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="e9e13709-ba9c-4384-a31e-bcbd04361ac6" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="31869b36-8666-4dd8-878b-53e99f1801c9" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="ea168ae1-d675-4f35-81d3-56a1e0b8d786" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="a905bcca-7f55-4f98-8c31-20a5458f96bb" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="b0541872-8db2-46f7-a5a0-69e40f5bf215" name="DoorComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="fd4d479a-5eea-4da6-ab9f-fca5da2851fb" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="1d1086de-8958-46c0-bd69-f0e4472439d9" name="door" direction="In" isUnique="false">
-                  <elementDefinition Id="150c222e-f91b-4123-b876-cf5dd8e75092" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="15d9f10c-7a3c-4b0b-861f-96d535709b5f" LastKnownName="Door" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
     <packageHasNamedElement>
       <referencedType Id="8b1966d0-ebe0-4734-ba2d-6b10e434e166" name="Image" isAbstract="false" isLeaf="false" cachedFullName="Image">
         <elementDefinition Id="fabed9dd-7f90-4611-967b-9fa5580af130" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="15d9f10c-7a3c-4b0b-861f-96d535709b5f" name="Door" isAbstract="false" isLeaf="false" cachedFullName="Door">
-        <elementDefinition Id="7eb874fd-cf6c-4942-b163-a8a6716d686f" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
@@ -95,53 +16,6 @@
         <elementDefinition Id="b0878085-64ba-4a13-ad4e-13fd65c7b786" />
       </referencedType>
     </packageHasNamedElement>
-    <logicalClassDesignerModelHasTypes>
-      <class Id="335a751e-5c8b-4479-a221-83432c2513c9" name="FrameRateCounterComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="6ea55b8d-82ee-4424-bf4c-3e1f24558db3" />
-        <suppliersInternal>
-          <interfaceRealization Id="cc2ac0a8-366e-4c1f-aac6-2b5223570658">
-            <interfaceMoniker Id="6f6c4f8f-c753-4e81-9670-56e12982c7bb" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="22b96381-875d-4035-879b-14c13f171cdf" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <ownedOperationsInternal>
-          <operation Id="1b0ce9d9-50e3-4c07-b7e3-fdb23a722fad" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="380171c6-7043-42ad-a458-7f89d2f404de" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="08e494d1-7a9e-4521-8128-92e90fa6691e" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="d0f8c058-ad24-4561-91a0-63277b63e1a3" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="e28a0d5a-51bd-44a8-9229-45a63c1197d8" name="renderer" direction="In" isUnique="false">
-                  <elementDefinition Id="6b21bbdc-2716-4266-bfc2-fc348a1a183e" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="725197ec-4f7f-4577-a938-b5e1f7fe936e" LastKnownName="Renderer" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="9cbaedbd-d0d8-49a1-872a-50151b41e894" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="d9cb59da-f4e5-488d-8957-b10fae882280" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="0a00fe2f-42b0-4c5a-995d-5d3a45f0ad27" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="5c481474-0513-4933-8bc7-b64388152156" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
       <class Id="c2d3f6bc-95ea-403a-9d57-b40535c7ea3b" name="GameSceneCamera" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="a3bf78ca-61a2-4c62-8cf0-2f9c303d0fa7" />
@@ -205,18 +79,47 @@
             <elementDefinition Id="89a630b5-f64d-4fc0-a347-9d5858e5c64e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="c7b1363e-490c-424f-a1cc-38e52912d89a" name="player1" direction="In" isUnique="false">
-                  <elementDefinition Id="0d8268f2-5d1f-485c-bf61-253476b3d76d" />
+                <parameter Id="47ad969e-27cd-4176-b0b9-32caff1981f7" name="player1" direction="In" isUnique="false">
+                  <elementDefinition Id="e8ef766f-682f-4e80-ac0b-9acd55c97b8f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="d552e29a-ea14-487f-9264-97304f573b0c" LastKnownName="PlayerComponent" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="97037570-5a2a-4db1-b16f-aaa0657199c6" name="player2" direction="In" isUnique="false">
-                  <elementDefinition Id="6caf6c45-bf04-4701-9e35-746ca6bb0215" />
+                <parameter Id="c83ab867-88b8-44a6-a78e-08c67a839f35" name="player2" direction="In" isUnique="false">
+                  <elementDefinition Id="d62e3925-49c7-48e8-aa1c-b3b49e2d5ca2" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="d552e29a-ea14-487f-9264-97304f573b0c" LastKnownName="PlayerComponent" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0808e757-4f9c-4e70-9aa4-d7d94e1d3817" name="levelWidth" direction="In" isUnique="false">
+                  <elementDefinition Id="9268b4a2-59d7-4ae7-a6cd-4ab4cf344f8b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5efc52d0-7930-416d-aac9-930136c955db" name="levelHeight" direction="In" isUnique="false">
+                  <elementDefinition Id="48347304-6568-40e3-9fff-eaaf0cec7f39" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="eec836d4-82d2-420c-81a2-538227fbf3fc" name="SetPlayerFollowMode" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="76ed4151-b7d5-44bb-b9ea-03d500b8f666" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8dc80214-2b21-40e9-9168-3a095356df5d" name="followMode" direction="In" isUnique="false">
+                  <elementDefinition Id="b552b63a-8991-439c-95ed-2989064ad207" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="75b4a86b-bbe3-474c-aa33-a63f606a9531" LastKnownName="bool" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -236,85 +139,6 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="b99d1f5a-f324-4394-95e4-ef2fac97ec89" name="KeyHolderComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="67a95cb6-a445-408a-b14f-b51823f5589c" />
-        <suppliersInternal>
-          <interfaceRealization Id="377368f8-462c-4542-a0bd-62914bbcdef0">
-            <interfaceMoniker Id="6f6c4f8f-c753-4e81-9670-56e12982c7bb" LastKnownName="IDrawableGameComponent" />
-            <elementDefinition Id="1985479d-4e5f-45e8-8b00-cd62bd5db023" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <ownedAttributesInternal>
-          <property Id="a1b0279a-30de-4c76-b27e-dad8ab40bcf7" name="keyHolder" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="2c190b9f-14f4-496e-bf96-075a0aee95b9" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="dacd49f6-5480-45c1-b011-6c08d74cf84d" LastKnownName="KeyHolder" />
-            </type_NamedElement>
-          </property>
-          <property Id="0f38a420-92be-4276-9678-b62d07d2f873" name="keyHolderImage" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <elementDefinition Id="23e6bf3f-368f-4a2f-930c-6dd992d3b384" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="8b1966d0-ebe0-4734-ba2d-6b10e434e166" LastKnownName="Image" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation Id="341f1bed-0f8b-4de6-8a09-9510ec081a0b" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="daf34da2-8e37-4ec4-9175-d3755b53a265" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="e1f987d3-6fca-4b31-a5fc-30e0508bc8af" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="7b0b3844-122b-48cf-9214-e9d2d8edf9c3" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="8337cf47-9924-4ac4-b204-141699d18150" name="renderer" direction="In" isUnique="false">
-                  <elementDefinition Id="c659b971-b4a1-4e7b-9f3d-bd80c42e4e08" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="725197ec-4f7f-4577-a938-b5e1f7fe936e" LastKnownName="Renderer" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="0e728cfa-17f2-459f-a2eb-7e360dab505c" name="Update" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="9f8c8e8d-fcc1-40d6-9f23-6821a7a6c01c" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b5387542-9c37-417d-9761-c58dce709b65" name="gameTime" direction="In" isUnique="false">
-                  <elementDefinition Id="73b6a9a2-37b0-41fb-835e-a4cbe70b3fec" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="6d30372f-ca0f-4dc0-a91a-d72dbeab7f09" LastKnownName="GameTime" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation Id="4db0e289-e4cd-428c-af52-086c06c9692a" name="KeyHolderComponent" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
-            <elementDefinition Id="ec1ef2a1-b3d5-4ed7-9c31-8be6d0ddbdb0" />
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="816072db-cf2d-4690-ba37-970f268653d6" name="keyHolder" direction="In" isUnique="false">
-                  <elementDefinition Id="19a930dd-b123-4d36-b8a6-db2b3a2df955" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="dacd49f6-5480-45c1-b011-6c08d74cf84d" LastKnownName="KeyHolder" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-        </ownedOperationsInternal>
-      </class>
-    </logicalClassDesignerModelHasTypes>
-    <packageHasNamedElement>
-      <referencedType Id="dacd49f6-5480-45c1-b011-6c08d74cf84d" name="KeyHolder" isAbstract="false" isLeaf="false" cachedFullName="KeyHolder">
-        <elementDefinition Id="774e0c3b-7922-4945-a56c-73e554d083b3" />
-      </referencedType>
-    </packageHasNamedElement>
-    <logicalClassDesignerModelHasTypes>
       <class Id="c84fcda2-0a24-413f-9728-472e1cdca48e" name="LevelPartComponent" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8b025473-9290-4cb3-a21b-9f0421cd787f" />
         <suppliersInternal>
@@ -328,6 +152,18 @@
             <elementDefinition Id="0de2a90c-d4e1-4f20-8e38-7fdd97320dba" />
             <type_NamedElement>
               <referencedTypeMoniker Id="4bb5924b-8520-4394-8653-06d0d347f27d" LastKnownName="LevelPart" />
+            </type_NamedElement>
+          </property>
+          <property Id="01247b72-ea9b-4fe0-94c2-c81ab1cccdfa" name="CurrentX" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b0dea67f-fa01-4df9-a137-f27b31842a4f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c0b80899-d832-4080-8d43-3a970dd6d2ba" LastKnownName="int" />
+            </type_NamedElement>
+          </property>
+          <property Id="9c007628-cb82-4a1b-ae44-8f8c4892d81a" name="CurrentY" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bf5fcd24-3fba-4238-9ff4-25167b075d31" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="bc6e62ca-20b1-4120-9952-54e4bdabea75" LastKnownName="int" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -413,10 +249,6 @@
             <interfaceMoniker Id="6f6c4f8f-c753-4e81-9670-56e12982c7bb" LastKnownName="IDrawableGameComponent" />
             <elementDefinition Id="836ee3cc-88a2-4ed2-8e15-e559bd23608a" />
           </interfaceRealization>
-          <dependency Id="6ed84486-e1a4-4729-9b82-f70f73e630ba">
-            <classMoniker Id="ccffbcc7-e948-4c19-9a38-7aa0a86ef783" LastKnownName="AnimationDrawer" />
-            <elementDefinition Id="343c9caa-6567-4f7b-8d13-ecc28f89e754" />
-          </dependency>
         </suppliersInternal>
         <targetEnds>
           <association Id="cea030a6-0d27-445e-a67a-921d7c425d79" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
@@ -445,6 +277,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="50a0765c-7fab-4a68-85ae-80b7aea6ab55" />
           </association>
+          <association Id="7ec13090-6bdf-4da1-a58b-5e1b6d02b1ba" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="ccffbcc7-e948-4c19-9a38-7aa0a86ef783" LastKnownName="SpriteDrawer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="69a053fd-aa26-44a6-8378-0a1ef82a10e9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d78fbfe0-d965-405d-a274-a937d3d4b230" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b053c4e4-90c7-49d5-89a9-36f71e445ca9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="5dc4e512-dd5f-439f-bf28-fe4429c53458" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="576d72a7-5361-4c99-94b1-b7d7dc158a49" />
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property Id="093e30e4-8ead-4cee-af04-806dafbefc66" name="player" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -472,7 +320,7 @@
           <property Id="1972c75e-4123-4662-b121-b49325489261" name="animationDrawer" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="46d8793d-4706-46df-af93-96a7909bcb65" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="e69d7574-8cae-4478-85c3-b30ae5226e48" LastKnownName="AnimationDrawer" />
+              <referencedTypeMoniker Id="e69d7574-8cae-4478-85c3-b30ae5226e48" LastKnownName="SpriteDrawer" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -610,7 +458,7 @@
       </Interface>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="ccffbcc7-e948-4c19-9a38-7aa0a86ef783" name="AnimationDrawer" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="ccffbcc7-e948-4c19-9a38-7aa0a86ef783" name="SpriteDrawer" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc" />
         <suppliersInternal>
           <interfaceRealization Id="e767809c-aad6-4a33-87a9-f369a45924f5">
@@ -728,13 +576,23 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="e69d7574-8cae-4478-85c3-b30ae5226e48" name="AnimationDrawer" isAbstract="false" isLeaf="false" cachedFullName="Continuity::AnimationDrawer">
+      <referencedType Id="e69d7574-8cae-4478-85c3-b30ae5226e48" name="SpriteDrawer" isAbstract="false" isLeaf="false" cachedFullName="Continuity::SpriteDrawer">
         <elementDefinition Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc" />
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="fe39f78b-4b31-4148-af76-a3b59e6815d8" name="Point" isAbstract="false" isLeaf="false" cachedFullName="Point">
         <elementDefinition Id="d7d5f499-8552-4c93-a5a5-9b135d78c3a8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c0b80899-d832-4080-8d43-3a970dd6d2ba" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="ca7f3995-4acf-4516-a7f7-a875b6d9d4bf" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="75b4a86b-bbe3-474c-aa33-a63f606a9531" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="5fee3536-b5ff-4aed-9d10-ab54b4e0e1a7" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

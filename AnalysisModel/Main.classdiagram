@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="68ea89f0-5e4a-4662-93fa-7466100ad6bc" name="Main" linkedPackageId="6ef92442-a750-4dcc-8bf0-c99578ae600d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="b6de62a4-8f8d-4dac-91ea-83a36c4f560e">
-      <profileInstance Id="768e3791-77dd-4439-8d64-094d84149736" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="f960d59a-f6d7-4819-9f5c-027e31387192">
-      <profileInstance Id="e8edcdf7-3c87-46a0-83d2-03d346e975fc" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="68ea89f0-5e4a-4662-93fa-7466100ad6bc" name="Window creation and game loop implementation" linkedPackageId="6ef92442-a750-4dcc-8bf0-c99578ae600d" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="bdef4353-2a0a-439e-b812-321f6f3be45c" name="java.awt.event.KeyListener" isAbstract="false" isLeaf="false">
@@ -309,7 +295,44 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="86b61878-8f4c-461c-9061-20fa4c7da64d" />
           </association>
+          <association Id="2af7faa0-64e9-47e4-a8c7-56d10f60b9ea" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="fbf82446-2d92-4139-b368-33f49fa3b13c" LastKnownName="KeyboardState" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="20848c6d-efff-4624-a358-69d5409696c9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="259df971-bf28-48fc-96da-5869ede27bbb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bade9638-536a-4f97-a3c2-701cfd49d421" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="dc99decb-e9a3-43c7-8c77-7f169bcf4b73" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bb36cd11-a5b1-4bc5-be91-c48e1608e209" />
+          </association>
+          <association Id="a16b2d51-87a7-465f-a778-7ccd79fad22d" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" LastKnownName="GameFrameTimerListener" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3ec8168f-1aee-4707-8a69-8ae8e77de11c" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d8449c5e-335f-4122-bee8-a9bd930baaa5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="09a3ec53-f5c5-4551-98f6-78ae5fa363fe" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
+                  <elementDefinition Id="9b943d5e-e3b6-470a-8096-3a5c0812bbaf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="640cbf58-3efb-4e82-abef-46b321cc3751" />
+          </association>
         </targetEnds>
+        <ownedOperationsInternal>
+          <operation Id="1d4046e0-9a59-4a1d-9890-487f027ed8e0" name="Tick" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d03a1856-b21b-43ef-bd4b-ae93d5063b9a" />
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
@@ -320,12 +343,6 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="9a8167ed-0589-4884-9b26-881242c07c90" name="GameFrame" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="3e8656fc-338f-4943-be3a-c5b27c81b60e" />
-        <suppliersInternal>
-          <dependency Id="ee8894f9-d2af-4c87-9a5d-04d79d41fdf0">
-            <classMoniker Id="fbf82446-2d92-4139-b368-33f49fa3b13c" LastKnownName="KeyboardState" />
-            <elementDefinition Id="ca600edf-39b7-4c7a-ab99-183d39586c65" />
-          </dependency>
-        </suppliersInternal>
         <generalsInternal>
           <generalization Id="88dd851d-78ef-4ad9-94a1-b2f5bbddcbfa" isSubstitutable="false">
             <classMoniker Id="8929780b-130b-4986-9fcb-611e2615ff3b" LastKnownName="javax.swing.JFrame" />
@@ -624,7 +641,7 @@
       </referencedType>
     </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
-      <class Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" name="GameCanvasTimerListener" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="3a4a43b7-0785-4c31-ab88-a9f77f3baea6" name="GameFrameTimerListener" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="0a680eb5-d740-498e-b8c7-e6f4592dbcd0" />
         <suppliersInternal>
           <interfaceRealization Id="7f5bf551-3c2b-4991-9913-289ad78a4a59">
@@ -632,6 +649,14 @@
             <elementDefinition Id="01271736-fabd-4e65-93c7-d1dbff2c2e01" />
           </interfaceRealization>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="54e75a1c-58ea-40a3-8b1e-69040e89abf7" name="canvas" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a9984196-8b41-463d-aba5-4ff034e652b5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6d41a870-1bdf-4861-940f-5aced08a753d" LastKnownName="GameCanvas" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="48564660-d247-4cb3-a67c-65c910f7f600" name="ActionPerformed" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="cda6340a-869f-43c6-bd4f-c58be18ce54d" />
@@ -690,8 +715,27 @@
         <elementDefinition Id="a3aa6863-abba-4f2b-b0f0-6c7cb08146a7" />
       </referencedType>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="6d41a870-1bdf-4861-940f-5aced08a753d" name="GameCanvas" isAbstract="false" isLeaf="false" cachedFullName="GameCanvas">
+        <elementDefinition Id="b85821b8-eb9e-4e0f-8720-122db5178ee7" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="6ef92442-a750-4dcc-8bf0-c99578ae600d" name="Continuity">
     <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />
+    <profileInstances>
+      <packageHasProfileInstances Id="b6de62a4-8f8d-4dac-91ea-83a36c4f560e">
+        <profileInstance Id="768e3791-77dd-4439-8d64-094d84149736" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="f960d59a-f6d7-4819-9f5c-027e31387192">
+        <profileInstance Id="e8edcdf7-3c87-46a0-83d2-03d346e975fc" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>
