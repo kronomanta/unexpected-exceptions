@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="8452a0de-b6e8-480e-9035-b0afe32f9d02" name="Game" linkedPackageId="b76ce26f-92c1-4e9f-94e4-4777a20950f4" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="1e50d8a3-ebf4-48de-832e-ba8d5e35c1fe">
-      <profileInstance Id="929ff649-e8ae-4c98-8fdc-ef8fa4b69dc4" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="943b9fef-d3a0-4dd9-97e2-85bcf510fa1c">
-      <profileInstance Id="ae5e3767-100c-4701-bd00-d7a44a1a795d" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="fd4a8b08-59e9-4f8c-91ea-37c5d50224a0" name="IGameComponent" isAbstract="false" isLeaf="false">
@@ -163,7 +149,19 @@
             <interfaceMoniker Id="b6b2f489-0283-451a-81f1-1971f0e80021" LastKnownName="IDrawableGameComponent" />
             <elementDefinition Id="1f9d9be9-a645-4c6a-92ba-b6372994fec4" />
           </interfaceRealization>
+          <dependency Id="79c6974d-a2de-4084-8b28-ddd6e836c32d">
+            <enumerationMoniker Id="d6be9b64-c278-4ae7-adf0-db658eb3c50f" LastKnownName="MenuSceneAction" />
+            <elementDefinition Id="bdb91001-6349-4dbc-a807-052259236628" />
+          </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property Id="5fe54ff3-0994-4d32-a982-879b33cfa7de" name="Action" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d05f1e3a-b16c-4de5-a9cb-c8c9d2714d10" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7beaa29b-6465-4330-9671-6aef0f8800f7" LastKnownName="MenuSceneAction" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation Id="f0080e56-6f09-4294-8b60-0902eac08045" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="71b4416d-9a9f-47f7-8d1c-a5b2f0e520ce" />
@@ -505,8 +503,43 @@
         <elementDefinition Id="32653b3c-8908-45ba-a061-adc6bb788286" />
       </referencedType>
     </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <enumeration Id="d6be9b64-c278-4ae7-adf0-db658eb3c50f" name="MenuSceneAction" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3" />
+        <ownedLiterals>
+          <enumerationLiteral Id="bf367dae-cea0-4dd9-b072-7f01832baf54" name="Continue">
+            <elementDefinition Id="43147217-1aac-4054-adef-e60c98e9b10b" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="70421de2-b19e-4238-a8c6-4bd16b61e9e5" name="Play">
+            <elementDefinition Id="b0d55e55-7ab4-4982-91ae-99c7d688c140" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="26327d56-0da2-4f3f-b12c-733ffca10be2" name="None">
+            <elementDefinition Id="f81fed62-6e56-4d82-abbb-d542a4c1391b" />
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7beaa29b-6465-4330-9671-6aef0f8800f7" name="MenuSceneAction" isAbstract="false" isLeaf="false" cachedFullName="Continuity::MenuSceneAction">
+        <elementDefinition Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="b76ce26f-92c1-4e9f-94e4-4777a20950f4" name="Continuity">
     <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />
+    <profileInstances>
+      <packageHasProfileInstances Id="1e50d8a3-ebf4-48de-832e-ba8d5e35c1fe">
+        <profileInstance Id="929ff649-e8ae-4c98-8fdc-ef8fa4b69dc4" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="943b9fef-d3a0-4dd9-97e2-85bcf510fa1c">
+        <profileInstance Id="ae5e3767-100c-4701-bd00-d7a44a1a795d" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

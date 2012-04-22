@@ -11,6 +11,15 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <suppliersInternal>
+          <dependency
+            Id="b429c0e4-b76b-48cf-a79d-06c3fa534b50">
+            <classMoniker
+              Id="b0878085-64ba-4a13-ad4e-13fd65c7b786"
+              LastKnownName="Renderer"
+              LastKnownLocation="Renderer.uml" />
+          </dependency>
+        </suppliersInternal>
         <generalsInternal>
           <generalization
             Id="e5af3db2-ae31-4be0-926e-18eeafe1664c"
@@ -61,16 +70,6 @@
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
-        <ownedOperationsInternal>
-          <operation
-            Id="2e7cbc4b-be13-42e4-8d01-92f20405faa9"
-            name="Tick"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>

@@ -280,7 +280,34 @@
               LastKnownName="IDrawableGameComponent"
               LastKnownLocation="Game.uml" />
           </interfaceRealization>
+          <dependency
+            Id="bdb91001-6349-4dbc-a807-052259236628">
+            <enumerationMoniker
+              Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3"
+              LastKnownName="MenuSceneAction"
+              LastKnownLocation="Continuity.uml" />
+          </dependency>
         </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="d05f1e3a-b16c-4de5-a9cb-c8c9d2714d10"
+            name="Action"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="ce5e7a16-7743-48e1-8fc5-da5d3947f7a3"
+                LastKnownName="MenuSceneAction"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
         <ownedOperationsInternal>
           <operation
             Id="71b4416d-9a9f-47f7-8d1c-a5b2f0e520ce"
