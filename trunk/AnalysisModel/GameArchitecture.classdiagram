@@ -360,6 +360,16 @@
           </operation>
           <operation Id="af3c3697-1724-4b06-bd6e-6d2a351b22c8" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="15a18de2-6a8f-4a45-9397-d373b8922884" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="31a43a77-4ad6-4614-a5ce-a3295c101f36" name="levelIndex" direction="In" isUnique="false">
+                  <elementDefinition Id="0325bfaf-d87c-4efc-91df-89552970d55f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="61c75f6a-c993-4299-9537-ec1e97c2a19d" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
