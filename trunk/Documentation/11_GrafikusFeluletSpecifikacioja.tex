@@ -19,16 +19,23 @@
 \section{Grafikus felület specifikációja}
 
 \subsection{A grafikus interfész}
-\graphicspath{{PdfImages/}}
-\begin{center}
-\includegraphics[scale=0.7]{ScreenPlay.pdf}
-\newpage
-\includegraphics[scale=0.5]{ScreenMenu.pdf}
-\includegraphics[scale=0.5]{ScreenHelp.pdf}
-\newpage
-\end{center}
+	\graphicspath{{PdfImages/}}
+	\begin{center}
+	A játék futás közben:
+	
+	\includegraphics[scale=0.7]{ScreenPlay.pdf}
+	\newpage
 
+	A játék főmenüje:
+	
+	\includegraphics[scale=0.5]{ScreenMenu.pdf} \\
 
+	A súgó menü:
+	
+	\includegraphics[scale=0.5]{ScreenHelp.pdf}
+	\newpage
+	\end{center}
+	
 \subsection{A grafikus felület architektúrája}
 
 \subsubsection{A felület működési elve}
@@ -54,8 +61,10 @@ Az eddig elkészült rendszer a játékszabályokat ismeri és magának a játé
 \end{center}
 
 \subsection{A grafikus objektumok felsorolása}
-Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfészek pont, annak az osztálynak értelemszerűen nincs őse vagy nem valósít meg interfészt. Az összes, a leírásban szereplő attribútum és metódus publikus.
+Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfészek pont, annak az osztálynak értelemszerűen nincs őse vagy nem valósít meg interfészt. Az összes, a leírásban szereplő attribútum és metódus publikus. Azon osztálynál, melynél nem szerepel Metódus, az nem rendelkezik olyannal.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Renderer
 \subsubsection{Point}
 	\begin{description}
 		\item[Felelősség] \hfill \\
@@ -65,9 +74,6 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		\textbf{\emph{float X}}: A pont x koordinátája.
 		
 		\textbf{\emph{float Y}}: A pont y koordinátája.		
-				
-		\item[Metódusok]\hfill \\
-		-
 
 	\end{description}
 	
@@ -83,10 +89,6 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		\textbf{\emph{float Height}}: A téglalap magassága.
 		
 		\textbf{\emph{float Width}}: A téglalap szélessége.		
-				
-		\item[Metódusok]\hfill \\
-		-
-
 	\end{description}
 	
 \subsubsection{Image}
@@ -118,10 +120,6 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		\textbf{\emph{float TranslateX}}: X koordináta szerinti transzformáció (az x tengely mentén mennyire nyomjuk össze vagy nyújtjuk a transzformált objektumot).	
 		
 		\textbf{\emph{float TranslateY}}: Y koordináta szerinti transzformáció.	
-				
-		\item[Metódusok]\hfill \\
-		-
-
 	\end{description}
 
 \subsubsection{Renderer}
@@ -150,6 +148,10 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 	\end{description}
 	
 	
+%Renderer vége	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%GameArchitecture
+
 \subsubsection{IGameComponent}
 	\begin{description}
 		\item[Felelősség] \hfill \\
@@ -219,6 +221,8 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		\textbf{\emph{Draw(GameTime,Renderer)}}: A pályán lévő kirajzolható objektumokra sorban meghívja a saját rajzolási metódusokat.
 
 		\textbf{\emph{Update(GameTime)}}: A pályán lévő objektumokra leszimulálja a mozgást a megadott időtartamra.
+		
+		\textbf{\emph{Initialize(int)}}: A megadott sorszámú pályát tölti be.
 	\end{description}
 	
 \subsubsection{GameSceneAction}
@@ -235,8 +239,16 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		\textbf{\emph{Tick(Renderer)}}: Meghívja az aktuális scene Update és Draw metódusát, majd ezt követően megvizsgálja, hogy kell-e váltani másik scene-re.
 	\end{description}
 	
+\subsubsection{ContinuityGameState}
+	\begin{description}
+		\item[Felelősség] \hfill \\
+		Egy felsorolást tartalmazó osztály, melynek elemei azt adják meg, hogy a játékban vagyunk, vagy pedig menüben. A lehetséges értékek: Game, Menu.
+	\end{description}
 	
-	
+%%GameArchitecture vége
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%GameScene
+
 \subsubsection{GameSceneCamera}
 	\begin{description}
 		\item[Felelősség] \hfill \\
@@ -315,7 +327,7 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 		\textbf{\emph{DrawBorder(Renderer)}}: A pályaelem külső keretét rajzolja ki.
 
 		\textbf{\emph{Update(GameTime)}}: Frissíti a pályaelemek pozícióját.
-	\end{description}
+	\end{description}	
 	
 \subsubsection{DoorComponent}
 	\begin{description}
@@ -359,15 +371,88 @@ Amelyik osztály leírásánál nem szerepel az Ősosztályok vagy az Interfész
 
 		\textbf{\emph{Update(GameTime)}}: Kiszámolja az értékét.
 	\end{description}
+
+
+%GameScene vége	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Main
+
+\subsubsection{Main}
+	\begin{description}
+	\item[Felelősség] \hfill \\
+	Egy belépési pont a játék hatására.
+	\item[Metódusok] \hfill \\
+	\textbf{\emph{Main(String[*] args)}}: Létrehozza a GameFrame osztályt.
+	\end{description}
+	
+\subsubsection{GameFrame}
+	\begin{description}
+	\item[Felelősség] \hfill \\
+	Ez maga a játék ablaka. Ő hozza létre a GameCanvast példányosításkor.
+	
+	\item[Ősosztályok] \hfill \\
+	javax.Swing.JFrame
+	
+	\end{description}
+	
+\subsubsection{GameCanvas}
+	\begin{description}
+	\item[Felelősség] \hfill \\
+	Azon rajzfelületet reprezentáló osztály, amelyre végezzük a kirajzolásokat. A beépített időzítővel, ami nulla másodperces késleltetésre van beállítva, valósítja meg a játék főciklusát, a game loopot.
+	\item[Interfészek] \hfill \\
+	java.awt.Canvas
+	\item[Metódusok] \hfill \\
+	\textbf{\emph{Tick}}: Meghívja a KeyboardState, és a ContinuityGame Tickjét, illetve létrehozza a Renderer osztályt. Valamint vezérli a double buffering módszert, azaz hogy két különböző Graphics2D objektumra történik felváltja a rajzolás.
+	\end{description}
+	
+\subsubsection{KeyboardState}
+	\begin{description}
+	\item[Felelősség] \hfill \\
+	A billentyűzettől érkező inputokat figyelő osztály. A billentyűzet eseményei alapján létrehozza az adott képkockára érvényes állapotát a billentyűzetnek.
+	
+	\item[Interfészek] \hfill \\
+	java.awt.event.KeyListener
+	\item[Attribútumok] \hfill \\
+	\textbf{\emph{KeyboardState Instance}}: Singleton mintaként, mindenkor ugyan azon statikus példányát adja vissza az osztálynak.
+	\item[Metódusok] \hfill \\
+	\textbf{\emph{Boolean IsKeyDown(String)}}: Megadja, hogy egy adott gomb le van-e nyomva.
+	
+	\textbf{\emph{Boolean IsKeyJustPressed(String)}}: Megadja, hogy az előző állapotban még nem, de az aktuálisban már le van nyomva egy adott gomb.
+
+	\textbf{\emph{KeyPressed(KeyEvent)}}: Egy gombnyomás hatására bekövetkező eseményeket kezeli le.
+
+	\textbf{\emph{KeyReleased(KeyEvent)}}: Egy gomb felengedése hatására bekövetkező eseményeket kezeli le.
+
+	\textbf{\emph{KeyTyped(KeyEvent)}}: Pusztán az interfész indokolja létét, nem csinál semmit.
+	
+	\textbf{\emph{Tick}}: Minden körben frissíti, hogy mely gombok vannak lenyomva, nyomva tartva.
+	\end{description}
+	
+\subsubsection{GameCanvasTimerListener}
+	\begin{description}
+	\item[Felelősség] \hfill \\
+	Egy beágyazott osztály a GameCanvas osztályba, így hozzáfér annak a privát változóihoz is.  A GameCanvas időzítőjének ez az ActionListenerje, így amikor lejár az időzítő, elsüti az ActionPerformed metódust, ami visszahívja a GameCanvas Tick-jét.
+	
+	\item[Interfészek] \hfill \\
+	java.awt.event.ActionListener
+	\item[Metódusok] \hfill \\
+	\textbf{\emph{ActionPerformed(ActionEvent)}}: A GameCanvas Tickjét hívja meg.
+	\end{description}
+	
+%Main vége	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 	
 \subsection{Kapcsolat az alkalmazói rendszerrel}
+
+
 
 \subsection{Napló}
 
 \begin{journal}
 \journalentry{2012.04.04. 13:30}{2}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, döntés a grafikus megjelenítés mikéntjéről, a feladatok kiosztása.}
 \journalentry{2012.04.22. 14:00}{1}{Tarjáni}{Dokumentumsablon, osztályleírások elkészítése.}
-\journalentry{2012.04.22. 16:00}{2}{Kanyó}{Osztályleírások bővítése, javítása.}
+\journalentry{2012.04.22. 19:00}{3.5}{Kanyó}{Osztályleírások bővítése, javítása.}
 
 \end{journal}
 
