@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="5de7deee-fb5f-450c-941c-910f0c5c8cdc" name="Connection of the game logic and presentiation" linkedPackageId="d5375a2b-9632-4f79-8289-38ab03b01a46" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="5de7deee-fb5f-450c-941c-910f0c5c8cdc" name="Connection of the game logic and presentiation" linkedPackageId="d5375a2b-9632-4f79-8289-38ab03b01a46" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="d130cc5e-cc2f-42da-a08d-6ed27f7fe8f9" name="GameTime" isAbstract="false" isLeaf="false" cachedFullName="GameTime">
@@ -621,12 +621,12 @@
               <associationHasOwnedEnds>
                 <memberEnd Id="d2aaf19a-0dfa-4188-b87b-346674b083fd" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true" isNavigableOwned="false">
                   <lowerValueInternal>
-                    <literalString Id="cddc4d09-fd8a-4289-9a06-f0c1ac7d35d8" name="Lower" value="*">
+                    <literalString Id="cddc4d09-fd8a-4289-9a06-f0c1ac7d35d8" name="Lower" value="1">
                       <elementDefinition Id="4fef79e1-83cd-46ab-8681-8ebbed46f9f1" />
                     </literalString>
                   </lowerValueInternal>
                   <upperValueInternal>
-                    <literalString Id="085e665b-c98f-4f6f-8c05-3dd5721f8529" name="Upper" value="*">
+                    <literalString Id="085e665b-c98f-4f6f-8c05-3dd5721f8529" name="Upper" value="1">
                       <elementDefinition Id="6089ad01-07ef-4add-a2d7-f98f38267249" />
                     </literalString>
                   </upperValueInternal>
@@ -736,14 +736,14 @@
               <referencedTypeMoniker Id="881e2317-0f35-4e3f-8de4-1d41cc962df4" LastKnownName="LevelPartComponent" />
             </type_NamedElement>
           </property>
-          <property Id="d17b4551-1714-45f6-9a65-0a08bfd62542" name="doors" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="d17b4551-1714-45f6-9a65-0a08bfd62542" name="door" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <lowerValueInternal>
-              <literalString Id="6a914d6b-e579-488f-85cc-c2f91feaf7a9" name="Lower" value="*">
+              <literalString Id="6a914d6b-e579-488f-85cc-c2f91feaf7a9" name="Lower" value="1">
                 <elementDefinition Id="aa4dbaa5-df53-4bf2-9256-4a9239c000dc" />
               </literalString>
             </lowerValueInternal>
             <upperValueInternal>
-              <literalString Id="d52796c8-fe27-4e8e-8fa1-015ccfc13a05" name="Upper" value="*">
+              <literalString Id="d52796c8-fe27-4e8e-8fa1-015ccfc13a05" name="Upper" value="1">
                 <elementDefinition Id="1985227f-7fa2-4c8e-b253-5b056a1ef7d9" />
               </literalString>
             </upperValueInternal>
@@ -778,6 +778,12 @@
             <elementDefinition Id="fb6f736b-5983-4111-b2b1-f4a7c78f8eff" />
             <type_NamedElement>
               <referencedTypeMoniker Id="b35d1ea4-9bab-4ba0-a247-031ca2996b72" LastKnownName="Level" />
+            </type_NamedElement>
+          </property>
+          <property Id="5f441798-3824-4a00-a836-f85b26880031" name="isInWalkingMode" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2fb09b8f-55dd-43a0-9888-f6f3cc271108" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e53d12a5-e88c-42e6-bb5b-2e9e722266fe" LastKnownName="boolean" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -818,6 +824,16 @@
           </operation>
           <operation Id="2c65d7ac-3cd1-4314-a811-11bde57075b8" name="Initialize" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <elementDefinition Id="15a18de2-6a8f-4a45-9397-d373b8922884" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1068175f-1267-4196-963f-4a66d5f91d1b" name="levelIndex" direction="In" isUnique="false">
+                  <elementDefinition Id="0325bfaf-d87c-4efc-91df-89552970d55f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b75d226d-4048-4532-bcab-b5b65edf3e9e" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
         </ownedOperationsInternal>
       </class>
@@ -1435,6 +1451,11 @@
     <packageHasNamedElement>
       <referencedType Id="5eb41746-f5b1-45e4-8687-40584f3c87b8" name="SpriteDrawer" isAbstract="false" isLeaf="false" cachedFullName="Continuity::SpriteDrawer">
         <elementDefinition Id="d7704c30-fe39-487b-a5b7-bbb73807d2dc" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e53d12a5-e88c-42e6-bb5b-2e9e722266fe" name="boolean" isAbstract="false" isLeaf="false" cachedFullName="boolean">
+        <elementDefinition Id="d40c434b-305f-478a-8b69-5d48fbd748be" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

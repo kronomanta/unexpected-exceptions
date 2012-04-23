@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" dslVersion="1.0.0.0" Id="8452a0de-b6e8-480e-9035-b0afe32f9d02" name="Game architecture" linkedPackageId="b76ce26f-92c1-4e9f-94e4-4777a20950f4" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="8452a0de-b6e8-480e-9035-b0afe32f9d02" name="Game architecture" linkedPackageId="b76ce26f-92c1-4e9f-94e4-4777a20950f4" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <Interface Id="fd4a8b08-59e9-4f8c-91ea-37c5d50224a0" name="IGameComponent" isAbstract="false" isLeaf="false">
@@ -278,20 +278,20 @@
               <referencedTypeMoniker Id="1edfc101-1848-4f2e-b251-89837c1b3e0e" LastKnownName="LevelPartComponent" />
             </type_NamedElement>
           </property>
-          <property Id="e6eef0c5-2fe8-43de-af8a-b419d17c81ce" name="doors" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="e6eef0c5-2fe8-43de-af8a-b419d17c81ce" name="door" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <lowerValueInternal>
-              <literalString Id="c631cae1-93e0-4bc1-923b-125f74400045" name="Lower" value="*">
+              <literalString Id="c631cae1-93e0-4bc1-923b-125f74400045" name="Lower" value="1">
                 <elementDefinition Id="aa4dbaa5-df53-4bf2-9256-4a9239c000dc" />
               </literalString>
             </lowerValueInternal>
             <upperValueInternal>
-              <literalString Id="0e280251-bc7c-48fc-8c8b-d3bda4cbd812" name="Upper" value="*">
+              <literalString Id="0e280251-bc7c-48fc-8c8b-d3bda4cbd812" name="Upper" value="1">
                 <elementDefinition Id="1985227f-7fa2-4c8e-b253-5b056a1ef7d9" />
               </literalString>
             </upperValueInternal>
             <elementDefinition Id="09325bb3-d270-4d17-b777-3a51ca7ad285" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="a6a987fe-9269-4b88-935f-05232b7535e5" LastKnownName="DoorComponent" />
+              <referencedTypeMoniker Id="a0a797e7-9efa-4ead-83fa-5131e422579d" LastKnownName="DoorComponent" />
             </type_NamedElement>
           </property>
           <property Id="9709fecd-06f2-4bb3-ac71-3d307897e121" name="keyHolders" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -320,6 +320,12 @@
             <elementDefinition Id="fb6f736b-5983-4111-b2b1-f4a7c78f8eff" />
             <type_NamedElement>
               <referencedTypeMoniker Id="17283eb5-7990-4509-b27f-fc7e87d998a7" LastKnownName="Level" />
+            </type_NamedElement>
+          </property>
+          <property Id="763f5315-8b3a-45f4-932f-d8a9d36ecefd" name="isInWalkingMode" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2fb09b8f-55dd-43a0-9888-f6f3cc271108" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="52e7c44a-f724-48a7-adb3-418cf64e482c" LastKnownName="boolean" />
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
@@ -690,11 +696,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="a6a987fe-9269-4b88-935f-05232b7535e5" name="DoorComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::DoorComponent">
-        <elementDefinition Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="4d794385-e484-4392-891a-1a8a8fdf7a10" name="KeyHolderComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::KeyHolderComponent">
         <elementDefinition Id="67a95cb6-a445-408a-b14f-b51823f5589c" />
       </referencedType>
@@ -727,6 +728,16 @@
         </ownedLiterals>
       </enumeration>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="a0a797e7-9efa-4ead-83fa-5131e422579d" name="DoorComponent" isAbstract="false" isLeaf="false" cachedFullName="Continuity::DoorComponent">
+        <elementDefinition Id="b3c88919-0e4e-42e5-89d4-b6facb7403a4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="52e7c44a-f724-48a7-adb3-418cf64e482c" name="boolean" isAbstract="false" isLeaf="false" cachedFullName="boolean">
+        <elementDefinition Id="d40c434b-305f-478a-8b69-5d48fbd748be" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="b76ce26f-92c1-4e9f-94e4-4777a20950f4" name="Continuity">
     <elementDefinition Id="a0f9b7c5-3f2e-49a3-90ea-347b14a405a1" />

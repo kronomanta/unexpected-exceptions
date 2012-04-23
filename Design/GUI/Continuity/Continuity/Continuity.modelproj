@@ -17,40 +17,40 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
   <ItemGroup>
-    <Content Include="1GameCanvasTimer.sequencediagram">
+    <Content Include="11_SD1_GameLoop.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="1GameCanvasTimer.sequencediagram.layout">
+    <Content Include="11_SD1_GameLoop.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>1GameCanvasTimer.sequencediagram</DependentUpon>
+      <DependentUpon>11_SD1_GameLoop.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="2LevelInit.sequencediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="2LevelInit.sequencediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>2LevelInit.sequencediagram</DependentUpon>
-    </Content>
-    <Content Include="3GameSceneUpdate.sequencediagram">
+    <Content Include="11_SD3_GameSceneInitialization.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="3GameSceneUpdate.sequencediagram.layout">
+    <Content Include="11_SD3_GameSceneInitialization.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>3GameSceneUpdate.sequencediagram</DependentUpon>
+      <DependentUpon>11_SD3_GameSceneInitialization.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="4GameSceneDraw.sequencediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="4GameSceneDraw.sequencediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>4GameSceneDraw.sequencediagram</DependentUpon>
-    </Content>
-    <Content Include="UMLSequenceDiagram1.sequencediagram">
+    <Content Include="11_SD4_GameSceneUpdate.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLSequenceDiagram1.sequencediagram.layout">
+    <Content Include="11_SD4_GameSceneUpdate.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>UMLSequenceDiagram1.sequencediagram</DependentUpon>
+      <DependentUpon>11_SD4_GameSceneUpdate.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="11_SD5_GameSceneDraw.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="11_SD5_GameSceneDraw.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>11_SD5_GameSceneDraw.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="11_SD2_GameTick.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="11_SD2_GameTick.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>11_SD2_GameTick.sequencediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\Continuity.uml">
