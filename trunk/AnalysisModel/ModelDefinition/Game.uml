@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="76bf3367-4add-49e2-9db1-d638c09f253a"
   name="Game" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -412,13 +412,13 @@
                     <literalString
                       Id="4fef79e1-83cd-46ab-8681-8ebbed46f9f1"
                       name="Lower"
-                      value="*" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="6089ad01-07ef-4add-a2d7-f98f38267249"
                       name="Upper"
-                      value="*" />
+                      value="1" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -661,7 +661,7 @@
           </property>
           <property
             Id="09325bb3-d270-4d17-b777-3a51ca7ad285"
-            name="doors"
+            name="door"
             visibility="Private"
             isLeaf="false"
             isStatic="false"
@@ -675,13 +675,13 @@
               <literalString
                 Id="aa4dbaa5-df53-4bf2-9256-4a9239c000dc"
                 name="Lower"
-                value="*" />
+                value="1" />
             </lowerValueInternal>
             <upperValueInternal>
               <literalString
                 Id="1985227f-7fa2-4c8e-b253-5b056a1ef7d9"
                 name="Upper"
-                value="*" />
+                value="1" />
             </upperValueInternal>
             <type_NamedElement>
               <classMoniker
@@ -756,6 +756,25 @@
               <undefinedTypeMoniker
                 Id="6cf95bc6-33f6-4aa5-afcb-9c65a3a4ba08"
                 LastKnownName="Level"
+                LastKnownLocation="Continuity.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2fb09b8f-55dd-43a0-9888-f6f3cc271108"
+            name="isInWalkingMode"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d40c434b-305f-478a-8b69-5d48fbd748be"
+                LastKnownName="boolean"
                 LastKnownLocation="Continuity.uml" />
             </type_NamedElement>
           </property>

@@ -8613,6 +8613,11 @@
         Id="b85821b8-eb9e-4e0f-8720-122db5178ee7"
         name="GameCanvas" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d40c434b-305f-478a-8b69-5d48fbd748be"
+        name="boolean" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
