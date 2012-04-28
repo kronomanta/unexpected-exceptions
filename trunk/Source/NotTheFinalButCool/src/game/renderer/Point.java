@@ -1,4 +1,4 @@
-package renderer;
+package game.renderer;
 
 public class Point {
 	// Private fields

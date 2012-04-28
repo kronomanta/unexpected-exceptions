@@ -2,10 +2,10 @@ package game.level;
 
 import java.awt.Color;
 
-import renderer.Point;
-import renderer.Renderer;
 import game.GameTime;
 import game.IDrawableGameComponent;
+import game.renderer.Point;
+import game.renderer.Renderer;
 
 public class FrameRateCounterComponent implements IDrawableGameComponent {
 	private float elapsedTime;

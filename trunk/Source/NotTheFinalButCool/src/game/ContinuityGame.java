@@ -1,8 +1,8 @@
 package game;
 
 import game.level.FrameRateCounterComponent;
-import renderer.RenderTransform;
-import renderer.Renderer;
+import game.renderer.RenderTransform;
+import game.renderer.Renderer;
 
 public class ContinuityGame {
 	// Private fields

@@ -1,4 +1,4 @@
-package renderer;
+package game.renderer;
 
 import java.awt.Color;
 import java.awt.Font;

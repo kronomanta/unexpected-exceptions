@@ -1,4 +1,4 @@
-package renderer;
+package game.renderer;
 
 public class RenderTransform {
 	private float translateX;

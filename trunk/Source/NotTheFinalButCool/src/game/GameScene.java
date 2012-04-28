@@ -10,13 +10,13 @@ import game.level.LevelPartComponent;
 import game.level.LevelSceneCamera;
 import game.level.LevelSceneCameraMode;
 import game.level.PlayerComponent;
+import game.renderer.Renderer;
 import gameLogic.Direction;
 import gameLogic.KeyHolder;
 import gameLogic.Level;
 import gameLogic.LevelPart;
 import gameLogic.LevelState;
 import model.LevelDescriptor;
-import renderer.Renderer;
 
 public class GameScene implements IDrawableGameComponent {
 	// Private fields

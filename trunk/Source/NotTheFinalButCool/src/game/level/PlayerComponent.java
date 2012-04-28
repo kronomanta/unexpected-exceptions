@@ -4,13 +4,13 @@ import java.util.Map;
 
 import main.KeyboardState;
 
-import renderer.Image;
-import renderer.Point;
-import renderer.Renderer;
 
 import game.Constants;
 import game.GameTime;
 import game.IDrawableGameComponent;
+import game.renderer.Image;
+import game.renderer.Point;
+import game.renderer.Renderer;
 import gameLogic.IBounds;
 import gameLogic.Player;
 import gameLogic.LevelPart;

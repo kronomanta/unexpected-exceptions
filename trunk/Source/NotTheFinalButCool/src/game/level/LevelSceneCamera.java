@@ -1,9 +1,9 @@
 package game.level;
 
-import renderer.RenderTransform;
 import game.Constants;
 import game.GameTime;
 import game.IGameComponent;
+import game.renderer.RenderTransform;
 
 public class LevelSceneCamera implements IGameComponent {
 	// Private fields
