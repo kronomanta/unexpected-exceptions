@@ -1,37 +1,40 @@
 package game.level;
 
-import engine.Color;
-import engine.DrawableGameComponent;
-import engine.GameTime;
-import engine.Renderer;
+import java.util.Map;
+
+import renderer.Image;
+import renderer.Renderer;
 import game.Constants;
+import game.GameTime;
+import game.IDrawableGameComponent;
 import gameLogic.Door;
 import gameLogic.IBounds;
 import gameLogic.LevelPart;
 
-public class DoorComponent extends DrawableGameComponent {
-	private static final Color doorColor = new Color(0, 0, 0);
-	
+public class DoorComponent implements IDrawableGameComponent {
+	// Private fields
+	private Image image;
+	private Map<LevelPart, LevelPartComponent> levelPartComponents;
 	private Door door;
-	private LevelScene scene;
 
-	public DoorComponent(Door door, LevelScene scene) {
+	// Constructors
+	public DoorComponent(Door door, Map<LevelPart, LevelPartComponent> levelPartComponents) {
+		this.image = Image.loadFromFile("data/Door.png");
+		this.levelPartComponents = levelPartComponents;
 		this.door = door;
-		this.scene = scene;
 	}
-	
+
+	// Public methods
 	@Override
 	public void draw(GameTime gameTime, Renderer renderer) {
 		LevelPart currentLevelPart = this.door.getLevelPart();
-		LevelPartComponent currentLpc = this.scene.getLevelPartComponents().get(currentLevelPart);
+		LevelPartComponent currentLpc = this.levelPartComponents.get(currentLevelPart);
 		IBounds bounds = this.door.getBounds();
-		float x = Math.round(currentLpc.getCurrentX() + bounds.getLeft() * Constants.UnitSize);
-		float y = Math.round(currentLpc.getCurrentY() + bounds.getTop() * Constants.UnitSize);
-		
-		renderer.setTransform(this.scene.getCamera().getTransform());
-		renderer.drawRectangle(x, y, Constants.UnitSize, Constants.UnitSize, doorColor);
-	}
+		float x = currentLpc.getCurrentX() + bounds.getLeft() * Constants.UnitSize;
+		float y = currentLpc.getCurrentY() + bounds.getTop() * Constants.UnitSize;
 
+		renderer.drawImage(x, y, this.image);
+	}
 	@Override
 	public void update(GameTime gameTime) {
 	}

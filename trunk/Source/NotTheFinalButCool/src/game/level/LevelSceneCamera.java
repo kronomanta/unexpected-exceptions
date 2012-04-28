@@ -1,17 +1,17 @@
 package game.level;
 
-import engine.GameComponent;
-import engine.GameTime;
-import engine.IViewport;
-import engine.RenderTransform;
+import renderer.RenderTransform;
 import game.Constants;
-import game.level.LevelScene.State;
+import game.GameTime;
+import game.IGameComponent;
 
-public class LevelSceneCamera extends GameComponent {
+public class LevelSceneCamera implements IGameComponent {
+	// Private fields
 	private PlayerComponent player1;
 	private PlayerComponent player2;
-	private LevelScene scene;
-	private IViewport viewport;
+	private int levelWidth;
+	private int levelHeight;
+	private LevelSceneCameraMode mode;
 
 	private RenderTransform transform;
 
@@ -22,18 +22,31 @@ public class LevelSceneCamera extends GameComponent {
 	private float targetTranslateY;
 	private float targetScale;
 
+	// Getters and setters
 	public RenderTransform getTransform() {
 		return this.transform;
 	}
 
-	public LevelSceneCamera(PlayerComponent player1, PlayerComponent player2, LevelScene scene, IViewport viewport) {
-		this.player1 = player1;
-		this.player2 = player2;
-		this.scene = scene;
-		this.viewport = viewport;
-		this.transform = new RenderTransform();
+	public void setMode(LevelSceneCameraMode mode) {
+		this.mode = mode;
 	}
 
+	// Constructors
+	public LevelSceneCamera(PlayerComponent player1, PlayerComponent player2, int levelWidth, int levelHeight) {
+		this.player1 = player1;
+		this.player2 = player2;
+		this.levelWidth = levelWidth;
+		this.levelHeight = levelHeight;
+		this.mode = LevelSceneCameraMode.Distance;
+
+		this.transform = new RenderTransform();
+
+		this.currentScale = 1.0f;
+		this.currentTranslateX = -Constants.LevelPartSize * levelWidth / 2.0f;
+		this.currentTranslateY = -Constants.LevelPartSize * levelHeight * 2;
+	}
+
+	// Public methods
 	@Override
 	public void update(GameTime gameTime) {
 		float targetWidth;
@@ -41,32 +54,38 @@ public class LevelSceneCamera extends GameComponent {
 		float targetX;
 		float targetY;
 		float maximumScale = Float.MAX_VALUE;
-		
-		if (this.scene.getState() == State.Sliding) {
-			int totalLevelPartSize = Constants.LevelPartSize + 2 * Constants.LevelPartBorderThickness;
-			
-			int levelWidth = this.scene.getLevel().getWidth();
-			int levelHeight = this.scene.getLevel().getHeight();
-			
-			targetWidth = levelWidth * totalLevelPartSize + (levelWidth - 1) * Constants.LevelPartSpacing;
-			targetHeight = levelHeight * totalLevelPartSize + (levelHeight - 1) * Constants.LevelPartSpacing;
-			targetX = targetWidth / 2.0f - Constants.LevelPartBorderThickness;
-			targetY = targetHeight / 2.0f - Constants.LevelPartBorderThickness;
-			
+
+		if (this.mode == LevelSceneCameraMode.SlideUp) {
+			this.targetScale = this.currentScale;
+			this.targetTranslateX = this.currentTranslateX;
+			this.targetTranslateY = this.currentTranslateY - Constants.LevelPartSize * levelHeight * 2;
+		} else if (this.mode == LevelSceneCameraMode.SlideDown) {
+			this.targetScale = this.currentScale;
+			this.targetTranslateX = this.currentTranslateX;
+			this.targetTranslateY = this.currentTranslateY + Constants.LevelPartSize * levelHeight * 2;
 		} else {
-			targetWidth = Math.abs(player1.getCenterX() - player2.getCenterX()) + Constants.UnitSize;
-			targetHeight = Math.abs(player1.getCenterY() - player2.getCenterY()) + Constants.UnitSize;
-			targetX = (player1.getCenterX() + player2.getCenterX()) / 2.0f;
-			targetY = (player1.getCenterY() + player2.getCenterY()) / 2.0f - this.viewport.getViewportHeight() / 6.0f;
-			maximumScale = Constants.LevelSceneCameraPlayingMaximumScale;
+			if (this.mode == LevelSceneCameraMode.Follow) {
+				targetWidth = Math.abs(this.player1.getCenterX() - this.player2.getCenterX()) + Constants.UnitSize;
+				targetHeight = Math.abs(this.player1.getCenterY() - this.player2.getCenterY()) + Constants.UnitSize;
+				targetX = (this.player1.getCenterX() + this.player2.getCenterX()) / 2.0f;
+				targetY = (this.player1.getCenterY() + this.player2.getCenterY()) / 2.0f - Constants.CanvasHeight / 6.0f;
+				maximumScale = Constants.LevelSceneCameraPlayingMaximumScale;
+			} else {
+				int totalLevelPartSize = Constants.LevelPartSize + 2 * Constants.LevelPartBorderThickness;
+
+				targetWidth = this.levelWidth * totalLevelPartSize + (this.levelWidth - 1) * Constants.LevelPartSpacing;
+				targetHeight = this.levelHeight * totalLevelPartSize + (this.levelHeight - 1) * Constants.LevelPartSpacing;
+				targetX = targetWidth / 2.0f - Constants.LevelPartBorderThickness;
+				targetY = targetHeight / 2.0f - Constants.LevelPartBorderThickness;
+			}
+
+			float scaleX = (Constants.CanvasWidth - 2 * Constants.LevelSceneCameraViewportMarginRate) / targetWidth;
+			float scaleY = (Constants.CanvasHeight - 2 * Constants.LevelSceneCameraViewportMarginRate) / targetHeight;
+			this.targetScale = Math.min(Math.min(scaleX, scaleY), maximumScale);
+
+			this.targetTranslateX = Constants.CanvasWidth / 2.0f / this.targetScale - targetX;
+			this.targetTranslateY = Constants.CanvasHeight / 2.0f / this.targetScale - targetY;
 		}
-
-		float scaleX = (this.viewport.getViewportWidth() - 2 * Constants.LevelSceneCameraViewportMarginRate) / targetWidth;
-		float scaleY = (this.viewport.getViewportHeight() - 2 * Constants.LevelSceneCameraViewportMarginRate) / targetHeight;
-		this.targetScale = Math.min(Math.min(scaleX, scaleY), maximumScale);
-
-		this.targetTranslateX = this.viewport.getViewportWidth() / 2.0f / this.targetScale - targetX;
-		this.targetTranslateY = this.viewport.getViewportHeight() / 2.0f / this.targetScale - targetY;
 
 		float x = 1 - (float) Math.pow(0.01f, gameTime.getElapsedTime());
 		this.currentTranslateX = this.currentTranslateX + (this.targetTranslateX - this.currentTranslateX) * x;

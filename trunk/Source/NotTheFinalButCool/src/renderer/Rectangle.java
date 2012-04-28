@@ -1,4 +1,4 @@
-package engine;
+package renderer;
 
 public class Rectangle extends Point {
 	private float width;

@@ -1,12 +1,13 @@
 package game.level;
 
-import engine.Color;
-import engine.DrawableGameComponent;
-import engine.GameTime;
-import engine.Point;
-import engine.Renderer;
+import java.awt.Color;
 
-public class FrameRateCounterComponent extends DrawableGameComponent {
+import renderer.Point;
+import renderer.Renderer;
+import game.GameTime;
+import game.IDrawableGameComponent;
+
+public class FrameRateCounterComponent implements IDrawableGameComponent {
 	private float elapsedTime;
 	private int frames;
 	private float fps;
@@ -15,7 +16,7 @@ public class FrameRateCounterComponent extends DrawableGameComponent {
 	private Color color;
 	
 	public FrameRateCounterComponent() {
-		this.location = new Point(10, 10);
+		this.location = new Point(700, 570);
 		this.color = new Color(0, 0, 0);
 	}
 

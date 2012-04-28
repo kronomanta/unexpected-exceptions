@@ -1,38 +1,38 @@
 package game.level;
 
-import engine.Color;
-import engine.DrawableGameComponent;
-import engine.GameTime;
-import engine.Renderer;
+import java.util.Map;
+
+import renderer.Image;
+import renderer.Renderer;
 import game.Constants;
+import game.GameTime;
+import game.IDrawableGameComponent;
 import gameLogic.IBounds;
 import gameLogic.KeyHolder;
 import gameLogic.LevelPart;
 
-public class KeyComponent extends DrawableGameComponent {
-	private static final Color keyColor = new Color(255, 255, 0);
-	private static final Color noKeyColor = new Color(255, 255, 200);
-	
+public class KeyComponent implements IDrawableGameComponent {
+	private Image image;
+	private Map<LevelPart, LevelPartComponent> levelPartComponents;
 	private KeyHolder keyHolder;
-	private LevelScene scene;
 
-	public KeyComponent(KeyHolder keyHolder, LevelScene scene) {
+	public KeyComponent(KeyHolder keyHolder, Map<LevelPart, LevelPartComponent> levelPartComponents) {
+		this.image = Image.loadFromFile("data/Key.png");
+		this.levelPartComponents = levelPartComponents;
 		this.keyHolder = keyHolder;
-		this.scene = scene;
 	}
-	
+
 	@Override
 	public void draw(GameTime gameTime, Renderer renderer) {
-		LevelPart currentLevelPart = this.keyHolder.getLevelPart();
-		LevelPartComponent currentLpc = this.scene.getLevelPartComponents().get(currentLevelPart);
-		IBounds bounds = this.keyHolder.getBounds();
-		float x = Math.round(currentLpc.getCurrentX() + bounds.getLeft() * Constants.UnitSize);
-		float y = Math.round(currentLpc.getCurrentY() + bounds.getTop() * Constants.UnitSize);
-		
-		Color color = this.keyHolder.getHasKey() ? keyColor : noKeyColor;
-		
-		renderer.setTransform(this.scene.getCamera().getTransform());
-		renderer.drawRectangle(x, y, Constants.UnitSize, Constants.UnitSize, color);
+		if (this.keyHolder.getHasKey()) {
+			LevelPart currentLevelPart = this.keyHolder.getLevelPart();
+			LevelPartComponent currentLpc = this.levelPartComponents.get(currentLevelPart);
+			IBounds bounds = this.keyHolder.getBounds();
+			float x = currentLpc.getCurrentX() + bounds.getLeft() * Constants.UnitSize;
+			float y = currentLpc.getCurrentY() + bounds.getTop() * Constants.UnitSize;
+
+			renderer.drawImage(x, y, this.image);
+		}
 	}
 
 	@Override

@@ -1,9 +1,18 @@
 package game;
 
-import engine.Color;
+import java.awt.Color;
+
 import gameLogic.LevelPart;
 
 public class Constants {
+	public static final int CanvasWidth = 800;
+	public static final int CanvasHeight = 600;
+	
+	public static final float MenuScene_IntroInInterval = 1.5f;
+	public static final float MenuScene_IntroOutInterval = 0.5f;
+	public static final float MenuScene_MenuInInterval = 0.5f;
+	public static final float MenuScene_MenuOutInterval = 0.5f;
+	
 	public static final int UnitSize = 54;
 	
 	public static final int LevelPartSize = LevelPart.Size * UnitSize;
