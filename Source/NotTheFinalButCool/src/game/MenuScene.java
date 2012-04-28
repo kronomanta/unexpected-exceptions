@@ -1,11 +1,12 @@
 package game;
 
+import game.renderer.Image;
+import game.renderer.Point;
+import game.renderer.Renderer;
+
 import java.util.EnumSet;
 
 import main.KeyboardState;
-import renderer.Image;
-import renderer.Point;
-import renderer.Renderer;
 
 public class MenuScene implements IDrawableGameComponent {
 	// Private fields

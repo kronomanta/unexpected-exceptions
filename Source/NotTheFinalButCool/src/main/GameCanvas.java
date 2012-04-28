@@ -1,6 +1,7 @@
 package main;
 
 import game.ContinuityGame;
+import game.renderer.Renderer;
 
 import java.awt.Canvas;
 import java.awt.Color;
@@ -13,7 +14,6 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.Timer;
 
-import renderer.Renderer;
 
 class GameCanvas extends Canvas {
 	private static final long serialVersionUID = 3327996364041119322L;

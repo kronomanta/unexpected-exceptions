@@ -1,10 +1,10 @@
 package game.level;
 
 import game.GameTime;
-import renderer.Image;
-import renderer.Point;
-import renderer.Rectangle;
-import renderer.Renderer;
+import game.renderer.Image;
+import game.renderer.Point;
+import game.renderer.Rectangle;
+import game.renderer.Renderer;
 
 public class SrpitePlayer {
 	// Private fields

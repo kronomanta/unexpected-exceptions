@@ -1,4 +1,4 @@
-package renderer;
+package game.renderer;
 
 public class Rectangle extends Point {
 	private float width;

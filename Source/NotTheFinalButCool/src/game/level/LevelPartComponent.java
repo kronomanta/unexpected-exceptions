@@ -1,11 +1,11 @@
 package game.level;
 
-import renderer.Point;
-import renderer.Renderer;
 import model.BlockType;
 import game.Constants;
 import game.GameTime;
 import game.IDrawableGameComponent;
+import game.renderer.Point;
+import game.renderer.Renderer;
 import gameLogic.Block;
 import gameLogic.IBounds;
 import gameLogic.LevelPart;

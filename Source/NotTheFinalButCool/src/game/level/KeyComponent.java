@@ -2,11 +2,11 @@ package game.level;
 
 import java.util.Map;
 
-import renderer.Image;
-import renderer.Renderer;
 import game.Constants;
 import game.GameTime;
 import game.IDrawableGameComponent;
+import game.renderer.Image;
+import game.renderer.Renderer;
 import gameLogic.IBounds;
 import gameLogic.KeyHolder;
 import gameLogic.LevelPart;

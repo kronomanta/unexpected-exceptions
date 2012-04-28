@@ -1,6 +1,6 @@
 package game;
 
-import renderer.Point;
+import game.renderer.Point;
 
 public class Animator {
 	// Private fields
