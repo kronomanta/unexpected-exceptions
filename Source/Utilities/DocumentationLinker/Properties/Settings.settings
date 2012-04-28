@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DocumentationLinker.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TargetDirectoryPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">..\..\..\..\..\Documentation</Value>
+    </Setting>
+    <Setting Name="DocumentDate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2012. Április 22.</Value>
+    </Setting>
+    <Setting Name="DeleteLinkedLatexSource" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="RedirectPdfLatexOutput" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
