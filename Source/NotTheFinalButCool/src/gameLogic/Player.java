@@ -8,15 +8,16 @@ import model.LevelObjectType;
 public class Player extends GameObject {
 	private static final float Width = 1.0f;
 	private static final float Height = 1.0f;
-	private static final float GravityAcceleration = 30.0f;
-	private static final float HorizontalSpeed = 5.0f;
-	private static final float JumpLaunchVelocity = -12.0f;
+	private static final float GravityAcceleration = 40.0f;
+	private static final float HorizontalSpeed = 7.0f;
+	private static final float JumpLaunchVelocity = -13.0f;
 
 	private LevelObjectDescriptor spawnPoint;
 	private LevelPart spawnLevelPart;
 	private float logicalX;
 	private float logicalY;
 	private float verticalSpeed;
+	private float horizontalSpeed;
 
 	private Boolean isOnGround;
 	private PlayerJumpState jumpState;
@@ -29,6 +30,14 @@ public class Player extends GameObject {
 		return this.logicalY;
 	}
 
+	public Vector2 getVelocity() {
+		return new Vector2(this.horizontalSpeed, this.verticalSpeed);
+	}
+	
+	public Boolean getIsOnGround() {
+		return this.isOnGround;
+	}
+	
 	public Player(LevelPart levelPart, LevelObjectDescriptor spawnPoint) {
 		super(levelPart);
 
@@ -51,7 +60,8 @@ public class Player extends GameObject {
 		else if (!goLeft && goRight)
 			movement = 1.0f;
 
-		this.logicalX += movement * HorizontalSpeed * time;
+		this.horizontalSpeed = movement * HorizontalSpeed;
+		this.logicalX += this.horizontalSpeed * time;
 		this.verticalSpeed += GravityAcceleration * time;
 		handleJump(jump);
 		this.logicalY += this.verticalSpeed * time;
@@ -98,6 +108,9 @@ public class Player extends GameObject {
                 if (absDepthX < absDepthY) {
                 	this.logicalX -= depth.getX();
                 } else {
+                	if (depth.getY() < 0.0f && this.verticalSpeed < 0.0f) {
+                		this.verticalSpeed = 0.0f;
+                	}
                 	if (depth.getY() >= 0.0f) {
                 		if (this.verticalSpeed < 0.0f)
                 			continue;

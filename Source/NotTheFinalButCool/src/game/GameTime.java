@@ -1,4 +1,4 @@
-package engine;
+package game;
 
 public class GameTime {
 	private float elapsedTime;

@@ -1,29 +1,94 @@
 package game;
 
-import model.LevelDescriptor;
-import engine.IContentProvider;
-import engine.Game;
-import engine.KeyboardState;
-import engine.Renderer;
-import engine.IViewport;
-import game.level.LevelScene;
-import game.menu.MenuScene;
+import game.level.FrameRateCounterComponent;
+import renderer.RenderTransform;
+import renderer.Renderer;
 
-public class ContinuityGame extends Game {
-	public ContinuityGame(Renderer renderer, IContentProvider resourceProvider, KeyboardState keyboardState,
-			IViewport viewport) {
-		super(renderer, resourceProvider, keyboardState, viewport);
+public class ContinuityGame {
+	// Private fields
+	private Boolean firstTick = true;
+	private long firstTickTime;
+	private long lastTickTime;
 
-		MenuScene scene = new MenuScene();
-		this.addScene(scene);
+	private ContinuityGameState state;
+	private MenuScene menuScene;
+	private GameScene gameScene;
+	private FrameRateCounterComponent fpsCounter;
 
-		LevelScene levelScene = new LevelScene(this);
-		addScene(levelScene);
-		try {
-			levelScene.setLevel(LevelDescriptor.load("levels/level01.xml"));
-		} catch (Exception e) {
-			e.printStackTrace();
+	// Constructors
+	public ContinuityGame() {
+		this.state = ContinuityGameState.Menu;
+		this.menuScene = new MenuScene();
+		this.gameScene = new GameScene();
+		this.fpsCounter = new FrameRateCounterComponent();
+	}
+
+	// Public methods
+	public void tick(Renderer renderer) {
+		GameTime gameTime = calculateGameTime();
+
+		switch (state) {
+		case Menu:
+			menuTick(gameTime, renderer);
+			break;
+		case Game:
+			gameTick(gameTime, renderer);
+			break;
+		default:
+			// We should throw excetion here.
 		}
-		this.setActiveScene(levelScene);
+		
+		renderer.setTransform(new RenderTransform());
+		this.fpsCounter.update(gameTime);
+		this.fpsCounter.draw(gameTime, renderer);
+	}
+	
+	// Private methods
+	private GameTime calculateGameTime() {
+		long currentTime = System.currentTimeMillis();
+
+		if (firstTick) {
+			this.firstTickTime = currentTime;
+			this.lastTickTime = currentTime;
+
+			firstTick = false;
+		}
+
+		float elapsedTime = (currentTime - this.lastTickTime) / 1000.0f;
+		float totalTime = (currentTime - this.firstTickTime) / 1000.0f;
+		this.lastTickTime = currentTime;
+		
+		return new GameTime(elapsedTime, totalTime);
+	}
+	private void menuTick(GameTime gameTime, Renderer renderer) {
+		this.menuScene.update(gameTime);
+		this.menuScene.draw(gameTime, renderer);
+
+		MenuSceneAction menuAction = this.menuScene.getAction();
+		switch (menuAction) {
+		case StartNew:
+			this.gameScene.initalize(0);
+			this.state = ContinuityGameState.Game;
+			break;
+		case Continue:
+			this.gameScene.initalize(Levels.getCurrentLevelIndex());
+			this.state = ContinuityGameState.Game;
+			break;
+		default:
+			// We should throw excetion here.
+		}
+	}
+	private void gameTick(GameTime gameTime, Renderer renderer) {
+		this.gameScene.update(gameTime);
+		this.gameScene.draw(gameTime, renderer);
+
+		GameSceneAction gameAction = this.gameScene.getAction();
+		switch (gameAction) {
+		case Quit:
+			this.state = ContinuityGameState.Menu;
+			break;
+		default:
+			// We should throw excetion here.
+		}
 	}
 }

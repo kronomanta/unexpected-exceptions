@@ -1,22 +1,21 @@
 package game.level;
 
+import renderer.Point;
+import renderer.Renderer;
 import model.BlockType;
-import engine.DrawableGameComponent;
-import engine.GameTime;
-import engine.Point;
-import engine.Renderer;
 import game.Constants;
+import game.GameTime;
+import game.IDrawableGameComponent;
 import gameLogic.Block;
 import gameLogic.IBounds;
 import gameLogic.LevelPart;
 
-public class LevelPartComponent extends DrawableGameComponent {
+public class LevelPartComponent implements IDrawableGameComponent {
+	// Constants
+	private static final int positionStep = Constants.LevelPartSize + 2 * Constants.LevelPartBorderThickness + Constants.LevelPartSpacing;
 
-	private static final int positionStep = Constants.LevelPartSize + 2 * Constants.LevelPartBorderThickness
-			+ Constants.LevelPartSpacing;
-
+	// Private fields
 	private LevelPart levelPart;
-	private LevelScene scene;
 
 	private int levelPartX;
 	private int levelPartY;
@@ -29,6 +28,7 @@ public class LevelPartComponent extends DrawableGameComponent {
 	private float animationStartTime;
 	private Boolean animationRunning;
 
+	// Getters and setters
 	public float getCurrentX() {
 		return this.currentX;
 	}
@@ -37,9 +37,9 @@ public class LevelPartComponent extends DrawableGameComponent {
 		return this.currentY;
 	}
 
-	public LevelPartComponent(LevelPart levelPart, LevelScene scene) {
+	// Constructors
+	public LevelPartComponent(LevelPart levelPart) {
 		this.levelPart = levelPart;
-		this.scene = scene;
 
 		this.levelPartX = this.levelPart.getX();
 		this.levelPartY = this.levelPart.getY();
@@ -48,10 +48,9 @@ public class LevelPartComponent extends DrawableGameComponent {
 		this.animationRunning = false;
 	}
 
+	// Public methods
 	@Override
 	public void draw(GameTime gameTime, Renderer renderer) {
-		renderer.setTransform(this.scene.getCamera().getTransform());
-
 		for (Block block : this.levelPart.getBlocks()) {
 			IBounds bounds = block.getBounds();
 			int x = Math.round(this.currentX + bounds.getLeft() * Constants.UnitSize);
@@ -59,10 +58,10 @@ public class LevelPartComponent extends DrawableGameComponent {
 			int width = Math.round(bounds.getWidth()) * Constants.UnitSize;
 			int height = Math.round(bounds.getHeight()) * Constants.UnitSize;
 
-			Point topLeft = new Point(x, y);
-			Point topRight = new Point(x + width, y);
-			Point bottomRight = new Point(x + width, y + height);
-			Point bottomLeft = new Point(x, y + height);
+			Point topLeft = new Point(x - 2.0f, y - 2.0f);
+			Point topRight = new Point(x + width + 2.0f, y - 2.0f);
+			Point bottomRight = new Point(x + width + 2.0f, y + height + 2.0f);
+			Point bottomLeft = new Point(x - 2.0f, y + height + 2.0f);
 
 			if (block.getType() == BlockType.Normal)
 				renderer.drawPolygon(new Point[] { topLeft, topRight, bottomRight, bottomLeft }, Constants.BlockColor);
@@ -72,7 +71,19 @@ public class LevelPartComponent extends DrawableGameComponent {
 				renderer.drawPolygon(new Point[] { topLeft, bottomRight, bottomLeft }, Constants.BlockColor);
 		}
 	}
+	public void drawBorder(Renderer renderer) {
+		float x = this.currentX - Constants.LevelPartBorderThickness;
+		float y = this.currentY - Constants.LevelPartBorderThickness;
+		float size = 2 * Constants.LevelPartBorderThickness + Constants.LevelPartSize;
 
+		float sideY = y + Constants.LevelPartBorderThickness;
+		float sideHeight = size - 2 * Constants.LevelPartBorderThickness;
+
+		renderer.drawRectangle(x, y, size, Constants.LevelPartBorderThickness, Constants.LevelPartBorderColor);
+		renderer.drawRectangle(x, y + size - Constants.LevelPartBorderThickness, size, Constants.LevelPartBorderThickness, Constants.LevelPartBorderColor);
+		renderer.drawRectangle(x, sideY, Constants.LevelPartBorderThickness, sideHeight, Constants.LevelPartBorderColor);
+		renderer.drawRectangle(x + size - Constants.LevelPartBorderThickness, sideY, Constants.LevelPartBorderThickness, sideHeight, Constants.LevelPartBorderColor);
+	}
 	@Override
 	public void update(GameTime gameTime) {
 		float totalTime = gameTime.getTotalTime();

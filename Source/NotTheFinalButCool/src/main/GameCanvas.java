@@ -4,55 +4,66 @@ import game.ContinuityGame;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
+
+import javax.swing.Timer;
+
+import renderer.Renderer;
 
 class GameCanvas extends Canvas {
 	private static final long serialVersionUID = 3327996364041119322L;
 
-	private SwingRenderer renderer;
+	// Private fields
+	private Timer timer;
 	private ContinuityGame game;
 
-	// private double translateX;
-	// private double translateY;
-	// private double scale;
-
-	GameCanvas(SwingRenderer renderer, ContinuityGame game) {
-		this.renderer = renderer;
-		this.game = game;
-		
+	// Constructors
+	GameCanvas() {
+		setPreferredSize(new Dimension(800, 600)); // The frame will align.
+		addKeyListener(KeyboardState.getInstance());
 		setIgnoreRepaint(true);
 	}
 
-	public void render() {
+	// Public methods
+	public void start() {
+		createBufferStrategy(2);
+
+		this.game = new ContinuityGame();
+		
+		this.timer = new Timer(1, new GameCanvasTimerListener(this));
+		this.timer.start();
+	}
+	public void tick() {
 		BufferStrategy strategy = getBufferStrategy();
 		Graphics2D graphics = (Graphics2D) strategy.getDrawGraphics();
 
 		graphics.setColor(Color.WHITE);
 		graphics.fillRect(0, 0, 800, 600);
 
-		this.renderer.setGraphics(graphics);
-		this.game.tick();
+		Renderer renderer = new Renderer(graphics);
+			this.game.tick(renderer);
+		KeyboardState.getInstance().tick();
 
 		graphics.dispose();
 		strategy.show();
 		Toolkit.getDefaultToolkit().sync();
+	}
 
-		// AffineTransform tx = new AffineTransform();
-		// tx.translate(translateX, translateY);
-		// tx.scale(scale, scale);
-		// Graphics2D ourGraphics = (Graphics2D) g;
-		// ourGraphics.setColor(Color.WHITE);
-		// ourGraphics.fillRect(0, 0, getWidth(), getHeight());
-		// ourGraphics.setTransform(tx);
-		// ourGraphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-		// RenderingHints.VALUE_ANTIALIAS_ON);
-		// ourGraphics.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-		// RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		// ourGraphics.setColor(Color.BLACK);
-		// ourGraphics.drawRect(50, 50, 50, 50);
-		// ourGraphics.fillOval(100, 100, 100, 100);
-		// ourGraphics.drawString("Test Affine Transform", 50, 30);
+	// GameCanvasTimerListener nested class
+	private class GameCanvasTimerListener implements ActionListener {
+		GameCanvas gameCanvas;
+
+		GameCanvasTimerListener(GameCanvas gameCanvas) {
+			this.gameCanvas = gameCanvas;
+		}
+
+		public void actionPerformed(ActionEvent arg0) {
+			this.gameCanvas.tick();
+		}
 	}
 }
