@@ -1,0 +1,204 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicializálás                                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Common}
+
+\anyag{13. Grafikus változat beadása}
+\datum{2012. május 6.}
+\setcounter{section}{12}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dokumentum                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\fedlap
+
+\section{Grafikus változat beadása}
+
+\subsection{Fordítási és futtatási útmutató}
+
+\subsubsection{Fájllista}
+Az osztályok package-ekbe, így a fájlok mappákba vannak szervezve. 
+
+Az \textbf{levels} mappa tartalma:
+\begin{filelist}
+	\filelistentry{level01.xml}{1149}{2012.04.30. 9:19}{A játék 1. pályája}
+	\filelistentry{level02.xml}{909}{2012.04.30. 9:19}{2. pálya}
+	\filelistentry{level03.xml}{956}{2012.04.30. 9:19}{3. pálya}
+	\filelistentry{level04.xml}{3128}{2012.04.30. 9:19}{4.pálya}
+	\filelistentry{ramp.xml}{507}{2012.04.30. 9:19}{Ferde blokkokat is tartalmazó pálya}
+\end{filelist}
+
+
+Az \textbf{src/main} mappa tartalma:
+\begin{filelist}
+	\filelistentry{GameCanvas.java}{1679}{2012.04.30. 9:19}{A rajzfelületet reprezentáló osztály, erre végezzük a kirajzolásokat}
+	\filelistentry{GameFrame.java}{468}{2012.04.30. 9:19}{A játékablakot megvalósító osztály}	
+	\filelistentry{KeyboardState.java}{1402}{2012.04.30. 9:19}{A billentyűzet eseményei alapján az adott képkockára érvényes billentyűzet-állapotot beállító osztály}
+	\filelistentry{Main.java}{230}{2012.04.30. 9:19}{A program futását kezelő osztály}
+\end{filelist}
+
+
+A \textbf{src/model} mappa tartalma:
+\begin{filelist}
+	\filelistentry{BlockDescriptor.java}{1177}{2012.04.30. 9:19}{A faldarab leíró osztálya}
+	\filelistentry{BlockType.java}{81}{2012.04.30. 9:19}{A faldarab típusait tartalmazó osztály}
+	\filelistentry{LevelDescriptor.java}{2450}{2012.04.30. 9:19}{Egy pálya leíró osztálya}
+	\filelistentry{LevelObjectDescriptor.java}{1050}{2012.04.30. 9:19}{Egy pályán elhelyezhető objektum leírója}
+	\filelistentry{LevelObjectType.java}{76}{2012.04.30. 9:19}{A pályán elhelyezhető objektumok típusait tartalmazó osztály}
+	\filelistentry{LevelPartDescriptor.java}{1005}{2012.04.30. 9:19}{Egy pályaelem paramétereit tartalmazó osztály}
+\end{filelist}
+
+A \textbf{src/gameLogic} mappa tartalma:
+\begin{filelist}
+	\filelistentry{Block.java}{786}{2012.04.30. 9:19}{A pálya építőelemét megvalósító osztály}
+	\filelistentry{Direction.java}{81}{2012.04.30. 9:19}{Az irányokat tartalmazó osztály}
+	\filelistentry{DirectionHelper.java}{437}{2012.04.30. 9:19}{A megadott iránynak az ellentettjét visszaadó osztály}
+	\filelistentry{Door.java}{448}{2012.04.30. 9:19}{Az ajtót megvalósító osztály}
+	\filelistentry{GameObject.java}{862}{2012.04.30. 9:19}{A játékban szereplő objektumok ősosztálya, és a legtöbb tulajdonságukat kezelő osztály}
+	\filelistentry{IBounds.java}{1563}{2012.04.30. 9:19}{A blokkok ősosztálya}
+	\filelistentry{KeyHolder.java}{644}{2012.04.30. 9:19}{A kulcsot megvalósító osztály}
+	\filelistentry{Level.java}{5625}{2012.04.30. 9:19}{A pálya irányítását végző osztály}
+	\filelistentry{LevelPart.java}{3966}{2012.04.30. 9:19}{Az egyes pályaelemeket vezérlő osztály}
+	\filelistentry{LevelState.java}{301}{2012.04.30. 9:19}{A pálya állapotait tartalmazó felsorolás}
+	\filelistentry{Player.java}{4906}{2012.04.30. 9:19}{A játékost kezelő osztály}
+	\filelistentry{PlayerJumpState.java}{310}{2012.04.30. 9:19}{A játékos ugrásának állapotait tartalmazó osztály}
+	\filelistentry{RectangleBounds.java}{4764}{2012.04.30. 9:19}{A négyszög alakú építőblokkok osztálya}
+	\filelistentry{TriangleBounds.java}{3853}{2012.04.30. 9:19}{A háromszög alakú blokkok osztálya}
+	\filelistentry{TriangleType.java}{82}{2012.04.30. 9:19}{A ferde talaj dőlésének irányát lehet megadni: balra vagy jobbra lejtsen}
+	\filelistentry{Vector2.java}{704}{2012.04.30. 9:19}{2D vektorosztály}
+\end{filelist}
+
+Az \textbf{src/game} mappa tartalma:
+\begin{filelist}
+	\filelistentry{Animator.java}{1492}{2012.04.30. 9:19}{A játékosok animál mozgását megvalósító osztály}
+	\filelistentry{AnimatorMode.java}{69}{2012.04.30. 9:19}{Az {\itshape Animator} osztály lehetséges módjait felsoroló osztály}	
+	\filelistentry{Constants.java}{1015}{2012.04.30. 9:19}{A megjelenítéshez szükséges konstansokat tárolja}
+	\filelistentry{ContinuityGame.java}{2453}{2012.04.30. 9:19}{A különböző jelenetek (scene-ek) közötti váltásokat kezeli}
+	\filelistentry{ContinuityGameState.java}{71}{2012.04.30. 9:19}{Egy felsorolást tartalmazó osztály, melynek elemei azt adják meg, hogy a játékban vagyunk, vagy pedig menüben}
+	\filelistentry{GameScene.java}{6213}{2012.04.30. 9:19}{Egy-egy pálya működéséért, megjelenítéséért felelős osztály}
+	\filelistentry{GameSceneAction.java}{67}{2012.04.30. 9:19}{A pályán keletkező lehetséges események felsorolása}
+	\filelistentry{GameSceneState.java}{72}{2012.04.30. 9:19}{A pálya lehetséges állapotait felsoroló osztály}
+	\filelistentry{GameTime.java}{364}{2012.04.30. 9:19}{A mozgások szimulálásánál szükséges eltelt idők meghatározására szolgáló osztály}
+	\filelistentry{IDrawableGameComponent.java}{171}{2012.04.30. 9:19}{A grafikus felületen megjeleníthető objektumok számára egy interfész.}
+	\filelistentry{IGameComponent.java}{89}{2012.04.30. 9:19}{Interfész az időben változó objektumok számára}
+	\filelistentry{Levels.java}{942}{2012.04.30. 9:19}{Az aktuális pálya sorszámát visszaadó és a mentést végző osztály}
+	\filelistentry{MenuScene.java}{6326}{2012.04.30. 9:19}{A menü működéséért, megjelenítéséért felelős objektum}
+	\filelistentry{MenuSceneAction.java}{83}{2012.04.30. 9:19}{A menüben kiadható eseményeket felsoroló osztály}
+	\filelistentry{MenuSceneState.java}{102}{2012.04.30. 9:19}{A menü lehetséges állapotainak felsorolása}
+\end{filelist}
+
+Az \textbf{src/game/level} mappa tartalma:
+\begin{filelist}
+	\filelistentry{DoorComponent.java}{1252}{2012.04.30. 9:19}{Az ajtót megjelenítő osztály}
+	\filelistentry{FrameRateCounterComponent.java}{946}{2012.04.30. 9:19}{Az aktuális FPS kiszámolásáért felelős}	
+	\filelistentry{KeyComponent.java}{1286}{2012.04.30. 9:19}{A kulcs megjelenítéséért felelős osztály}
+	\filelistentry{LevelPartComponent.java}{4471}{2012.04.30. 9:19}{Egy adott pályaelem megjelenítésért felelős osztály}
+	\filelistentry{LevelScene.java}{4011}{2012.04.30. 9:19}{Egy adott pálya kezeléséért felelős osztály}
+	\filelistentry{LevelSceneCamera.java}{4048}{2012.04.30. 9:19}{A teljes játéktérből a megfelelő részt láttatja}
+	\filelistentry{LevelSceneCameraMode.java}{108}{2012.04.30. 9:19}{A lehetséges kameramódokat leíró osztály}
+	\filelistentry{PlayerComponent.java}{4461}{2012.04.30. 9:19}{A játékos megjelenítését vezérlő osztály}
+	\filelistentry{SpriteAnimation.java}{422}{2012.04.30. 9:19}{A pályaelemek mozgatását végző osztály}
+	\filelistentry{SrpritePlayer.java}{1636}{2012.04.30. 9:19}{Egy játékos megjelenítéséért felelős}
+\end{filelist}
+
+Az \textbf{src/game/renderer} mappa tartalma:
+\begin{filelist}
+	\filelistentry{Image.java}{751}{2012.04.30. 9:19}{Egy képet leíró osztály}
+	\filelistentry{Point.java}{438}{2012.04.30. 9:19}{Egy pontot megvalósító osztály}	
+	\filelistentry{Rectangle.java}{367}{2012.04.30. 9:19}{egy téglalapot leíró osztály}
+	\filelistentry{Renderer.java}{3549}{2012.04.30. 9:19}{A grafikus megjelenítésért felelős osztály}
+	\filelistentry{RenderTransform.java}{810}{2012.04.30. 9:19}{Egy transzformációt leíró osztály}
+\end{filelist}
+
+A \textbf{src} mappa tartalma:
+\begin{filelist}
+	\filelistentry{manifest.txt}{61}{2012.04.30. 9:19}{A fordításhoz szükséges leíró fájl}
+\end{filelist}
+
+
+A gyökérben található fájlok:
+\begin{filelist}
+	\filelistentry{build.bat}{423}{2012.04.30. 9:19}{A fordítást indító fájl}
+	\filelistentry{run.bat}{57}{2012.04.30. 9:19}{Az alkalmazást elindító fájl}
+	\filelistentry{save.txt}{1}{2012.04.30. 9:19}{A befejezett pályák száma a játék folytatásához}
+\end{filelist}
+
+\newpage
+
+\subsubsection{Fordítás és telepítés}
+A fordítóprogram és annak működési módja megegyezik a 6.1.2 Fordítás nevű fejezetben leírtakkal. A \emph{build.bat} fájlt futtatva a konzolból, előáll a a lefordított jar fájl. A fájl az alábbi utasításokat tartalmazza, melyben csak a jar neve változott:
+
+\begin{verbatim}
+@echo off
+if not exist bin (mkdir bin)
+
+echo Compiling classes...
+javac src/main/*.java src/model/*.java src/gameLogic/*.java -d bin
+        -encoding UTF-8
+
+cd bin
+echo Creating jar...
+jar cfm ../ContinuityPrototype.jar ../src/manifest.txt main/*.class
+        model/*.class gameLogic/*.class
+cd ..
+
+echo Done
+@echo on
+\end{verbatim}
+
+\subsubsection{Futtatás}
+A futtatás megkönnyítése érdekében létrehoztunk egy batch fájlt: \emph{run.bat}. Ezen fájlt kell futtatni a főkönyvtárból. A fájl maximum négy darab értéket vár indítási paraméternek, ezek választható értékei a \emph{Bemeneti nyelv} fejezet \emph{Indítási argumentumok} nevű részben vannak kifejtve. Ezen fájl az alábbi parancsot végrehajtva elindítja az elkészült jar fájlt: 
+
+\begin{verbatim}
+@echo off
+java -jar ContinuityPrototype.jar %1 %2 %3 %4
+@echo on
+\end{verbatim}
+
+Egy példa az indítási paraméterek átadására lehet az alábbi parancssorbeli utasítás, melynek hatására a megadott \emph{test01.txt} forgatókönyvet kezdi el futtatni, és az eredményt pedig a \emph{result.txt} fájlba menti:
+
+\begin{verbatim}
+run.bat -a -s -r 2 < tests/test01.txt > result.txt
+\end{verbatim}
+
+Szemmel láthatóan több paraméter lett átadva, mint négy, viszont valójában az utolsó két parancs a standard bemenet és kimenet átirányítására vonatkozik, nem pedig az alkalmazásnak szól.
+
+
+\subsection{Értékelés}
+\begin{tabular}{|p{130pt}|c|p{150pt}|}
+\hline 
+\textbf{Tag neve} & \textbf{Munka százalékban} & \textbf{Aláírás}\\ 
+\hline 
+Biró Loránd & 22\% & \\ 
+\hline 
+Kanyó Tibor & 20.5\% & \\
+\hline 
+Magyar Dániel & 18\% & \\
+\hline 
+Tarjáni Tamás & 20\% & \\
+\hline 
+Vajsz Kornél & 19.5\% & \\
+\hline 
+\end{tabular} 
+\newpage
+
+\subsection{Napló}
+
+\begin{journal}
+\journalentry{2012.04.25. 13:30}{1}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, a grafikus változathoz tartozó feladatok felosztása.}
+\journalentry{2012.04.07. 13:30}{3}{Tarjáni}{Ezen dokumentáció elkészítése}
+\journalentry{2012.04.07. 13:30}{2}{Tarjáni}{A félév végi összefoglaló dokumentum megírása}
+\journalentry{2012.04.05. 15:30}{10}{Kanyó}{}
+\journalentry{2012.04.06. 18:00}{10}{Magyar}{}
+\journalentry{2012.04.07. 12:00}{1}{Vajsz}{Kód kommentezése}
+\journalentry{2012.04.07. 13:30}{12}{Tarjáni}{}
+\journalentry{2012.04.08. 12:30}{15}{Biró}{}
+
+
+\end{journal}
+
+\end{document}
