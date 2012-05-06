@@ -74,7 +74,7 @@ A \textbf{src/gameLogic} mappa tartalma:
 
 Az \textbf{src/game} mappa tartalma:
 \begin{filelist}
-	\filelistentry{Animator.java}{1492}{2012.04.30. 9:19}{A játékosok animál mozgását megvalósító osztály}
+	\filelistentry{Animator.java}{1492}{2012.04.30. 9:19}{A játékosok animált mozgását megvalósító osztály}
 	\filelistentry{AnimatorMode.java}{69}{2012.04.30. 9:19}{Az {\itshape Animator} osztály lehetséges módjait felsoroló osztály}	
 	\filelistentry{Constants.java}{1015}{2012.04.30. 9:19}{A megjelenítéshez szükséges konstansokat tárolja}
 	\filelistentry{ContinuityGame.java}{2453}{2012.04.30. 9:19}{A különböző jelenetek (scene-ek) közötti váltásokat kezeli}
@@ -130,20 +130,18 @@ A gyökérben található fájlok:
 \newpage
 
 \subsubsection{Fordítás és telepítés}
-A fordítóprogram és annak működési módja megegyezik a 6.1.2 Fordítás nevű fejezetben leírtakkal. A \emph{build.bat} fájlt futtatva a konzolból, előáll a a lefordított jar fájl. A fájl az alábbi utasításokat tartalmazza, melyben csak a jar neve változott:
+A fordítóprogram és annak működési módja majdnem teljesen megegyezik a 6.1.2 Fordítás nevű fejezetben leírtakkal. Pusztán az újabb package-eket kell hozzáadni a feldolgozandó listához. A \emph{build.bat} fájlt futtatva a konzolból, előáll a a lefordított jar fájl. A fájl az alábbi utasításokat tartalmazza:
 
 \begin{verbatim}
 @echo off
 if not exist bin (mkdir bin)
 
 echo Compiling classes...
-javac src/main/*.java src/model/*.java src/gameLogic/*.java -d bin
-        -encoding UTF-8
+javac src/main/*.java src/model/*.java src/gameLogic/*.java src/game/*.java src/game/renderer/*.java src/game/level/*.java -d bin -encoding UTF-8
 
 cd bin
 echo Creating jar...
-jar cfm ../ContinuityPrototype.jar ../src/manifest.txt main/*.class
-        model/*.class gameLogic/*.class
+jar cfm ../Continuity.jar ../src/manifest.txt main/*.class model/*.class game/*.class gameLogic/*.class game/renderer/*.class game/level/*.class
 cd ..
 
 echo Done
@@ -151,22 +149,15 @@ echo Done
 \end{verbatim}
 
 \subsubsection{Futtatás}
-A futtatás megkönnyítése érdekében létrehoztunk egy batch fájlt: \emph{run.bat}. Ezen fájlt kell futtatni a főkönyvtárból. A fájl maximum négy darab értéket vár indítási paraméternek, ezek választható értékei a \emph{Bemeneti nyelv} fejezet \emph{Indítási argumentumok} nevű részben vannak kifejtve. Ezen fájl az alábbi parancsot végrehajtva elindítja az elkészült jar fájlt: 
+A futtatás megkönnyítése érdekében létrehoztunk egy batch fájlt: \emph{run.bat}. Ezen fájlt kell futtatni a főkönyvtárból. Ezen fájl az alábbi parancsot végrehajtva elindítja az elkészült jar fájlt: 
 
 \begin{verbatim}
 @echo off
-java -jar ContinuityPrototype.jar %1 %2 %3 %4
+java -jar ContinuityPrototype.jar
 @echo on
 \end{verbatim}
 
-Egy példa az indítási paraméterek átadására lehet az alábbi parancssorbeli utasítás, melynek hatására a megadott \emph{test01.txt} forgatókönyvet kezdi el futtatni, és az eredményt pedig a \emph{result.txt} fájlba menti:
-
-\begin{verbatim}
-run.bat -a -s -r 2 < tests/test01.txt > result.txt
-\end{verbatim}
-
-Szemmel láthatóan több paraméter lett átadva, mint négy, viszont valójában az utolsó két parancs a standard bemenet és kimenet átirányítására vonatkozik, nem pedig az alkalmazásnak szól.
-
+A játék ezt követően egy új ablakot nyit, melyben fut a grafikus felület.
 
 \subsection{Értékelés}
 \begin{tabular}{|p{130pt}|c|p{150pt}|}
@@ -190,13 +181,26 @@ Vajsz Kornél & 19.5\% & \\
 
 \begin{journal}
 \journalentry{2012.04.25. 13:30}{1}{Biró, Kanyó, Magyar, Tarjáni, Vajsz}{Értekezlet, a grafikus változathoz tartozó feladatok felosztása.}
-\journalentry{2012.05.05. 17:15}{3}{Tarjáni}{Ezen dokumentáció elkészítése}
+\journalentry{2012.05.04. 14:40}{5}{Tarjáni}{\emph{Renderer} részhez tartozó osztályok implementálása}
+\journalentry{2012.05.05. 12:30}{0.5}{Biró}{Alkalmazás készítése a dokumentumok automatikus összefűzésére}
+\journalentry{2012.05.05. 13:30}{4}{Kanyó}{Néhány, a pályához tartozó komponens implementálása}
+\journalentry{2012.05.05. 17:15}{3}{Tarjáni}{Ezen dokumentáció előzetes elkészítése}
+\journalentry{2012.05.05. 18:30}{4.5}{Biró}{Elkészítettem a \emph{GameScene} és a \emph{MenuScene} osztályokat}
 \journalentry{2012.05.05. 19:00}{2}{Tarjáni}{A félév végi összefoglaló dokumentum megírása}
-\journalentry{2012.04.05. 15:30}{10}{Kanyó}{}
-\journalentry{2012.04.06. 18:00}{10}{Magyar}{}
-\journalentry{2012.04.07. 12:00}{1}{Vajsz}{Kód kommentezése}
-\journalentry{2012.04.07. 13:30}{12}{Tarjáni}{}
-\journalentry{2012.04.08. 12:30}{15}{Biró}{}
+\journalentry{2012.05.05. 19:30}{1.5}{Magyar}{Kód kommentezése}
+\journalentry{2012.05.05. 19:40}{0.5}{Biró}{Alkalmazás készítése az egyénenkénti munkaórák automatikus összeszámolásához}
+\journalentry{2012.05.06. 10:10}{3.5}{Biró}{Létrehoztam a \emph{ContinuityGame}, illetve az \emph{Animator}, valamint a hozzájuk tartozó osztályokat}
+\journalentry{2012.05.06. 12:30}{3}{Tarjáni}{További osztályok implementálása}
+\journalentry{2012.05.06. 15:30}{4.5}{Kanyó}{A hiányzó komponensek megírása}
+\journalentry{2012.05.06. 16:00}{1.5}{Magyar}{A képi háttéranyagok egy részének begyűjtése illetve másik részének létrehozása}
+\journalentry{2012.05.06. 16:30}{1}{Biró}{Kommentezés}
+
+\journalentry{2012.05.06. 18:00}{7}{Magyar}{}
+\journalentry{2012.05.06. 12:00}{1}{Vajsz}{Kód kommentezése}
+\journalentry{2012.05.06. 18:30}{4}{Tarjáni}{}
+\journalentry{2012.05.06. 12:30}{5}{Biró}{}
+\journalentry{2012.05.06. 20:30}{0.5}{Kanyó}{Program készítése a forrássorok összeszámlálására}
+\journalentry{2012.05.06. 23:30}{1}{Kanyó}{A dokumentumok nyelvtani ellenőrzése}
 
 
 \end{journal}

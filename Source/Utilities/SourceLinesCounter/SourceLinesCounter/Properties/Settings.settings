@@ -11,5 +11,8 @@
     <Setting Name="FinalDirectoryPath" Type="System.String" Scope="Application">
       <Value Profile="(Default)">..\..\..\..\..\..\Source\Final\src</Value>
     </Setting>
+    <Setting Name="CountComments" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
