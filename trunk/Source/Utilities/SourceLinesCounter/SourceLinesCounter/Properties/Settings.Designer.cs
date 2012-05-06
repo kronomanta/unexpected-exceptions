@@ -49,5 +49,14 @@ namespace SourceLinesCounter.Properties {
                 return ((string)(this["FinalDirectoryPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CountComments {
+            get {
+                return ((bool)(this["CountComments"]));
+            }
+        }
     }
 }

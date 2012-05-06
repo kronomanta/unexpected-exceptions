@@ -81,7 +81,12 @@ namespace SourceLinesCounter
         private static bool IsSourceLine(string str)
         {
             str = str.TrimStart(' ');
-            return (!str.StartsWith("/*") && !str.StartsWith("* ") && !str.StartsWith("//") && str.Length>0);
+            if(Settings.Default.CountComments)
+            {
+                return (str.Length > 0);    
+            }
+
+            return (!str.StartsWith("/*") && !str.StartsWith("* ") && !str.StartsWith("//") && str.Length > 0);
         }
     }
 }
